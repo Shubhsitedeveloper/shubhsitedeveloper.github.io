@@ -622,7 +622,15 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     return () => { tick && gsap.ticker.remove(tick); acts.forEach((a, j) => a.classList.toggle('is-active', j === 0)); };
   });
   mm.add('(max-width: 820px)', () => {
-    chatAct = 3; msgs.forEach(m => m.classList.add('is-shown', 'is-on'));
+    // phones: the chat plays itself, message by message, each time it scrolls into view
+    let timers = [];
+    const play = () => {
+      timers.forEach(clearTimeout); timers = [];
+      msgs.forEach(m => m.classList.remove('is-shown', 'is-on')); chatAct = -1; showChatUpTo(0);
+      [[1, 1600], [2, 3800], [3, 5600]].forEach(([a, t]) => timers.push(setTimeout(() => showChatUpTo(a), t)));
+    };
+    const st = ScrollTrigger.create({ trigger: '.phone', start: 'top 80%', end: 'bottom 10%', onEnter: play, onEnterBack: play });
+    return () => { timers.forEach(clearTimeout); st.kill(); };
   });
 
   addEventListener('load', () => ScrollTrigger.refresh());
