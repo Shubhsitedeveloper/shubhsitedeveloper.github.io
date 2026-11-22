@@ -33,14 +33,14 @@
   const menuBtn = $('#menuBtn'), menu = $('#mobileMenu');
   function closeMenu() {
     if (!menu.classList.contains('is-open')) return;
-    menu.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded', 'false');
+    menu.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.setAttribute('aria-label', 'Open menu');
     lenis && lenis.start(); document.body.style.overflow = '';
     $$('main, footer, .wa-fab').forEach(x => x.inert = false); menuBtn.focus();
   }
   menuBtn.addEventListener('click', () => {
     const open = !menu.classList.contains('is-open');
     menu.classList.toggle('is-open', open);
-    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     if (open) {
       lenis && lenis.stop(); document.body.style.overflow = 'hidden';
       $$('main, footer, .wa-fab').forEach(x => x.inert = true);
