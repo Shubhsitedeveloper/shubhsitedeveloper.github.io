@@ -81,7 +81,7 @@ sup{font-size:.55em;color:var(--ember);margin-left:2px}
 .hud{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:28px;padding:18px var(--gutter);transition:background .4s,backdrop-filter .4s,padding .4s}
 .hud.is-scrolled{background:rgba(11,10,9,.72);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);padding-top:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:10px;margin-right:auto}
-.brand__mark{width:30px;height:30px;color:var(--bone)}
+.brand__mark{width:34px;height:34px;flex:none}
 .brand__word{font-family:var(--f-display);font-weight:700;font-size:18px;letter-spacing:-.02em}
 .brand__word b{color:var(--ember);font-weight:800}
 .nav{display:flex;gap:28px;font-size:15px;font-weight:600}
