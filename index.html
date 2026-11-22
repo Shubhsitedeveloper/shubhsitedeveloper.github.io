@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shubhsitedeveloper | Cinematic websites, apps and marketing</title>
+<meta name="description" content="Shubhsitedeveloper builds cinematic websites, 3D sites, mobile apps and marketing for growing Indian businesses. See your demo before you pay.">
+<meta name="theme-color" content="#0b0a09">
+<meta property="og:title" content="Shubhsitedeveloper | We direct websites">
+<meta property="og:description" content="Cinematic websites, 3D sites, apps and marketing. See your demo before you pay.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<!-- ============ PRELOADER: film leader countdown ============ -->
+<div class="leader" id="leader" aria-hidden="true">
+  <div class="leader__ring">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="92" class="leader__c1"/>
+      <circle cx="100" cy="100" r="74" class="leader__c2"/>
+      <line x1="0" y1="100" x2="200" y2="100"/><line x1="100" y1="0" x2="100" y2="200"/>
+      <path id="sweep" class="leader__sweep" d=""/>
+    </svg>
+    <span class="leader__num" id="leaderNum">3</span>
+  </div>
+  <div class="leader__meta"><span>SHUBHSITEDEVELOPER</span><span>REEL 01 · TAKE 01</span></div>
+  <div class="bar bar--top"></div><div class="bar bar--bot"></div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label" id="cursorLabel"></span></div>
+
+<!-- ============ HUD / NAV ============ -->
+<header class="hud">
+  <a href="#top" class="brand" aria-label="Shubhsitedeveloper home">
+    <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+      <path d="M3 12V3h9M28 3h9v9M37 28v9h-9M12 37H3v-9" fill="none" stroke="currentColor" stroke-width="2.4"/>
+      <circle cx="20" cy="20" r="5.2" fill="var(--ember)"/>
+    </svg>
+    <span class="brand__word">Shubh<b>site</b>developer</span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#pricing">Pricing</a>
+  </nav>
+  <div class="hud__rec"><i></i><span id="timecode">00:00:00:00</span></div>
+  <a href="#contact" class="btn btn--ember btn--sm magnetic">Start a project</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+</div>
+
+<main id="top">
+
+<!-- ============ SCENE 01 · HERO ============ -->
+<section class="hero" id="hero" data-scene="01 · Opening shot">
+  <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
+  <div class="hero__vignette" aria-hidden="true"></div>
+  <div class="hero__frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+  <div class="hero__inner">
+    <p class="eyebrow hero__eyebrow"><span class="dot"></span>Websites · 3D sites · Apps · Marketing · India</p>
+    <h1 class="hero__title">
+      <span class="line"><span class="w">We</span> <span class="w">don’t</span> <span class="w">build</span></span>
+      <span class="line"><span class="w">websites.</span></span>
+      <span class="line line--serif"><span class="w">We</span> <em class="w">direct</em> <span class="w">them.</span></span>
+    </h1>
+    <div class="hero__foot">
+      <p class="hero__lede">Cinematic websites that make small businesses look like the biggest name in town, and bring the enquiries to prove it. <strong>See your demo before you pay.</strong></p>
+      <div class="hero__ctas">
+        <a href="#contact" class="btn btn--ember magnetic" data-cursor="Let’s go">Get your free demo</a>
+        <a href="#work" class="btn btn--ghost magnetic" data-cursor="Watch">Watch the reel <span class="play">▶</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__hud" aria-hidden="true">
+    <span>ISO 800</span><span>24 FPS</span><span>2.39 : 1</span><span class="hud-scene">SCENE 01</span>
+  </div>
+  <a href="#manifesto" class="scroll-cue" aria-label="Scroll down"><span>Scroll</span><i></i></a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Clinics</span><b>✦</b><span>Coaching</span><b>✦</b><span>Restaurants</span><b>✦</b><span>Real estate</span><b>✦</b><span>Salons &amp; gyms</span><b>✦</b><span>D2C brands</span><b>✦</b><span>CA &amp; law firms</span><b>✦</b><span>Hotels &amp; travel</span><b>✦</b><span>Startups</span><b>✦</b><span>Car care</span><b>✦</b><span>HVAC</span><b>✦</b>
+    <span>Clinics</span><b>✦</b><span>Coaching</span><b>✦</b><span>Restaurants</span><b>✦</b><span>Real estate</span><b>✦</b><span>Salons &amp; gyms</span><b>✦</b><span>D2C brands</span><b>✦</b><span>CA &amp; law firms</span><b>✦</b><span>Hotels &amp; travel</span><b>✦</b><span>Startups</span><b>✦</b><span>Car care</span><b>✦</b><span>HVAC</span><b>✦</b>
+  </div>
+</div>
+
+<!-- ============ SCENE 02 · MANIFESTO ============ -->
+<section class="manifesto" id="manifesto" data-scene="02 · The problem">
+  <p class="eyebrow">Scene 02 — The problem</p>
+  <p class="manifesto__text" id="manifestoText">Your customers Google you before they ever call you. If what they find looks cheap, slow or empty, they call someone else. We make the first five seconds count, so the call comes to you.</p>
+  <div class="manifesto__stats">
+    <div><span class="big">5<small>s</small></span><p>to win or lose a visitor</p></div>
+    <div><span class="big">7</span><p>new customers and a ₹34,999 site has paid for itself*</p></div>
+    <div><span class="big">0</span><p>hidden charges. Every extra is priced up front.</p></div>
+  </div>
+  <p class="fineprint">*If one customer is worth ₹5,000 to your business.</p>
+</section>
+
+<!-- ============ SCENE 03 · WORK (horizontal reel) ============ -->
+<section class="work" id="work" data-scene="03 · Now showing">
+  <div class="work__pin">
+    <div class="work__head">
+      <p class="eyebrow">Scene 03 — Now showing</p>
+      <h2 class="h2">Recent <em>releases</em></h2>
+      <p class="work__sub">Every project starts as a working demo the owner can click through on their own phone.</p>
+      <div class="work__progress" aria-hidden="true"><i id="workBar"></i></div>
+    </div>
+    <div class="work__track" id="workTrack">
+
+      <article class="reel" data-cursor="Open">
+        <a href="https://shubhsitedeveloper.github.io/Shaikh-s-Sphere-Enterprises-/" target="_blank" rel="noopener" class="reel__link">
+          <div class="reel__media">
+            <img src="assets/work/sphere-hero.jpg" alt="Shaikh's Sphere Enterprises website hero with an illustrated building cross-section" loading="lazy" width="1440" height="856">
+            <span class="reel__tag">Website · HVAC</span>
+          </div>
+          <div class="reel__body">
+            <span class="reel__no">01</span>
+            <div>
+              <h3>Shaikh’s Sphere Enterprises</h3>
+              <p>An air-conditioning company explained in one drawing. A live building cross-section, an AC size estimator and a site-visit booking flow.</p>
+            </div>
+            <span class="reel__arrow">↗</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="reel" data-cursor="Open">
+        <a href="https://shubhsitedeveloper.github.io/Quickmoters/" target="_blank" rel="noopener" class="reel__link">
+          <div class="reel__media">
+            <img src="assets/work/wash-hero.jpg" alt="Quick Wash Motors website hero with a black car at night" loading="lazy" width="1440" height="900">
+            <span class="reel__tag">Website · Car care</span>
+          </div>
+          <div class="reel__body">
+            <span class="reel__no">02</span>
+            <div>
+              <h3>Quick Wash Motors</h3>
+              <p>Four branches in Prayagraj, one night-drive website. Wipe-the-glass hero, a scroll-driven wash story, branch map and WhatsApp booking.</p>
+            </div>
+            <span class="reel__arrow">↗</span>
+          </div>
+        </a>
+      </article>
+
+      <article class="reel reel--video" data-cursor="Play">
+        <div class="reel__link">
+          <div class="reel__media">
+            <video src="assets/work/film3d.mp4" poster="assets/work/film3d.jpg" muted loop playsinline preload="none" aria-label="3D car wash scroll film concept"></video>
+            <span class="reel__tag">3D scroll film · Concept</span>
+          </div>
+          <div class="reel__body">
+            <span class="reel__no">03</span>
+            <div>
+              <h3>The 3D wash film</h3>
+              <p>A real-time three.js car that rolls in muddy, gets foamed and pressure-rinsed, then drives out shining, all controlled by your scroll.</p>
+            </div>
+            <span class="reel__arrow">▶</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="reel" data-cursor="Brand">
+        <div class="reel__link">
+          <div class="reel__media reel__media--brand">
+            <img src="assets/work/brand-sphere.jpg" alt="Four logo directions for Shaikh's Sphere" loading="lazy" width="1520" height="470">
+            <img src="assets/work/brand-wash.jpg" alt="Four logo options for Quick Wash Motors" loading="lazy" width="1400" height="1101">
+            <span class="reel__tag">Brand identity</span>
+          </div>
+          <div class="reel__body">
+            <span class="reel__no">04</span>
+            <div>
+              <h3>Logos &amp; brand kits</h3>
+              <p>Four directions per brand, each delivered with light, dark, gold and mono versions ready for signboards, Instagram and visiting cards.</p>
+            </div>
+            <span class="reel__arrow">✦</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="reel reel--cta">
+        <a href="#contact" class="reel__link">
+          <div class="reel__next">
+            <span class="eyebrow">Coming soon</span>
+            <p class="reel__next-title">Your<br>business<br><em>here.</em></p>
+            <span class="btn btn--ember">Book the next slot</span>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCENE 04 · SERVICES ============ -->
+<section class="services" id="services" data-scene="04 · What we shoot">
+  <div class="services__head">
+    <p class="eyebrow">Scene 04 — What we shoot</p>
+    <h2 class="h2">Four ways to look <em>unmissable</em></h2>
+  </div>
+  <ol class="svc" id="svcList">
+    <li class="svc__row" data-img="assets/work/sphere-2.jpg">
+      <span class="svc__no">01</span>
+      <h3 class="svc__name">Websites</h3>
+      <p class="svc__desc">Custom design approved before we build. Mobile-first, fast, with WhatsApp, call and enquiry buttons on every page. Google profile set up.</p>
+      <span class="svc__price">from <b>₹14,999</b></span>
+    </li>
+    <li class="svc__row" data-img="assets/work/film3d.jpg">
+      <span class="svc__no">02</span>
+      <h3 class="svc__name">Cinematic 3D sites</h3>
+      <p class="svc__desc">Scroll-driven 3D scenes and film-style storytelling for brands that want people to stop scrolling and say “wow”.</p>
+      <span class="svc__price">from <b>₹99,999</b></span>
+    </li>
+    <li class="svc__row" data-img="assets/work/wash-mobile.jpg">
+      <span class="svc__no">03</span>
+      <h3 class="svc__name">Mobile apps</h3>
+      <p class="svc__desc">Booking systems, customer portals and dashboards on Android and iPhone, built around how your business already runs.</p>
+      <span class="svc__price">from <b>₹74,999</b></span>
+    </li>
+    <li class="svc__row" data-img="assets/work/wash-2.jpg">
+      <span class="svc__no">04</span>
+      <h3 class="svc__name">Marketing</h3>
+      <p class="svc__desc">Local SEO, Google Business Profile, Instagram content and ads, with every call, click and form tracked so you know what works.</p>
+      <span class="svc__price">from <b>₹9,999<small>/mo</small></b></span>
+    </li>
+  </ol>
+  <div class="svc__float" id="svcFloat" aria-hidden="true"><img alt="" id="svcFloatImg"></div>
+</section>
+
+<!-- ============ SCENE 05 · PROCESS ============ -->
+<section class="process" id="process" data-scene="05 · Production">
+  <div class="process__pin">
+    <div class="process__left">
+      <p class="eyebrow">Scene 05 — Production</p>
+      <h2 class="h2">From script<br>to <em>premiere</em></h2>
+      <div class="process__counter"><span id="actNo">01</span><small>/04</small></div>
+    </div>
+    <div class="process__acts">
+      <article class="act is-active">
+        <span class="act__label">Act I · Script</span>
+        <h3>We listen first</h3>
+        <p>One call or visit. Your customers, your competitors, what makes the phone ring. No jargon, no forms to fill.</p>
+      </article>
+      <article class="act">
+        <span class="act__label">Act II · Storyboard</span>
+        <h3>You see it before we build</h3>
+        <p>A clickable demo on your own phone. Don’t love it? You get your advance back.</p>
+      </article>
+      <article class="act">
+        <span class="act__label">Act III · Shoot</span>
+        <h3>We build, you relax</h3>
+        <p>10 to 25 days depending on the package. Late by a working day? ₹1,000 off, up to 10%.</p>
+      </article>
+      <article class="act">
+        <span class="act__label">Act IV · Premiere</span>
+        <h3>Launch, then grow</h3>
+        <p>Domain, hosting and code in your name. Plus 7 days of marketing free with every website, so you see enquiries first.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROMISES ============ -->
+<section class="promises" data-scene="06 · Fine print">
+  <p class="eyebrow">The fine print, in big print</p>
+  <div class="promises__grid">
+    <div class="promise"><span class="promise__icon">↺</span><h3>Love it or get your advance back</h3><p>Approve the design before a single page is built.</p></div>
+    <div class="promise"><span class="promise__icon">⏱</span><h3>On time, or you pay less</h3><p>₹1,000 off for every working day late, up to 10%.</p></div>
+    <div class="promise"><span class="promise__icon">⌂</span><h3>You own everything</h3><p>Domain, code and accounts registered in your name.</p></div>
+    <div class="promise"><span class="promise__icon">₹</span><h3>No hidden charges</h3><p>Every extra is priced on the rate card. Prices exclude taxes.</p></div>
+  </div>
+</section>
+
+<!-- ============ SCENE 07 · PRICING (tickets) ============ -->
+<section class="pricing" id="pricing" data-scene="07 · Box office">
+  <div class="pricing__head">
+    <p class="eyebrow">Scene 07 — Box office</p>
+    <h2 class="h2">Pick your <em>ticket</em></h2>
+    <div class="offer">
+      <span class="offer__badge">Founding offer</span>
+      <p><b>First 5 clients:</b> flat 20% off + free logo &amp; brand kit (worth ₹4,999). Till 31 Dec 2026.</p>
+    </div>
+  </div>
+  <div class="tickets">
+    <article class="ticket tilt">
+      <div class="ticket__main">
+        <span class="ticket__row">ROW A · SEAT 01</span>
+        <h3>Launch</h3>
+        <p class="ticket__for">Clinics, CA firms, shops and new businesses</p>
+        <p class="ticket__price"><s>₹14,999</s> <b>₹11,999</b></p>
+        <ul><li>Up to 7 pages · 10 days</li><li>Custom design, approved first</li><li>WhatsApp, call &amp; enquiry form</li><li>1 year domain, hosting &amp; SSL</li><li>Google Business Profile setup</li><li>2 months free support</li></ul>
+      </div>
+      <div class="ticket__stub"><span>ADMIT ONE</span><a href="#contact" data-plan="Launch" class="ticket__btn">Book</a></div>
+    </article>
+    <article class="ticket ticket--hot tilt">
+      <span class="ticket__ribbon">Most popular</span>
+      <div class="ticket__main">
+        <span class="ticket__row">ROW B · SEAT 07</span>
+        <h3>Business</h3>
+        <p class="ticket__for">Coaching, real estate, restaurants and service brands</p>
+        <p class="ticket__price"><s>₹34,999</s> <b>₹27,999</b></p>
+        <ul><li>Up to 15 pages · 15 days</li><li>Everything in Launch</li><li>2 design concepts to choose from</li><li>Copywriting for key pages</li><li>Local SEO for 10 keywords</li><li>Leads to WhatsApp &amp; Google Sheet</li><li>3 months free support</li></ul>
+      </div>
+      <div class="ticket__stub"><span>ADMIT ONE</span><a href="#contact" data-plan="Business" class="ticket__btn">Book</a></div>
+    </article>
+    <article class="ticket tilt">
+      <div class="ticket__main">
+        <span class="ticket__row">ROW C · SEAT 12</span>
+        <h3>E-commerce</h3>
+        <p class="ticket__for">Brands and shops selling online across India</p>
+        <p class="ticket__price"><s>₹69,999</s> <b>₹55,999</b></p>
+        <ul><li>50 products · 25 days</li><li>Everything in Business</li><li>WooCommerce or Shopify store</li><li>UPI, cards, net banking &amp; COD</li><li>Shipping, coupons &amp; GST invoices</li><li>6 months free support</li></ul>
+      </div>
+      <div class="ticket__stub"><span>ADMIT ONE</span><a href="#contact" data-plan="E-commerce" class="ticket__btn">Book</a></div>
+    </article>
+  </div>
+  <p class="fineprint center">Founding prices shown. Regular price struck through. Prices exclusive of applicable taxes.</p>
+</section>
+
+<!-- ============ SCENE 08 · CONTACT ============ -->
+<section class="contact" id="contact" data-scene="08 · Your scene">
+  <div class="contact__glow" aria-hidden="true"></div>
+  <p class="eyebrow">Scene 08 — Your scene</p>
+  <h2 class="contact__title"><span>Lights.</span> <span>Camera.</span> <em>Customers.</em></h2>
+  <p class="contact__hi">Aapka business, ab hit film ki tarah. Tell us about it and we’ll send a free demo idea on WhatsApp.</p>
+
+  <div class="contact__grid">
+    <form class="brief" id="brief" novalidate>
+      <div class="field"><label for="fName">Your name</label><input id="fName" name="name" autocomplete="name" placeholder="Rahul Sharma" required></div>
+      <div class="field"><label for="fBiz">Business</label><input id="fBiz" name="biz" placeholder="Sharma Dental Clinic, Lucknow" required></div>
+      <fieldset class="field chips">
+        <legend>What do you need?</legend>
+        <label><input type="checkbox" name="need" value="Website" checked><span>Website</span></label>
+        <label><input type="checkbox" name="need" value="3D website"><span>3D website</span></label>
+        <label><input type="checkbox" name="need" value="App"><span>App</span></label>
+        <label><input type="checkbox" name="need" value="Marketing"><span>Marketing</span></label>
+        <label><input type="checkbox" name="need" value="Logo"><span>Logo</span></label>
+      </fieldset>
+      <div class="field"><label for="fPlan">Package</label>
+        <select id="fPlan" name="plan"><option value="">Not sure yet</option><option>Launch</option><option>Business</option><option>E-commerce</option></select>
+      </div>
+      <div class="field"><label for="fMsg">Anything else? <small>(optional)</small></label><textarea id="fMsg" name="msg" rows="3" placeholder="We want more bookings from Google…"></textarea></div>
+      <p class="brief__err" id="briefErr" role="alert"></p>
+      <button class="btn btn--ember btn--block magnetic" type="submit">Send on WhatsApp <span aria-hidden="true">→</span></button>
+    </form>
+
+    <div class="direct">
+      <a class="direct__card" href="https://wa.me/919935270943?text=Hi%20Shubhsitedeveloper%2C%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener" data-cursor="Chat">
+        <span class="direct__k">WhatsApp</span><span class="direct__v">+91 99352 70943</span><span class="direct__a">↗</span>
+      </a>
+      <a class="direct__card" href="tel:+919935270943" data-cursor="Call">
+        <span class="direct__k">Call</span><span class="direct__v">+91 99352 70943</span><span class="direct__a">↗</span>
+      </a>
+      <a class="direct__card" href="mailto:ydvshubh.x@gmail.com?subject=Website%20enquiry" data-cursor="Mail">
+        <span class="direct__k">Email</span><span class="direct__v">ydvshubh.x@gmail.com</span><span class="direct__a">↗</span>
+      </a>
+      <p class="direct__note">You talk to the developer directly, on WhatsApp. No account managers, no call centres.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ END CREDITS ============ -->
+<footer class="credits" data-scene="Credits">
+  <div class="credits__roll">
+    <p class="credits__k">Directed, designed &amp; developed by</p>
+    <p class="credits__wordmark">Shubh<span>site</span>developer</p>
+    <div class="credits__cols">
+      <div><p class="credits__k">Websites</p><p>Launch · Business · E-commerce</p></div>
+      <div><p class="credits__k">3D</p><p>Scroll films · Product scenes</p></div>
+      <div><p class="credits__k">Apps</p><p>Booking · Portals · Dashboards</p></div>
+      <div><p class="credits__k">Marketing</p><p>SEO · Google profile · Social · Ads</p></div>
+    </div>
+    <p class="credits__end">No templates were harmed in the making of this website.</p>
+    <p class="credits__copy">© <span id="yr">2026</span> Shubhsitedeveloper · India · <a href="#top">Back to opening shot ↑</a></p>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/919935270943?text=Hi%20Shubhsitedeveloper%2C%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.2c-.2.2-.4.3-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.2 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"/></svg>
+</a>
+
+<script src="assets/gsap.min.js"></script>
+<script src="assets/ScrollTrigger.min.js"></script>
+<script src="assets/lenis.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
