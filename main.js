@@ -58,6 +58,7 @@
 
   $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
     const id = a.getAttribute('href');
+    if (!id || !id.startsWith('#')) return;
     const el = id === '#top' || id === '#' ? document.body : $(id);
     if (!el) return;
     e.preventDefault();
@@ -304,7 +305,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
       { n: 'Launch', p: 14999, f: 11999, time: '10 working days', pay: '50% · 50%', meta: 'Up to 7 pages' },
       { n: 'Business', p: 34999, f: 27999, time: '15 working days', pay: '50% · 50%', meta: 'Up to 15 pages' },
       { n: 'E-commerce', p: 69999, f: 55999, time: '25 working days', pay: '40% · 30% · 30%', meta: '50 products' }],
-      addons: [], note: 'Founding price for the first 5 clients, till 31 Dec 2026. Includes 7 days of marketing free.' },
+      addons: [], note: 'Includes 7 days of marketing free.' },
     '3d': { label: '3D website', tiers: [
       { n: 'Cinematic Landing', p: 99999, time: '3–4 weeks', pay: '50% · 30% · 20%', meta: '1 page, 1 custom 3D model' },
       { n: 'Immersive Brand Site', p: 279999, time: '6–8 weeks', pay: '50% · 30% · 20%', meta: '5–8 pages, 3–4 3D scenes' },
@@ -315,7 +316,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
       { n: 'Starter App', p: 74999, f: 59999, time: '4–5 weeks', pay: '50% · 50%', meta: '10 screens, Android + web' },
       { n: 'Business App', p: 299999, f: 239999, time: '9–11 weeks', pay: '30 · 30 · 30 · 10%', meta: '20 screens, Android + iPhone' },
       { n: 'Advanced App', p: 799999, from: true, time: '14–20 weeks', pay: '30 · 30 · 30 · 10%', meta: 'Marketplace or delivery platform' }],
-      addons: [], note: 'Founding price for the first 5 clients, till 31 Dec 2026. Full source code is yours.' }
+      addons: [], note: 'Full source code is yours.' }
   };
   const calc = { cat: 'web', tier: 1, addons: new Set(), mkt: false };
   const tiersEl = $('#calcTiers'), addonsEl = $('#calcAddons');
@@ -328,7 +329,8 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     const c = CALC[calc.cat], t = c.tiers[calc.tier];
     let total = t.f || t.p, was = t.f ? t.p : 0;
     c.addons.forEach((a, i) => { if (calc.addons.has(i)) { total += a.p; if (was) was += a.p; } });
-    const totalEl = $('#calcTotal'), prefix = t.from ? 'from ' : '', txt = prefix + inr(total);
+    const anyFrom = t.from || c.addons.some((a, i) => a.from && calc.addons.has(i));
+    const totalEl = $('#calcTotal'), prefix = anyFrom ? 'from ' : '', txt = prefix + inr(total);
     if (animate && hasGSAP && !reduce) {
       const cur = parseInt(totalEl.textContent.replace(/[^\d]/g, ''), 10) || 0, o = { v: cur };
       gsap.killTweensOf(totalEl);
@@ -336,10 +338,11 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     } else totalEl.textContent = txt;
     const wasEl = $('#calcWas'); wasEl.textContent = was ? inr(was) : ''; wasEl.hidden = !was;
     $('#calcMonthly').hidden = !calc.mkt;
-    $('#calcTime').textContent = t.time; $('#calcPay').textContent = t.pay; $('#calcNote').textContent = c.note;
+    $('#calcTime').textContent = t.time; $('#calcPay').textContent = t.pay; $('#calcNote').textContent = (t.f ? 'Founding price for the first 5 clients, till 31 Dec 2026. ' : '') + c.note;
     const picked = c.addons.filter((a, i) => calc.addons.has(i)).map(a => a.n);
-    const text = `Hi Shubhsitedeveloper! I’d like a quote for:\n\n${c.label}: ${t.n} (${prefix}${inr(t.f || t.p)})${picked.length ? `\nAdd-ons: ${picked.join(', ')}` : ''}${calc.mkt ? '\nMonthly marketing: Local Starter (₹9,999/mo)' : ''}\nEstimate: ${txt} + taxes\n\nCan we discuss this?`;
+    const text = `Hi Shubhsitedeveloper! I’d like a quote for:\n\n${c.label}: ${t.n} (${t.from ? 'from ' : ''}${inr(t.f || t.p)})${picked.length ? `\nAdd-ons: ${picked.join(', ')}` : ''}${calc.mkt ? '\nMonthly marketing: Local Starter (₹9,999/mo)' : ''}\nEstimate: ${txt} + taxes\n\nCan we discuss this?`;
     $('#calcSend').href = wa(text);
+    clearTimeout(updateCalc.t); updateCalc.t = setTimeout(() => { $('#calcLive').textContent = `Estimate ${txt} plus taxes`; }, 700);
   }
   $('#calcTabs').addEventListener('click', e => {
     const b = e.target.closest('button[data-cat]'); if (!b) return;
@@ -476,9 +479,16 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     if (missing) { err.textContent = 'Please fill your name, business and a few words about your experience.'; missing.focus(); return; }
     err.textContent = '';
     openWA(`⭐ NEW REVIEW for Shubhsitedeveloper\n\nRating: ${'⭐'.repeat(rating)} (${rating}/5)\nName: ${name.value.trim()}\nBusiness: ${biz.value.trim()}\n\n"${rText.value.trim()}"\n\nI'm happy for this review to appear on your website.`);
-    $('#revThanks').hidden = false;
+    const thanks = $('#revThanks'), form = $('#revForm');
+    thanks.hidden = false;
+    [...form.children].forEach(ch => { if (ch !== thanks) ch.inert = true; });
+    thanks.focus();
   });
-  $('#revAgain').addEventListener('click', () => { $('#revForm').reset(); $('#rCount').textContent = '0'; setRating(5); $('#revThanks').hidden = true; });
+  $('#revAgain').addEventListener('click', () => {
+    const form = $('#revForm'); form.reset(); $('#rCount').textContent = '0'; setRating(5);
+    [...form.children].forEach(ch => { ch.inert = false; });
+    $('#revThanks').hidden = true; $('#rName').focus();
+  });
 
   /* ================= GSAP choreography ================= */
   const words = $$('.hero__title .w');
@@ -564,14 +574,26 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
   const mm = gsap.matchMedia();
   mm.add('(min-width: 821px)', () => {
     const track = $('#workTrack'), bar = $('#workBar'), reels = $$('.reel');
-    const dist = () => Math.max(0, track.scrollWidth - (innerWidth - track.getBoundingClientRect().left));
+    const dist = () => Math.max(0, track.scrollWidth - (innerWidth - (track.getBoundingClientRect().left - gsap.getProperty(track, 'x'))));
     const tween = gsap.to(track, {
       x: () => -dist(), ease: 'none',
       scrollTrigger: {
         trigger: '.work', start: 'top top', end: () => '+=' + dist(), pin: '.work__pin', scrub: .8, invalidateOnRefresh: true, anticipatePin: 1,
-        onUpdate: s => { gsap.set(bar, { scaleX: s.progress }); gsap.set('.work__head', { opacity: 1 - Math.min(.75, s.progress * 2.2) }); }
+        onUpdate: s => { gsap.set(bar, { scaleX: s.progress }); gsap.set('.work__head', { opacity: 1 - Math.min(1, s.progress * 9) }); }
       }
     });
+    const pinEl = $('.work__pin');
+    const onFocus = e => {
+      const card = e.target.closest('.reel'); if (!card) return;
+      pinEl.scrollLeft = 0;
+      const st = tween.scrollTrigger, d = dist(); if (!st || !d) return;
+      const left = track.getBoundingClientRect().left - gsap.getProperty(track, 'x');
+      const want = Math.min(d, Math.max(0, card.offsetLeft + card.offsetWidth - (innerWidth - left) + 40, card.offsetLeft - innerWidth * .25));
+      const y = st.start + want;
+      lenis ? lenis.scrollTo(y, { immediate: true, force: true }) : scrollTo(0, y);
+      st.scroll(y); gsap.set(track, { x: -want });
+    };
+    track.addEventListener('focusin', onFocus);
     let tick = null;
     if (!reduce) {
       const skewTo = reels.map(r => gsap.quickTo(r, 'skewX', { duration: .5, ease: 'power3.out' }));

@@ -35,8 +35,8 @@ const titleCard = (() => {
   g.beginPath(); g.arc(800, 450, 240, 0, Math.PI * 2); g.stroke();
   g.beginPath(); g.moveTo(0, 450); g.lineTo(1600, 450); g.moveTo(800, 0); g.lineTo(800, 900); g.stroke();
   g.fillStyle = '#efe9df'; g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.font = '800 120px Syne, sans-serif'; g.fillText('SHUBH', 800, 380);
-  g.fillStyle = '#ff4d1a'; g.fillText('SITE', 800, 500);
+  g.font = '800 120px Syne, sans-serif'; g.fillText('SHUBHSITE', 800, 380);
+  g.fillStyle = '#ff4d1a'; g.font = '800 96px Syne, sans-serif'; g.fillText('DEVELOPER', 800, 495);
   g.fillStyle = 'rgba(239,233,223,.7)'; g.font = '500 34px "JetBrains Mono", monospace';
   g.fillText('P R E S E N T S', 800, 640);
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
