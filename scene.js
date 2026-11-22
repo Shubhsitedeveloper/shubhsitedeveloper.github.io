@@ -232,7 +232,7 @@ function layout() {
   dustMat.uniforms.uPR.value = pr * (h / 900);
   camera.aspect = w / h; camera.updateProjectionMatrix();
   if (isSmall()) { screenGroup.position.set(0, 2.05, 0); screenGroup.scale.setScalar(.42); lookBase.set(0, 0); }
-  else { const wide = w / h; screenGroup.position.set(wide > 1.5 ? 3.0 : 2.3, 1.05, 0); screenGroup.scale.setScalar(wide > 1.5 ? .8 : .66); lookBase.set(.3, .3); }
+  else { const wide = w / h; screenGroup.position.set(wide > 1.5 ? 3.35 : 2.5, 1.1, 0); screenGroup.scale.setScalar(wide > 1.5 ? .76 : .62); lookBase.set(.3, .3); }
 }
 layout(); addEventListener('resize', layout);
 addEventListener('pointermove', e => { state.mouse.set(e.clientX / innerWidth - .5, e.clientY / innerHeight - .5); }, { passive: true });

@@ -3,7 +3,8 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
   const saveData = !!(navigator.connection && navigator.connection.saveData);
-  const lowTier = reduce || saveData || (navigator.deviceMemory && navigator.deviceMemory <= 2);
+  const cores = navigator.hardwareConcurrency || 4, mem = navigator.deviceMemory || 4;
+  const lowTier = reduce || saveData || mem <= 2 || (innerWidth < 820 && (cores < 6 || mem < 4));
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
@@ -34,14 +35,26 @@
     if (!menu.classList.contains('is-open')) return;
     menu.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded', 'false');
     lenis && lenis.start(); document.body.style.overflow = '';
+    $$('main, footer, .wa-fab').forEach(x => x.inert = false); menuBtn.focus();
   }
   menuBtn.addEventListener('click', () => {
     const open = !menu.classList.contains('is-open');
     menu.classList.toggle('is-open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    if (open) { lenis && lenis.stop(); document.body.style.overflow = 'hidden'; } else { lenis && lenis.start(); document.body.style.overflow = ''; }
+    if (open) {
+      lenis && lenis.stop(); document.body.style.overflow = 'hidden';
+      $$('main, footer, .wa-fab').forEach(x => x.inert = true);
+      setTimeout(() => { const f = $('a', menu); f && f.focus(); }, 60);
+    } else { menu.classList.add('is-open'); closeMenu(); }
   });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+    if (e.key === 'Tab' && menu.classList.contains('is-open')) {
+      const f = [menuBtn, ...$$('a', menu)], i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+    }
+  });
 
   $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
     const id = a.getAttribute('href');
@@ -51,15 +64,29 @@
     closeMenu();
     if (a.dataset.plan) { const sel = $('#fPlan'); if (sel) sel.value = a.dataset.plan; }
     scrollToEl(el);
+    const target = a.dataset.plan ? $('#fName') : el;
+    if (target && target !== document.body) {
+      if (!target.matches('a,button,input,select,textarea,[tabindex]')) target.tabIndex = -1;
+      target.focus({ preventScroll: true });
+    }
   }));
 
   /* ---------------- HUD + timecode ---------------- */
-  const hud = $('.hud'), fab = $('.wa-fab'), mbar = $('.mbar'), tc = $('#timecode');
+  const hud = $('.hud'), fab = $('.wa-fab'), tc = $('#timecode');
   const onScroll = () => {
-    const y = scrollY, past = y > innerHeight * .7;
+    const y = scrollY, past = y > 200;
     hud.classList.toggle('is-scrolled', y > 40);
-    fab.classList.toggle('is-on', past); mbar.classList.toggle('is-on', past);
+    fab.classList.toggle('is-on', past && !inForm);
   };
+  let inForm = false; // the contact section already has big WhatsApp buttons, so the floating one steps aside there
+  const zones = new Set();
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(ens => {
+      ens.forEach(en => en.isIntersecting ? zones.add(en.target) : zones.delete(en.target));
+      inForm = zones.size > 0 && innerWidth < 820; onScroll();
+    }, { threshold: .05 });
+    ['#contact', '#revForm', '#calc'].forEach(s => { const z = $(s); z && io.observe(z); });
+  }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   const t0 = performance.now(), pad = n => String(n).padStart(2, '0');
   setInterval(() => {
@@ -148,6 +175,7 @@
   });
 
   /* ---------------- hero: 3D projection room, with 2D shader fallback ---------------- */
+  let introV = 0;
   const hero = { intro: () => {}, progress: () => {} };
   const glState = { mouse: [0.5, 0.5], target: [0.5, 0.5], visible: true, intro: 0 };
   function initFallbackGL() {
@@ -195,7 +223,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     Promise.race([fontsReady, new Promise(r => setTimeout(r, 1500))])
       .then(() => import('./scene.js'))
       .then(() => {
-        if (window.__hero) { hero.intro = window.__hero.intro; hero.progress = window.__hero.progress; }
+        if (window.__hero) { hero.intro = window.__hero.intro; hero.progress = window.__hero.progress; hero.intro(introV); hero.progress(Math.min(1, scrollY / innerHeight)); }
         else initFallbackGL();
         resolve();
       })
@@ -230,13 +258,15 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
 
   /* ---------------- industries ---------------- */
   $$('.ind').forEach(btn => {
+    const nm = $('.ind__name', btn), cta = $('.ind__cta', btn);
+    if (nm && cta) cta.setAttribute('aria-label', `Get my free demo for ${nm.textContent.trim()}`);
     btn.addEventListener('pointermove', e => {
       const r = btn.getBoundingClientRect();
       btn.style.setProperty('--mx', `${e.clientX - r.left}px`); btn.style.setProperty('--my', `${e.clientY - r.top}px`);
     });
     btn.addEventListener('click', e => {
-      if (e.target.closest('u') && btn.dataset.demo) { window.open(btn.dataset.demo, '_blank', 'noopener'); return; }
-      openWA(`Namaste Shubhsitedeveloper! 🙏\nMera ${btn.dataset.biz} ka business hai. Mujhe free website demo chahiye.`);
+      if (e.target.closest('a')) return;
+      openWA(`Hi Shubhsitedeveloper! I run a ${btn.dataset.biz} and I’d like a free website demo.`);
     });
   });
 
@@ -263,7 +293,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     msg.innerHTML = '';
     msg.append('Test opened in a new tab. Got your score? ');
     const a = document.createElement('a');
-    a.href = wa(`Namaste! Maine apni website ${v} ka speed test kiya. Score samjha dijiye aur free audit bhej dijiye.`);
+    a.href = wa(`Hi! I just ran a speed test on my website ${v}. Could you explain the score and send me a free audit?`);
     a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Send it to us on WhatsApp →';
     msg.append(a);
   });
@@ -291,7 +321,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
   const tiersEl = $('#calcTiers'), addonsEl = $('#calcAddons');
   function renderCalcControls() {
     const c = CALC[calc.cat];
-    tiersEl.innerHTML = c.tiers.map((t, i) => `<button type="button" class="tier" role="radio" aria-checked="${i === calc.tier}" data-i="${i}"><span class="tier__name">${t.n}</span><span class="tier__price">${t.from ? 'from ' : ''}${inr(t.f || t.p)}</span><span class="tier__meta">${t.meta}</span></button>`).join('');
+    tiersEl.setAttribute('aria-label', 'Package'); tiersEl.innerHTML = c.tiers.map((t, i) => `<button type="button" class="tier" role="radio" aria-checked="${i === calc.tier}" tabindex="${i === calc.tier ? 0 : -1}" data-i="${i}"><span class="tier__name">${t.n}</span><span class="tier__price">${t.from ? 'from ' : ''}${inr(t.f || t.p)}</span><span class="tier__meta">${t.meta}</span></button>`).join('');
     addonsEl.innerHTML = c.addons.map((a, i) => `<button type="button" class="addon" aria-pressed="${calc.addons.has(i)}" data-i="${i}">+ ${a.n} <small>${a.from ? 'from ' : ''}${inr(a.p)}</small></button>`).join('');
   }
   function updateCalc(animate = true) {
@@ -308,16 +338,23 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     $('#calcMonthly').hidden = !calc.mkt;
     $('#calcTime').textContent = t.time; $('#calcPay').textContent = t.pay; $('#calcNote').textContent = c.note;
     const picked = c.addons.filter((a, i) => calc.addons.has(i)).map(a => a.n);
-    const text = `Namaste Shubhsitedeveloper! Mujhe ye quote chahiye:\n\n${c.label}: ${t.n} (${prefix}${inr(t.f || t.p)})${picked.length ? `\nAdd-ons: ${picked.join(', ')}` : ''}${calc.mkt ? '\nMonthly marketing: Local Starter (₹9,999/mo)' : ''}\nEstimate: ${txt} + taxes\n\nIs par baat karte hain?`;
+    const text = `Hi Shubhsitedeveloper! I’d like a quote for:\n\n${c.label}: ${t.n} (${prefix}${inr(t.f || t.p)})${picked.length ? `\nAdd-ons: ${picked.join(', ')}` : ''}${calc.mkt ? '\nMonthly marketing: Local Starter (₹9,999/mo)' : ''}\nEstimate: ${txt} + taxes\n\nCan we discuss this?`;
     $('#calcSend').href = wa(text);
   }
   $('#calcTabs').addEventListener('click', e => {
     const b = e.target.closest('button[data-cat]'); if (!b) return;
-    $$('#calcTabs button').forEach(x => x.setAttribute('aria-selected', String(x === b)));
+    $$('#calcTabs button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
     calc.cat = b.dataset.cat; calc.tier = calc.cat === 'web' ? 1 : 0; calc.addons.clear();
     renderCalcControls(); updateCalc();
   });
-  tiersEl.addEventListener('click', e => { const b = e.target.closest('.tier'); if (!b) return; calc.tier = +b.dataset.i; $$('.tier', tiersEl).forEach(x => x.setAttribute('aria-checked', String(x === b))); updateCalc(); });
+  tiersEl.addEventListener('keydown', e => {
+    const k = e.key; if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(k)) return;
+    e.preventDefault(); const n = CALC[calc.cat].tiers.length;
+    calc.tier = (calc.tier + (k === 'ArrowRight' || k === 'ArrowDown' ? 1 : n - 1)) % n;
+    $$('.tier', tiersEl).forEach((x, i) => { x.setAttribute('aria-checked', String(i === calc.tier)); x.tabIndex = i === calc.tier ? 0 : -1; });
+    $$('.tier', tiersEl)[calc.tier].focus(); updateCalc();
+  });
+  tiersEl.addEventListener('click', e => { const b = e.target.closest('.tier'); if (!b) return; calc.tier = +b.dataset.i; $$('.tier', tiersEl).forEach(x => { x.setAttribute('aria-checked', String(x === b)); x.tabIndex = x === b ? 0 : -1; }); updateCalc(); });
   addonsEl.addEventListener('click', e => { const b = e.target.closest('.addon'); if (!b) return; const i = +b.dataset.i; calc.addons.has(i) ? calc.addons.delete(i) : calc.addons.add(i); b.setAttribute('aria-pressed', String(calc.addons.has(i))); updateCalc(); });
   $('#calcMkt').addEventListener('change', e => { calc.mkt = e.target.checked; updateCalc(false); });
   renderCalcControls(); updateCalc(false);
@@ -339,7 +376,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     $$('.svc__row').forEach(row => {
       row.addEventListener('pointerenter', () => { floatImg.src = row.dataset.img; float.classList.add('is-on'); });
       row.addEventListener('pointerleave', () => float.classList.remove('is-on'));
-      row.addEventListener('pointermove', e => { tx = e.clientX + 170; ty = e.clientY; });
+      row.addEventListener('pointermove', e => { tx = Math.min(innerWidth - 220, Math.max(e.clientX + 260, innerWidth * .72)); ty = e.clientY; });
     });
     const fl = () => { fx += (tx - fx) * .12; fy += (ty - fy) * .12; float.style.left = fx + 'px'; float.style.top = fy + 'px'; requestAnimationFrame(fl); };
     fl();
@@ -347,6 +384,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
 
   /* ---------------- reel videos ---------------- */
   $$('.reel video').forEach(vid => {
+    if (lowTier || reduce) return; // keep the poster on low-end phones
     new IntersectionObserver(([en]) => {
       if (en.isIntersecting) { vid.preload = 'auto'; if (!reduce) vid.play().catch(() => {}); } else vid.pause();
     }, { threshold: .35 }).observe(vid);
@@ -412,11 +450,11 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
   }
   fetch('reviews.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).then(renderReviews).catch(() => {});
 
-  const STAR_WORDS = ['', 'Flop', 'Average', 'Hit', 'Superhit', 'Blockbuster'];
+  const STAR_WORDS = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'];
   let rating = 5;
   const starBtns = $$('#starPick button'), starLabel = $('#starLabel');
   const paintStars = n => starBtns.forEach(b => b.classList.toggle('is-lit', +b.dataset.v <= n));
-  const setRating = n => { rating = n; starBtns.forEach(b => b.setAttribute('aria-checked', String(+b.dataset.v === n))); paintStars(n); starLabel.textContent = STAR_WORDS[n]; };
+  const setRating = n => { rating = n; starBtns.forEach(b => { const on = +b.dataset.v === n; b.setAttribute('aria-checked', String(on)); b.tabIndex = on ? 0 : -1; }); paintStars(n); starLabel.textContent = STAR_WORDS[n]; };
   starBtns.forEach(b => {
     b.addEventListener('click', () => setRating(+b.dataset.v));
     b.addEventListener('pointerenter', () => { paintStars(+b.dataset.v); starLabel.textContent = STAR_WORDS[+b.dataset.v]; });
@@ -447,13 +485,13 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
   function introHero() {
     document.body.classList.remove('is-loading');
     lenis && lenis.start();
-    if (!hasGSAP || reduce) { hero.intro(1); return; }
+    if (!hasGSAP || reduce) { introV = 1; hero.intro(1); return; }
     const st = { v: 0 };
     gsap.timeline({ defaults: { ease: 'expo.out' } })
-      .to(st, { v: 1, duration: 2.6, ease: 'power2.inOut', onUpdate: () => hero.intro(st.v) }, 0)
+      .to(st, { v: 1, duration: 2.6, ease: 'power2.inOut', onUpdate: () => { introV = st.v; hero.intro(st.v); } }, 0)
       .fromTo(words, { yPercent: 115, rotate: 5 }, { yPercent: 0, rotate: 0, duration: 1.5, stagger: .07 }, .35)
       .fromTo('.hero__frame', { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.6 }, .3)
-      .fromTo('.hero__eyebrow, .hero__hindi, .hero__lede, .hero__ctas, .hero__hud, .scroll-cue', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, stagger: .08 }, .9)
+      .fromTo('.hero__eyebrow, .hero__promise, .hero__lede, .hero__ctas, .hero__hud, .scroll-cue', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, stagger: .08 }, .9)
       .fromTo('.hud', { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, .7);
   }
 
@@ -461,12 +499,12 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
   const leader = $('#leader'), loadTxt = $('#leaderLoad');
   let seen = false; try { seen = sessionStorage.getItem('ssd-seen') === '1'; sessionStorage.setItem('ssd-seen', '1'); } catch (e) {}
   function runLeader() {
-    if (reduce || !hasGSAP) { leader.remove(); heroReady.then(introHero); return; }
+    if (reduce || !hasGSAP) { leader.remove(); introHero(); return; }
     const sweep = $('#sweep'), num = $('#leaderNum');
     const arc = p => { const a = p * Math.PI * 2 - Math.PI / 2, x = 100 + 92 * Math.cos(a), y = 100 + 92 * Math.sin(a); return `M100 100 L100 8 A92 92 0 ${p > .5 ? 1 : 0} 1 ${x.toFixed(2)} ${y.toFixed(2)} Z`; };
     const st = { p: 0 }, load = { v: 0 };
     let done = false;
-    const per = seen ? .3 : .62;
+    const per = seen || innerWidth < 820 ? .18 : .34;
     const count = gsap.timeline();
     [3, 2, 1].forEach((n, i) => {
       count.call(() => { num.textContent = n; }, null, i * per)
@@ -484,8 +522,8 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
         .call(introHero, null, .25);
     };
     const minTime = new Promise(r => count.eventCallback('onComplete', r));
-    Promise.all([minTime, heroReady]).then(exit);
-    const skip = () => heroReady.then(exit);
+    Promise.all([minTime, Promise.race([heroReady, new Promise(r => setTimeout(r, 900))])]).then(exit);
+    const skip = () => exit();
     leader.addEventListener('click', skip); addEventListener('keydown', skip, { once: true });
   }
   runLeader();
@@ -512,8 +550,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     gsap.from('.svc__row', { y: 50, opacity: 0, duration: 1, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: '.svc', start: 'top 80%', once: true } });
     gsap.from('.promise', { clipPath: 'inset(100% 0 0 0)', duration: 1.2, ease: 'expo.inOut', stagger: .1, scrollTrigger: { trigger: '.promises__grid', start: 'top 80%', once: true } });
     gsap.from('.ticket', { y: 120, rotateX: -25, opacity: 0, transformOrigin: '50% 100%', duration: 1.4, ease: 'expo.out', stagger: .12, clearProps: 'transform',
-      scrollTrigger: { trigger: '.tickets', start: 'top 85%', once: true },
-      onComplete() { $$('.ticket .scramble').forEach(b => scramble(b, b.textContent, 900)); } });
+      scrollTrigger: { trigger: '.tickets', start: 'top 85%', once: true } });
     gsap.from('.calc__box', { y: 80, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.calc__box', start: 'top 85%', once: true } });
     gsap.from('.contact__title > *', { yPercent: 60, rotate: 3, opacity: 0, duration: 1.3, stagger: .12, ease: 'expo.out', scrollTrigger: { trigger: '.contact__title', start: 'top 85%', once: true } });
     gsap.from('.credits__wordmark', { y: 80, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.credits', start: 'top 80%', once: true } });
@@ -563,9 +600,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     return () => { tick && gsap.ticker.remove(tick); acts.forEach((a, j) => a.classList.toggle('is-active', j === 0)); };
   });
   mm.add('(max-width: 820px)', () => {
-    ScrollTrigger.create({ trigger: '.phone', start: 'top 75%', once: true, onEnter: () => {
-      showChatUpTo(0); setTimeout(() => showChatUpTo(1), 1500); setTimeout(() => showChatUpTo(2), 3600); setTimeout(() => showChatUpTo(3), 5000);
-    } });
+    chatAct = 3; msgs.forEach(m => m.classList.add('is-shown', 'is-on'));
   });
 
   addEventListener('load', () => ScrollTrigger.refresh());
