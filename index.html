@@ -49,7 +49,7 @@
     <span class="brand__word">Shubh<b>site</b>developer</span>
   </a>
   <nav class="nav" aria-label="Main">
-    <a href="#industries">Your business</a><a href="#work">Work</a><a href="#process">Process</a><a href="#pricing">Pricing</a>
+    <a href="#industries">Your business</a><a href="#work">Work</a><a href="#process">Process</a><a href="#reviews">Reviews</a><a href="#pricing">Pricing</a>
   </nav>
   <button class="sound" id="soundBtn" aria-pressed="false" aria-label="Projector sound">
     <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound__txt">Sound</span>
@@ -59,7 +59,7 @@
   <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
 </header>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#industries">Your business</a><a href="#work">Work</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#calc">Price calculator</a><a href="#contact">Contact</a>
+  <a href="#industries">Your business</a><a href="#work">Work</a><a href="#process">Process</a><a href="#reviews">Reviews</a><a href="#pricing">Pricing</a><a href="#calc">Price calculator</a><a href="#contact">Contact</a>
 </div>
 
 <main id="top">
@@ -383,10 +383,61 @@
   </div>
 </section>
 
-<!-- ============ SCENE 07 · PRICING (tickets) ============ -->
+<!-- ============ SCENE 07 · REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="reviews__head">
+    <p class="eyebrow"><span class="sc">Scene 07</span> The critics</p>
+    <h2 class="h2 split">Critics’ <em>reviews</em></h2>
+    <div class="reviews__score" id="revScore" hidden>
+      <span class="reviews__avg" id="revAvg">5.0</span>
+      <span class="stars stars--lg" id="revAvgStars" aria-hidden="true"></span>
+      <span class="reviews__count" id="revCount">from 1 review</span>
+    </div>
+  </div>
+
+  <div class="reviews__grid">
+    <div class="rev-list" id="revList" aria-live="polite">
+      <article class="rev-empty" id="revEmpty">
+        <div class="rev-empty__stars" aria-hidden="true"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+        <p class="rev-empty__title">The premiere is still running.</p>
+        <p class="rev-empty__txt">Hum naye hain, isliye abhi yahan koi review nahi hai, aur hum fake reviews nahi lagate. Jaise hi hamare pehle clients apna review bhejenge, wo yahan dikhega.</p>
+        <p class="rev-empty__hi">Pehla review aapka ho sakta hai.</p>
+      </article>
+    </div>
+
+    <form class="rev-form" id="revForm" novalidate>
+      <p class="rev-form__title">Write a review</p>
+      <p class="rev-form__sub">Worked with us? Tell other business owners how it went.</p>
+      <fieldset class="field">
+        <legend>Your rating</legend>
+        <div class="star-pick" id="starPick" role="radiogroup" aria-label="Rating out of 5">
+          <button type="button" role="radio" aria-checked="false" aria-label="1 star" data-v="1">★</button>
+          <button type="button" role="radio" aria-checked="false" aria-label="2 stars" data-v="2">★</button>
+          <button type="button" role="radio" aria-checked="false" aria-label="3 stars" data-v="3">★</button>
+          <button type="button" role="radio" aria-checked="false" aria-label="4 stars" data-v="4">★</button>
+          <button type="button" role="radio" aria-checked="true" aria-label="5 stars" data-v="5">★</button>
+          <span class="star-pick__label" id="starLabel">Blockbuster</span>
+        </div>
+      </fieldset>
+      <div class="field"><label for="rName">Your name</label><input id="rName" autocomplete="name" placeholder="Shubh Yadav" required></div>
+      <div class="field"><label for="rBiz">Business &amp; city</label><input id="rBiz" placeholder="Aapka business, city" required></div>
+      <div class="field"><label for="rText">Your review</label><textarea id="rText" rows="4" maxlength="500" placeholder="Website ke baad WhatsApp pe enquiries badh gayi…" required></textarea><small class="rev-form__count"><span id="rCount">0</span>/500</small></div>
+      <p class="brief__err" id="revErr" role="alert"></p>
+      <button class="btn btn--ember btn--block magnetic" type="submit">Send review on WhatsApp →</button>
+      <p class="rev-form__note">Reviews go live after we confirm you’re a real client. We never edit what you write.</p>
+      <div class="rev-thanks" id="revThanks" hidden>
+        <span class="rev-thanks__icon">🎬</span>
+        <p><b>Shukriya!</b> Your review opened in WhatsApp. Press send there, and it will appear here once it’s approved.</p>
+        <button type="button" class="btn btn--ghost btn--sm" id="revAgain">Write another</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ SCENE 08 · PRICING (tickets) ============ -->
 <section class="pricing" id="pricing">
   <div class="pricing__head">
-    <p class="eyebrow"><span class="sc">Scene 07</span> Box office</p>
+    <p class="eyebrow"><span class="sc">Scene 08</span> Box office</p>
     <h2 class="h2 split">Pick your <em>ticket</em></h2>
     <div class="offer">
       <span class="offer__badge">Founding offer</span>
@@ -432,7 +483,7 @@
 <!-- ============ SCENE 08 · CALCULATOR ============ -->
 <section class="calc" id="calc">
   <div class="calc__head">
-    <p class="eyebrow"><span class="sc">Scene 08</span> Budget meeting</p>
+    <p class="eyebrow"><span class="sc">Scene 09</span> Budget meeting</p>
     <h2 class="h2 split">Kitna <em>lagega?</em></h2>
     <p class="calc__sub">Build your own combo. The price you see is the price you pay, before taxes.</p>
   </div>
@@ -464,7 +515,7 @@
 <!-- ============ SCENE 09 · CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="contact__glow" aria-hidden="true"></div>
-  <p class="eyebrow"><span class="sc">Scene 09</span> Your scene</p>
+  <p class="eyebrow"><span class="sc">Scene 10</span> Your scene</p>
   <h2 class="contact__title"><span>Lights.</span> <span>Camera.</span> <em>Customers.</em></h2>
   <p class="contact__hi">Aapka business, ab hit film ki tarah. Tell us about it and we’ll send a free demo idea on WhatsApp.</p>
 

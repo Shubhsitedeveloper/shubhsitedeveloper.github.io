@@ -378,6 +378,70 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
     });
   }
 
+  /* ---------------- reviews: approved ones from reviews.json, new ones via WhatsApp ---------------- */
+  const starStr = n => '★'.repeat(n) + '<s>' + '★'.repeat(5 - n) + '</s>';
+  function renderReviews(list) {
+    const valid = (Array.isArray(list) ? list : []).filter(r => r && r.name && r.text && r.rating >= 1 && r.rating <= 5);
+    if (!valid.length) return;
+    const box = $('#revList'); box.innerHTML = '';
+    valid.forEach((r, i) => {
+      const card = document.createElement('article');
+      card.className = 'rev' + (valid.length % 2 === 1 && i === 0 ? ' rev--wide' : '');
+      const stars = document.createElement('span'); stars.className = 'stars'; stars.innerHTML = starStr(Math.round(r.rating));
+      stars.setAttribute('aria-label', `${r.rating} out of 5 stars`);
+      const q = document.createElement('p'); q.className = 'rev__text'; q.textContent = `“${r.text}”`;
+      const who = document.createElement('div'); who.className = 'rev__who';
+      const av = document.createElement('span'); av.className = 'rev__avatar'; av.textContent = r.name.trim()[0].toUpperCase();
+      const nm = document.createElement('div'); const b = document.createElement('b'); b.textContent = r.name; const sm = document.createElement('small'); sm.textContent = r.business || '';
+      nm.append(b, sm); who.append(av, nm);
+      const meta = document.createElement('div'); meta.className = 'rev__meta';
+      const v = document.createElement('span'); v.className = 'rev__verified'; v.textContent = '✓ Verified client';
+      const right = document.createElement('span');
+      if (r.url) { const a = document.createElement('a'); a.className = 'rev__link'; a.href = r.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = (r.project || 'See the project') + ' ↗'; right.append(a); }
+      else right.textContent = r.date || '';
+      meta.append(v, right);
+      card.append(stars, q, who, meta); box.append(card);
+    });
+    const avg = valid.reduce((a, r) => a + +r.rating, 0) / valid.length;
+    $('#revAvg').textContent = avg.toFixed(1);
+    $('#revAvgStars').innerHTML = starStr(Math.round(avg));
+    $('#revCount').textContent = `from ${valid.length} review${valid.length > 1 ? 's' : ''}`;
+    $('#revScore').hidden = false;
+    if (hasGSAP && !reduce) gsap.from('.rev', { y: 50, opacity: 0, duration: 1, ease: 'expo.out', stagger: .08, scrollTrigger: { trigger: '#revList', start: 'top 85%', once: true } });
+    if (hasGSAP) ScrollTrigger.refresh();
+  }
+  fetch('reviews.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).then(renderReviews).catch(() => {});
+
+  const STAR_WORDS = ['', 'Flop', 'Average', 'Hit', 'Superhit', 'Blockbuster'];
+  let rating = 5;
+  const starBtns = $$('#starPick button'), starLabel = $('#starLabel');
+  const paintStars = n => starBtns.forEach(b => b.classList.toggle('is-lit', +b.dataset.v <= n));
+  const setRating = n => { rating = n; starBtns.forEach(b => b.setAttribute('aria-checked', String(+b.dataset.v === n))); paintStars(n); starLabel.textContent = STAR_WORDS[n]; };
+  starBtns.forEach(b => {
+    b.addEventListener('click', () => setRating(+b.dataset.v));
+    b.addEventListener('pointerenter', () => { paintStars(+b.dataset.v); starLabel.textContent = STAR_WORDS[+b.dataset.v]; });
+    b.addEventListener('pointerleave', () => { paintStars(rating); starLabel.textContent = STAR_WORDS[rating]; });
+    b.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { e.preventDefault(); const n = Math.min(5, rating + 1); setRating(n); starBtns[n - 1].focus(); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { e.preventDefault(); const n = Math.max(1, rating - 1); setRating(n); starBtns[n - 1].focus(); }
+    });
+  });
+  setRating(5);
+  const rText = $('#rText');
+  rText.addEventListener('input', () => { $('#rCount').textContent = rText.value.length; });
+  $('#revForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = $('#rName'), biz = $('#rBiz'), err = $('#revErr');
+    const fields = [name, biz, rText];
+    fields.forEach(i => i.setAttribute('aria-invalid', String(!i.value.trim())));
+    const missing = fields.find(i => !i.value.trim());
+    if (missing) { err.textContent = 'Please fill your name, business and a few words about your experience.'; missing.focus(); return; }
+    err.textContent = '';
+    openWA(`⭐ NEW REVIEW for Shubhsitedeveloper\n\nRating: ${'⭐'.repeat(rating)} (${rating}/5)\nName: ${name.value.trim()}\nBusiness: ${biz.value.trim()}\n\n"${rText.value.trim()}"\n\nI'm happy for this review to appear on your website.`);
+    $('#revThanks').hidden = false;
+  });
+  $('#revAgain').addEventListener('click', () => { $('#revForm').reset(); $('#rCount').textContent = '0'; setRating(5); $('#revThanks').hidden = true; });
+
   /* ================= GSAP choreography ================= */
   const words = $$('.hero__title .w');
   function introHero() {
@@ -441,7 +505,7 @@ col*=.94+.06*n(vec2(t*9.,0.));col*=k;col*=1.-.55*pow(length(uv-.5)*1.25,2.2);gl_
   if (!reduce) {
     gsap.to($$('.manifesto__text .mw'), { opacity: 1, stagger: .5, ease: 'none', scrollTrigger: { trigger: '.manifesto__text', start: 'top 80%', end: 'bottom 45%', scrub: .6 } });
     $$('.split').forEach(el => gsap.from(el.querySelectorAll('.wi'), { yPercent: 115, rotate: 4, duration: 1.3, ease: 'expo.out', stagger: .06, scrollTrigger: { trigger: el, start: 'top 85%', once: true } }));
-    $$('.eyebrow:not(.hero__eyebrow), .manifesto__stats > div, .direct__card, .brief, .offer, .speed, .industries__sub, .work__sub, .calc__sub').forEach(el => {
+    $$('.eyebrow:not(.hero__eyebrow), .manifesto__stats > div, .direct__card, .brief, .offer, .speed, .industries__sub, .work__sub, .calc__sub, .rev-empty, .rev-form').forEach(el => {
       gsap.from(el, { y: 40, opacity: 0, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
     });
     gsap.from('.ind', { opacity: 0, y: 60, scale: .96, duration: 1, ease: 'expo.out', stagger: .06, scrollTrigger: { trigger: '.ind-grid', start: 'top 80%', once: true } });
