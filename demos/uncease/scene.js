@@ -386,7 +386,7 @@ void main(){
 export async function createStage(canvas, opts = {}) {
   const lowTier = !!opts.low;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: !lowTier, powerPreference: 'high-performance', alpha: !!opts.studio, preserveDrawingBuffer: !!opts.studio });
-  const DPR = Math.min(window.devicePixelRatio || 1, lowTier ? 1.5 : 2);
+  let DPR = Math.min(window.devicePixelRatio || 1, lowTier ? 1.5 : 2);
   renderer.setPixelRatio(DPR);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
@@ -778,7 +778,32 @@ export async function createStage(canvas, opts = {}) {
   }
 
   function render() {
-    if (composer) composer.render(); else renderer.render(scene, camera);
+    if (composer && useBloom) composer.render(); else renderer.render(scene, camera);
+  }
+
+  // adaptive quality steps: 0 = full, then lower pixel ratio, last step drops bloom
+  const DPR0 = DPR;
+  const steps = [{ dpr: DPR0, bloom: true }];
+  for (const d of [1.5, 1.25, 1]) if (d < steps[steps.length - 1].dpr) steps.push({ dpr: d, bloom: true });
+  if (composer) steps.push({ dpr: steps[steps.length - 1].dpr, bloom: false });
+  let quality = 0, useBloom = true;
+  function setQuality(q) {
+    if (q < 0 || q >= steps.length || q === quality || opts.studio) return false;
+    quality = q; DPR = steps[q].dpr; useBloom = steps[q].bloom;
+    renderer.setPixelRatio(DPR); resize();
+    return true;
+  }
+
+  // warm-up: compile every shader and upload every texture now (behind the loader),
+  // so nothing stutters the first time the line-up or cans scroll into view
+  {
+    const saved = [];
+    scene.traverse(o => { saved.push([o, o.visible]); o.visible = true; });
+    [...bodyTex, ...neckTex, bodyMR, neckMR, nrm].forEach(t => renderer.initTexture(t));
+    let job = null;
+    try { job = renderer.compileAsync && renderer.extensions.has('KHR_parallel_shader_compile') ? renderer.compileAsync(scene, camera) : (renderer.compile(scene, camera), null); } catch (e) { console.warn(e); }
+    saved.forEach(([o, v]) => { o.visible = v; });
+    if (job) await job.catch(() => {});
   }
 
   // product-shot mode (used to render transparent PNGs)
@@ -802,5 +827,5 @@ export async function createStage(canvas, opts = {}) {
     renderer.render(scene, camera);
   }
 
-  return { update, render, resize, renderer, studio };
+  return { update, render, resize, renderer, studio, setQuality, get quality() { return quality; } };
 }

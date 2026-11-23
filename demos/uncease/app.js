@@ -50,6 +50,9 @@ function measure() {
   const vh = innerHeight;
   for (const k in secs) { const el = secs[k]; geo[k] = { top: el.offsetTop, len: Math.max(1, el.offsetHeight - vh) }; }
   geo.about = about.offsetTop;
+  // below these scroll positions the opaque sections cover the fixed canvas
+  geo.freeze = about.offsetTop + about.offsetHeight * .3; // last frame stays, nothing visible changes
+  geo.hide = about.offsetTop + about.offsetHeight;       // canvas fully covered
 }
 const Pt = { hero: 0, flav: 0, line: 0, mom: 0, energy: 0, end: 0 };
 const Pd = { ...Pt };
@@ -65,7 +68,15 @@ const D = {
   lineHead: $('.line__head'), lineNames: $('.line__names'), rows: $$('.mom__row'), momList: $('.mom__list'), energy: $('.energy__col'), nav: $('.nav'), wa: $('.wa')
 };
 let intro = FILM ? 1 : 0; // hero entrance 0..1
-const setO = (el, o, y = 0, s = 1) => { el.style.opacity = o.toFixed(3); el.style.transform = `translate3d(0,${y.toFixed(1)}px,0) scale(${s.toFixed(4)})`; el.style.visibility = o < .005 ? 'hidden' : 'visible'; };
+// write a style only when its value changed: once scroll settles, no style writes = no recalcs
+const SC = new WeakMap();
+const css = (el, k, v) => {
+  let c = SC.get(el); if (!c) SC.set(el, c = {});
+  if (c[k] === v) return; c[k] = v;
+  if (k.startsWith('--')) el.style.setProperty(k, v); else el.style[k] = v;
+};
+const txt = (el, v) => { if (el.textContent !== v) el.textContent = v; };
+const setO = (el, o, y = 0, s = 1) => { css(el, 'opacity', o.toFixed(3)); css(el, 'transform', `translate3d(0,${y.toFixed(1)}px,0) scale(${s.toFixed(4)})`); css(el, 'visibility', o < .005 ? 'hidden' : 'visible'); };
 function domUpdate(P) {
   const h = P.hero, f = P.flav, l = P.line, m = P.mom, e = P.energy;
   const out = 1 - sstep(.38, .52, h);
@@ -75,12 +86,12 @@ function domUpdate(P) {
   setO(D.bl, out * I(.3), (1 - I(.3)) * 24);
   setO(D.br, out * I(.4), (1 - I(.4)) * 24);
   setO(D.cue, out * I(.6) * (1 - sstep(.02, .08, h)));
-  D.stamp.style.opacity = (out * I(.5)).toFixed(3);
-  D.stamp.style.transform = `rotate(${(h * 300 + intro * 40).toFixed(1)}deg)`;
+  css(D.stamp, 'opacity', (out * I(.5)).toFixed(3));
+  css(D.stamp, 'transform', `rotate(${(h * 300 + intro * 40).toFixed(1)}deg)`);
   const pop = sstep(.56, .66, h) * (1 - sstep(.86, .99, h));
-  D.pop.style.opacity = pop.toFixed(3);
-  D.pop.style.transform = `translateY(-50%) scale(${(0.86 + sstep(.56, 1, h) * .2).toFixed(4)})`;
-  D.pop.style.letterSpacing = `${((1 - sstep(.56, .72, h)) * .12).toFixed(3)}em`;
+  css(D.pop, 'opacity', pop.toFixed(3));
+  css(D.pop, 'transform', `translateY(-50%) scale(${(0.86 + sstep(.56, 1, h) * .2).toFixed(4)})`);
+  css(D.pop, 'letterSpacing', `${((1 - sstep(.56, .72, h)) * .12).toFixed(3)}em`);
 
   // flavours
   const q = clamp((f - .05) / .9) * 4;
@@ -89,27 +100,28 @@ function domUpdate(P) {
   const fIn = sstep(0, .05, f) * (1 - sstep(.97, 1, f) * 0);
   D.titles.forEach((t, i) => {
     const d = i - qEff; const o = clamp(1 - Math.abs(d) * 1.8) * fIn;
-    t.style.opacity = o.toFixed(3);
-    t.style.transform = `translate3d(0,${(d * 55).toFixed(1)}%,0)`;
-    t.style.clipPath = `inset(${Math.max(0, d * 100).toFixed(1)}% 0 ${Math.max(0, -d * 100).toFixed(1)}% 0)`;
-    t.style.color = i === Math.round(qEff) ? 'var(--bone)' : 'var(--bone)';
+    css(t, 'opacity', o.toFixed(3));
+    css(t, 'visibility', o < .005 ? 'hidden' : 'visible');
+    css(t, 'transform', `translate3d(0,${(d * 55).toFixed(1)}%,0)`);
+    css(t, 'clipPath', `inset(${Math.max(0, d * 100).toFixed(1)}% 0 ${Math.max(0, -d * 100).toFixed(1)}% 0)`);
   });
-  D.descs.forEach((t, i) => { const d = i - qEff; t.style.opacity = (clamp(1 - Math.abs(d) * 2.6) * fIn).toFixed(3); t.style.transform = `translate3d(0,${(d * 16).toFixed(1)}px,0)`; });
+  D.descs.forEach((t, i) => { const d = i - qEff; const o = clamp(1 - Math.abs(d) * 2.6) * fIn; css(t, 'opacity', o.toFixed(3)); css(t, 'visibility', o < .005 ? 'hidden' : 'visible'); css(t, 'transform', `translate3d(0,${(d * 16).toFixed(1)}px,0)`); });
   const cur = Math.round(qEff);
-  D.idx.textContent = String(cur + 1).padStart(2, '0');
-  D.rail.forEach((li, i) => { li.style.setProperty('--f', clamp(f * 5 - i).toFixed(3)); li.classList.toggle('is-on', i === cur); });
+  txt(D.idx, String(cur + 1).padStart(2, '0'));
+  D.rail.forEach((li, i) => { css(li, '--f', clamp(f * 5 - i).toFixed(3)); if (li.classList.contains('is-on') !== (i === cur)) li.classList.toggle('is-on', i === cur); });
 
   // lineup
   const lo = sstep(.2, .45, l) * (1 - sstep(.0, .25, m));
   setO(D.lineHead, lo, (1 - sstep(.2, .45, l)) * 40);
   setO(D.lineNames, sstep(.45, .65, l) * (1 - sstep(0, .2, m)));
   // moments
-  D.rows[0].style.transform = `translate3d(${(-m * 45 + 5).toFixed(2)}%,0,0)`;
-  D.rows[1].style.transform = `translate3d(${(m * 45 - 40).toFixed(2)}%,0,0)`;
+  css(D.rows[0], 'transform', `translate3d(${(-m * 45 + 5).toFixed(2)}%,0,0)`);
+  css(D.rows[1], 'transform', `translate3d(${(m * 45 - 40).toFixed(2)}%,0,0)`);
   setO(D.momList, sstep(.25, .45, m) * (1 - sstep(.85, 1, m)));
   // energy
   setO(D.energy, sstep(.3, .5, e), (1 - sstep(.3, .5, e)) * 40);
-  D.nav.classList.toggle('is-solid', h > .02 || Pt.end > 0);
+  const solid = h > .02 || Pt.end > 0;
+  if (D.nav.classList.contains('is-solid') !== solid) D.nav.classList.toggle('is-solid', solid);
 }
 
 /* ---------- WebGL ---------- */
@@ -121,7 +133,7 @@ measure(); readScroll(scrollY); Object.assign(Pd, Pt); domUpdate(Pd);
 createStage(canvas, { low, wolf: 'assets/wolf-sm.webp', studio: qs.has('studio') }).then(s => {
   stage = s; window.__stage = s; target = 1;
   stage.update(Pd, 0); stage.render();
-  const wait = FILM ? 0 : Math.max(0, 1700 - (performance.now() - startedAt));
+  const wait = FILM ? 0 : Math.max(0, 1100 - (performance.now() - startedAt));
   setTimeout(reveal, wait);
 }).catch(err => { console.error(err); canvas.style.display = 'none'; target = 1; setTimeout(reveal, 600); });
 
@@ -138,19 +150,36 @@ function reveal() {
   }, 450);
 }
 
-let last = performance.now();
+let last = performance.now(), glOn = true, ctxLost = false;
+// adaptive quality: if frames run slow, step resolution / bloom down (never back up, so no flicker)
+const perf = { n: 0, sum: 0, hold: 0 };
+function watchPerf(rawMs, now) {
+  if (!stage || !stage.setQuality || document.body.classList.contains('is-loading')) return;
+  if (rawMs > 1500) { perf.n = perf.sum = 0; return; } // tab switch / stall, not a real frame
+  if (now < perf.hold) return;                          // let a quality change settle first
+  perf.sum += rawMs; perf.n++;
+  if (perf.n < 40 && !(perf.sum > 1500 && perf.n >= 5)) return;
+  const avg = perf.sum / perf.n; perf.n = perf.sum = 0;
+  if (avg > 24 && stage.setQuality(stage.quality + 1)) perf.hold = now + 1200;
+}
 function loop() {
-  const now = performance.now(); const dt = Math.min(.05, (now - last) / 1000); last = now;
+  const now = performance.now(); const raw = now - last; const dt = Math.min(.05, raw / 1000); last = now;
   time += dt;
-  readScroll(lenis ? lenis.scroll : scrollY);
+  const y = lenis ? lenis.scroll : scrollY;
+  readScroll(y);
   const k = 1 - Math.exp(-dt * 9);
   for (const key in Pd) Pd[key] += (Pt[key] - Pd[key]) * k;
   domUpdate(Pd);
-  if (stage) { stage.update(Pd, time); stage.render(); }
+  const on = y < geo.hide;
+  if (on !== glOn) { glOn = on; canvas.style.visibility = on ? 'visible' : 'hidden'; }
+  if (stage && !ctxLost && y < geo.freeze) { stage.update(Pd, time); stage.render(); watchPerf(raw, now); }
 }
+canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); ctxLost = true; });
+canvas.addEventListener('webglcontextrestored', () => { ctxLost = false; });
 if (!FILM) gsap.ticker.add(loop);
 
-addEventListener('resize', () => { measure(); stage && stage.resize(); });
+let rzT = 0;
+addEventListener('resize', () => { clearTimeout(rzT); rzT = setTimeout(() => { measure(); stage && stage.resize(); }, 120); });
 
 // film hook: deterministic frames for the preview video
 window.__film = {
@@ -216,8 +245,10 @@ formEl.addEventListener('submit', e => {
     for (let i = 0; i < n; i++) B.push({ x: e.clientX + (Math.random() - .5) * 10, y: e.clientY + (Math.random() - .5) * 10, r: 1.5 + Math.random() * 4, vy: -(.4 + Math.random() * 1.1), ph: Math.random() * 6, life: 1 });
     if (B.length > 120) B.splice(0, B.length - 120);
   }, { passive: true });
+  let dirty = false;
   gsap.ticker.add(() => {
-    x.clearRect(0, 0, W, H);
+    if (!B.length && !dirty) return; // nothing to draw, skip the full-screen clear
+    x.clearRect(0, 0, W, H); dirty = B.length > 0;
     for (let i = B.length - 1; i >= 0; i--) {
       const b = B[i]; b.life -= .012; b.y += b.vy; b.ph += .08; b.x += Math.sin(b.ph) * .35;
       if (b.life <= 0) { B.splice(i, 1); continue; }
