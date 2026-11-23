@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>UNCEASE Fruit Beer | IKP Beverages, New Delhi</title>
+<meta name="description" content="UNCEASE fruit beer in Blueberry, Cranberry, Peach and Green Apple, plus UNCEASE Energy Drink. Made by IKP Beverages Company, New Delhi. Retailer and distributor enquiries on WhatsApp.">
+<meta name="theme-color" content="#070605">
+<meta property="og:title" content="UNCEASE Fruit Beer">
+<meta property="og:description" content="Five flavours. One wolf. Fruit beer from IKP Beverages, New Delhi.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="icon" type="image/png" href="assets/wolf-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Cinzel:wght@600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<div class="ribbon" role="note"><span>Concept demo made by <a href="https://shubhsitedeveloper.github.io/" target="_blank" rel="noopener">Shubhsitedeveloper</a> for UNCEASE. Not the official website.</span></div>
+
+<!-- loader -->
+<div class="loader" aria-hidden="true">
+  <div class="loader__wolf">
+    <img src="assets/wolf-sm.webp" alt="" width="496" height="687">
+    <i class="eye eye--l"></i><i class="eye eye--r"></i>
+  </div>
+  <div class="loader__meta"><span>UNCEASE</span><b class="loader__n">00</b></div>
+  <div class="loader__bar"><i></i></div>
+</div>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<canvas id="bubbles" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="UNCEASE home">
+    <img src="assets/wolf-icon.png" alt="" width="28" height="39"><span>UNCEASE</span>
+  </a>
+  <nav class="nav__links" aria-label="Sections">
+    <a href="#flavours">Flavours</a><a href="#energy">Energy</a><a href="#about">About</a><a href="#trade">Stockists</a>
+  </nav>
+  <a class="btn btn--gold nav__cta" href="#trade">Stock UNCEASE</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section id="hero" class="pin" data-p="hero" style="--len:320">
+    <div class="stage">
+      <p class="hindi" lang="hi">रुकना मना है।</p>
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/></defs>
+          <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 5"/>
+          <text font-family="Cinzel, serif" font-weight="700" font-size="15.5" letter-spacing="3.2" fill="currentColor"><textPath href="#circ">PREMIUM QUALITY PRODUCT ✦ NEW DELHI ✦</textPath></text>
+        </svg>
+        <img src="assets/wolf-icon.png" alt="" width="180" height="249">
+      </div>
+      <p class="hero__kick"><span class="dot"></span>IKP Beverages Company · New Delhi</p>
+      <h1 class="sr-only">UNCEASE Fruit Beer</h1>
+      <div class="hero__bl">
+        <p class="hero__lede">Fruit beer in five flavours, with a wolf on every label.</p>
+        <a class="btn btn--gold" href="#flavours">See the flavours</a>
+      </div>
+      <div class="hero__br">
+        <span class="mrp"><small>MRP</small>₹69</span>
+        <span class="mrp__sub">per bottle</span>
+      </div>
+      <div class="hero__pop" aria-hidden="true"><em>Never</em> cease.</div>
+      <div class="hero__cue" aria-hidden="true"><span>Scroll to open</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- FLAVOURS -->
+  <section id="flavours" class="pin" data-p="flav" style="--len:620">
+    <div class="stage">
+      <div class="flav__col">
+        <p class="eyebrow"><span class="flav__idx">01</span> / 05 &nbsp;·&nbsp; Fruit beer</p>
+        <div class="flav__titles">
+          <h2 class="flav__t" data-i="0">Blueberry</h2>
+          <h2 class="flav__t" data-i="1">Cranberry</h2>
+          <h2 class="flav__t" data-i="2">Peach</h2>
+          <h2 class="flav__t" data-i="3">Green Apple</h2>
+          <h2 class="flav__t" data-i="4">Flavour 05</h2>
+        </div>
+        <div class="flav__descs">
+          <p class="flav__d" data-i="0">The blue label. Deep berry colour and a lively fizz.</p>
+          <p class="flav__d" data-i="1">The red label. Tart berry, served ice cold.</p>
+          <p class="flav__d" data-i="2">The sunset label. Soft orchard fruit with a bright finish.</p>
+          <p class="flav__d" data-i="3">The green label. Crisp apple, made for loud evenings.</p>
+          <p class="flav__d" data-i="4">The pink label. Flavour name coming soon.</p>
+        </div>
+        <div class="flav__chips"><span>MRP ₹69</span><span>Serve chilled</span><span>Do not freeze</span></div>
+      </div>
+      <ol class="flav__rail" aria-label="Flavours">
+        <li data-i="0" style="--c:#2346b8">Blueberry</li>
+        <li data-i="1" style="--c:#c4202b">Cranberry</li>
+        <li data-i="2" style="--c:#ee6b2f">Peach</li>
+        <li data-i="3" style="--c:#73ad2f">Green Apple</li>
+        <li data-i="4" style="--c:#cc1f86">05</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- LINEUP -->
+  <section id="lineup" class="pin" data-p="line" style="--len:240">
+    <div class="stage">
+      <div class="line__head">
+        <p class="eyebrow">The pack</p>
+        <h2 class="display">Five flavours.<br><em>One wolf.</em></h2>
+      </div>
+      <p class="line__names">Blueberry · Cranberry · Peach · Green Apple · Flavour 05</p>
+    </div>
+  </section>
+
+  <!-- MOMENTS -->
+  <section id="moments" class="pin" data-p="mom" style="--len:200">
+    <div class="stage">
+      <div class="mom__rows" aria-hidden="true">
+        <div class="mom__row" data-dir="-1">BEST CHOICE FOR · BEST CHOICE FOR · BEST CHOICE FOR ·</div>
+        <div class="mom__row mom__row--serif" data-dir="1">special moments, special moments, special moments,</div>
+      </div>
+      <p class="sr-only">Best choice for special moments.</p>
+      <ul class="mom__list">
+        <li>Match nights</li><li>Shaadi after-parties</li><li>Road trips</li><li>Terrace evenings</li><li>Late chats</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ENERGY -->
+  <section id="energy" class="pin" data-p="energy" style="--len:280">
+    <div class="stage">
+      <div class="energy__col">
+        <p class="eyebrow">Also from the pack</p>
+        <h2 class="display display--sm">UNCEASE<br><em>Energy Drink</em></h2>
+        <p class="energy__p">The same wolf, in a can. Red can and green can, for the days that don't end at five.</p>
+        <a class="btn btn--ghost energy__btn" href="#trade">Ask about the cans</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / FACTS -->
+  <section id="about" class="facts">
+    <div class="wrap">
+      <div class="facts__head rv">
+        <p class="eyebrow">Who makes it</p>
+        <h2 class="display display--sm">Made in <em>New Delhi</em> by IKP Beverages.</h2>
+        <p class="facts__p">UNCEASE is manufactured and marketed by IKP Beverages Company from Brahm Puri Industrial Area, Phase-I, New Delhi. Every bottle carries the wolf, the gold flame and the line printed on the label: <em>Premium Quality Product.</em></p>
+      </div>
+      <dl class="facts__grid ruled rv">
+        <div><dt>05</dt><dd>Fruit beer flavours</dd></div>
+        <div><dt>₹69</dt><dd>MRP per bottle</dd></div>
+        <div><dt>12<small>mo</small></dt><dd>Best before, from manufacturing date</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- TRADE -->
+  <section id="trade" class="trade">
+    <div class="wrap trade__grid">
+      <div class="trade__intro rv">
+        <p class="eyebrow">For shops, distributors and events</p>
+        <h2 class="display display--sm">Put the wolf in<br>your <em>fridge.</em></h2>
+        <p>Tell us where you are and what you need. The enquiry opens WhatsApp with your details filled in, so the IKP Beverages team can reply directly.</p>
+        <ul class="trade__points">
+          <li>Retail shops, kirana and general stores</li>
+          <li>Distributors and super-stockists</li>
+          <li>Party, wedding and event orders</li>
+        </ul>
+      </div>
+      <form class="trade__form rv" id="tradeForm" novalidate>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required placeholder="Full name"></div>
+        <div class="field"><label for="f-shop">Shop or company</label><input id="f-shop" name="shop" autocomplete="organization" placeholder="Name of your shop or firm"></div>
+        <div class="field"><label for="f-city">City / area</label><input id="f-city" name="city" autocomplete="address-level2" required placeholder="e.g. Uttam Nagar, Delhi"></div>
+        <fieldset class="field">
+          <legend>I am a</legend>
+          <div class="seg">
+            <label><input type="radio" name="type" value="Retailer" checked><span>Retailer</span></label>
+            <label><input type="radio" name="type" value="Distributor"><span>Distributor</span></label>
+            <label><input type="radio" name="type" value="Event order"><span>Event order</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="f-qty">What do you need? <span class="opt">(optional)</span></label><textarea id="f-qty" name="need" rows="3" placeholder="Flavours, number of crates, energy drink cans..."></textarea></div>
+        <p class="form__err" role="alert" hidden>Please add your name and city.</p>
+        <button class="btn btn--gold btn--wide" type="submit">Send enquiry on WhatsApp</button>
+        <p class="form__note">Opens WhatsApp to +91 97111 62288. Nothing is stored on this page.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <img src="assets/wolf-sm.webp" alt="UNCEASE wolf logo" width="120" height="166" loading="lazy">
+      <p class="foot__word">UNCEASE</p>
+    </div>
+    <div>
+      <p class="foot__h">Manufacturing &amp; marketing</p>
+      <p><strong>IKP Beverages Company</strong><br>Plot No. 165/20, Kh. No. 36, Brahm Puri<br>Industrial Area, Phase-I, New Delhi 110041</p>
+    </div>
+    <div>
+      <p class="foot__h">Call or WhatsApp</p>
+      <p><a href="tel:+919711162288">+91 97111 62288</a><br><a href="tel:+919044994388">+91 90449 94388</a></p>
+      <p class="foot__h">Storage</p>
+      <p>Serve chilled. Do not freeze the bottle.</p>
+    </div>
+  </div>
+  <div class="wrap foot__end">
+    <span>© 2026 UNCEASE. Trademark of IKP Beverages.</span>
+    <span>Concept site by <a href="https://shubhsitedeveloper.github.io/" target="_blank" rel="noopener">Shubhsitedeveloper</a></span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/919711162288?text=Hi%2C%20I%20want%20to%20know%20more%20about%20UNCEASE%20fruit%20beer." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.5-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5l-.6-.4z"/></svg>
+</a>
+
+<script src="assets/gsap.min.js"></script>
+<script src="assets/ScrollTrigger.min.js"></script>
+<script src="assets/lenis.min.js"></script>
+<script type="importmap">{"imports":{"three":"./assets/three/three.module.js","three/addons/":"./assets/three/addons/"}}</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
