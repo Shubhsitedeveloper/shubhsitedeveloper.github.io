@@ -97,7 +97,7 @@ function fakeLines(ctx, x, y, w, rows, alpha, rng) {
 }
 function rngFrom(seed) { let s = seed; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
 
-function paintBody(f, wolf, mode, W, H) {
+export function paintBody(f, wolf, mode, W, H) {
   const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const ctx = cv.getContext('2d'); const k = W / 2048;
   ctx.scale(k, k); const w = 2048, h = H / k;
@@ -139,16 +139,16 @@ function paintBody(f, wolf, mode, W, H) {
     star(ctx, cx + Math.cos(a2) * (rx - 58), cy + Math.sin(a2) * (ry - 58), 9);
   }
   if (!MR) {
-    textOnEllipse(ctx, 'PREMIUM QUALITY PRODUCT', cx, cy, rx - 62, ry - 62, Math.PI * 1.27, Math.PI * 1.73, '700 34px Cinzel, serif', '#f6dc8a');
+    textOnEllipse(ctx, 'PREMIUM QUALITY PRODUCT', cx, cy, rx - 50, ry - 50, Math.PI * 1.31, Math.PI * 1.69, '700 28px Cinzel, serif', '#f6dc8a');
     // UNCEASE
     ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-    ctx.font = '400 108px Anton, Impact, sans-serif';
-    ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillText('UNCEASE', cx + 4, cy - 228);
-    ctx.fillStyle = '#fbf7ef'; ctx.fillText('UNCEASE', cx, cy - 232);
+    ctx.font = '400 90px Anton, Impact, sans-serif';
+    ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillText('UNCEASE', cx + 4, cy - 196);
+    ctx.fillStyle = '#fbf7ef'; ctx.fillText('UNCEASE', cx, cy - 200);
     ctx.restore();
     // wolf
-    const ww = 300, wh = ww * wolf.height / wolf.width;
-    ctx.drawImage(wolf, cx - ww / 2, cy - 210, ww, wh);
+    const ww = 270, wh = ww * wolf.height / wolf.width;
+    ctx.drawImage(wolf, cx - ww / 2, cy - 180, ww, wh);
   }
   // flavour banner
   const by = cy + 228;
@@ -161,10 +161,9 @@ function paintBody(f, wolf, mode, W, H) {
   if (!MR) {
     ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.font = '700 34px Cinzel, serif'; ctx.fillStyle = '#fff'; ctx.fillText(f.name, cx, by + 2);
-    ctx.font = '700 58px Cinzel, serif'; ctx.fillStyle = '#fff6df'; ctx.fillText('FRUIT BEER', cx, by + 86);
-    ctx.font = '700 22px Cinzel, serif'; ctx.fillStyle = '#f6dc8a'; ctx.fillText('NON-ALCOHOLIC', cx, by + 132);
+    ctx.font = '700 50px Cinzel, serif'; ctx.fillStyle = '#fff6df'; ctx.fillText('FRUIT BEER', cx, by + 68);
     ctx.restore();
-    textOnEllipse(ctx, 'Crafted & Bottled in India', cx, cy, rx - 58, ry - 58, Math.PI * .66, Math.PI * .34, 'italic 600 26px Cinzel, serif', '#fbeec9', false);
+    textOnEllipse(ctx, 'Crafted & Bottled in India', cx, cy, rx - 44, ry - 44, Math.PI * .64, Math.PI * .36, 'italic 600 21px Cinzel, serif', '#fbeec9', false);
     // veg mark
     ctx.save(); ctx.fillStyle = '#fff'; ctx.fillRect(cx - 360, cy + 200, 46, 46);
     ctx.strokeStyle = '#1f8a2c'; ctx.lineWidth = 4; ctx.strokeRect(cx - 356, cy + 204, 38, 38);
@@ -184,7 +183,7 @@ function paintBody(f, wolf, mode, W, H) {
   return cv;
 }
 
-function paintNeck(f, wolf, mode, W, H) {
+export function paintNeck(f, wolf, mode, W, H) {
   const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const ctx = cv.getContext('2d'); const k = W / 1024; ctx.scale(k, k);
   const w = 1024, h = H / k; const MR = mode === 'mr';
@@ -386,7 +385,7 @@ void main(){
 /* ---------------- main ---------------- */
 export async function createStage(canvas, opts = {}) {
   const lowTier = !!opts.low;
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !lowTier, powerPreference: 'high-performance' });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !lowTier, powerPreference: 'high-performance', alpha: !!opts.studio, preserveDrawingBuffer: !!opts.studio });
   const DPR = Math.min(window.devicePixelRatio || 1, lowTier ? 1.5 : 2);
   renderer.setPixelRatio(DPR);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -782,5 +781,26 @@ export async function createStage(canvas, opts = {}) {
     if (composer) composer.render(); else renderer.render(scene, camera);
   }
 
-  return { update, render, resize, renderer };
+  // product-shot mode (used to render transparent PNGs)
+  function studio(kind, i = 0) {
+    [bg, letters, spray, bubbles, main, ...ices, ...line, ...cans].forEach(o => { o.visible = false; });
+    renderer.setClearColor(0x000000, 0);
+    const ud = main.userData;
+    if (kind === 'bottle') {
+      main.visible = true; bubbles.visible = false;
+      ud.bm.map = bodyTex[i]; ud.bm.userData.u.uMap2.value = bodyTex[i]; ud.bm.userData.u.uMix.value = 0;
+      ud.nm.map = neckTex[i]; ud.nm.userData.u.uMap2.value = neckTex[i]; ud.nm.userData.u.uMix.value = 0;
+      main.position.set(0, 0, 0); main.rotation.set(0, .1, 0); main.scale.setScalar(1);
+      ud.cap.position.set(0, ud.capHome, 0); ud.cap.rotation.set(0, 0, 0);
+      rimR.color.set(FLAVOURS[i].c1); rimR.position.set(2.4, 1.4, -1.4); rimL.position.set(-2.2, 2.2, -1.6);
+      camera.position.set(0, 1.2, 5.4); camera.lookAt(0, 1.2, 0);
+    } else {
+      cans.forEach((c, k) => { c.visible = true; c.position.set(k ? .42 : -.3, k ? .02 : .2, k ? -.45 : .2); c.rotation.set(k ? -.05 : .06, k ? -.4 : .2, k ? .1 : -.12); c.scale.setScalar(1.25); });
+      rimR.color.set('#d6a843'); rimR.position.set(2.4, 1.4, -1.4);
+      camera.position.set(0, .85, 6.2); camera.lookAt(.05, .85, 0);
+    }
+    renderer.render(scene, camera);
+  }
+
+  return { update, render, resize, renderer, studio };
 }

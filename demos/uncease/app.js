@@ -4,7 +4,7 @@ const qs = new URLSearchParams(location.search);
 const FILM = qs.has('film');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const coarse = matchMedia('(pointer: coarse)').matches;
-const low = qs.has('low') || (coarse && innerWidth < 900) || (navigator.hardwareConcurrency || 8) <= 4;
+const low = !qs.has('hi') && !qs.has('studio') && (qs.has('low') || (coarse && innerWidth < 900) || (navigator.hardwareConcurrency || 8) <= 2);
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -118,8 +118,8 @@ let stage = null, time = 0;
 const startedAt = performance.now();
 measure(); readScroll(scrollY); Object.assign(Pd, Pt); domUpdate(Pd);
 
-createStage(canvas, { low, wolf: 'assets/wolf-sm.webp' }).then(s => {
-  stage = s; target = 1;
+createStage(canvas, { low, wolf: 'assets/wolf-sm.webp', studio: qs.has('studio') }).then(s => {
+  stage = s; window.__stage = s; target = 1;
   stage.update(Pd, 0); stage.render();
   const wait = FILM ? 0 : Math.max(0, 1700 - (performance.now() - startedAt));
   setTimeout(reveal, wait);
