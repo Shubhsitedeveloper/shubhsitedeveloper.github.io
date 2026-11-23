@@ -199,7 +199,7 @@ formEl.addEventListener('submit', e => {
     `I am a: ${fd.get('type')}`,
     fd.get('need') ? `Need: ${fd.get('need').trim()}` : null,
   ].filter(Boolean).join('\n');
-  window.open('https://wa.me/919711162288?text=' + encodeURIComponent(lines), '_blank', 'noopener');
+  window.open('https://wa.me/918851472887?text=' + encodeURIComponent(lines), '_blank', 'noopener');
 });
 
 /* ---------- carbonation cursor ---------- */

@@ -220,5 +220,5 @@ form.addEventListener('submit', e => {
   if (!name || !city) { err.hidden = false; (!name ? $('#t-name') : $('#t-city')).focus(); return; }
   err.hidden = true;
   const msg = ['Hello IKP Beverages, I want to stock UNCEASE.', `Name: ${name}`, fd.get('shop') ? `Shop / company: ${fd.get('shop').trim()}` : null, `City / area: ${city}`, `I am a: ${fd.get('type')}`, fd.get('need') ? `Need: ${fd.get('need').trim()}` : null].filter(Boolean).join('\n');
-  window.open('https://wa.me/919711162288?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  window.open('https://wa.me/918851472887?text=' + encodeURIComponent(msg), '_blank', 'noopener');
 });
