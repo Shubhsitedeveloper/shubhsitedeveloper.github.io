@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Veritas Exhibits | Exhibition Stall Design &amp; Fabrication, Mumbai</title>
+<meta name="description" content="Veritas Exhibits designs, fabricates and installs custom and modular exhibition stalls in Mumbai, for Bombay Exhibition Centre, Jio World Convention Centre and expos across India.">
+<meta name="theme-color" content="#111110">
+<meta property="og:title" content="Veritas Exhibits | Exhibition stalls, Mumbai">
+<meta property="og:description" content="Custom and modular exhibition stalls: 3D design, fabrication and on-site installation.">
+<meta property="og:image" content="assets/hero-m.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ff5b1f'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='38' font-weight='900' text-anchor='middle' fill='%23111110'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-m.jpg" media="(max-width: 760px)">
+<link rel="preload" as="image" href="assets/hero.jpg" media="(min-width: 761px)">
+<style>
+:root{
+  --ink:#111110; --ink-2:#1c1b19; --paper:#f3f0ea; --paper-2:#e9e4da; --white:#fffdf9;
+  --muted:#6b675f; --muted-d:#a8a399; --line:rgba(17,17,16,.12); --line-d:rgba(255,253,249,.14);
+  --accent:#ff5b1f; --accent-ink:#1a0a03;
+  --display:"Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --wrap:1240px; --gut:20px; --r:6px;
+  --ribbon:32px; --nav:64px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--ribbon) + var(--nav) + 8px);-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+@media(min-width:761px){:root{--gut:40px}}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--accent);color:var(--ink);padding:10px 14px;border-radius:var(--r);font-weight:600}
+.skip:focus{top:calc(var(--ribbon) + 8px)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ribbon */
+.ribbon{position:fixed;inset:0 0 auto 0;height:var(--ribbon);z-index:60;background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;letter-spacing:.01em;padding:0 12px;text-align:center;line-height:1.2}
+.ribbon a{text-decoration:underline;text-underline-offset:2px;font-weight:600;white-space:nowrap}
+.ribbon .long{display:none}
+@media(min-width:620px){.ribbon .long{display:inline}.ribbon .short{display:none}}
+
+/* nav */
+.nav{position:fixed;top:var(--ribbon);inset-inline:0;height:var(--nav);z-index:50;color:var(--white);transition:background .3s var(--ease),box-shadow .3s var(--ease)}
+.nav.solid{background:rgba(17,17,16,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line-d)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-stretch:110%;font-size:17px;letter-spacing:-.01em}
+.mark{width:30px;height:30px;border-radius:5px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-weight:900;font-size:17px;font-stretch:100%}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-d);font-stretch:100%;margin-top:-2px}
+.nav-links{display:none;gap:30px;list-style:none;font-size:15px;font-weight:500}
+.nav-links a{text-decoration:none;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav-links a:hover::after{transform:scaleX(1)}
+@media(min-width:900px){.nav-links{display:flex}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:var(--r);border:1.5px solid transparent;background:transparent;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;transition:transform .2s var(--ease),background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-accent:hover{background:#ff7340}
+.btn-ghost{border-color:rgba(255,253,249,.4);color:var(--white)}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,253,249,.06)}
+.btn-dark{background:var(--ink);color:var(--white)}
+.btn-dark:hover{background:#2a2926}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--white)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:14px}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* type */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--accent)}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.025em;line-height:.98}
+h2{font-size:clamp(34px,5.2vw,64px);font-stretch:92%}
+h3{font-size:21px;font-stretch:100%;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--muted);max-width:54ch}
+.ph{display:inline;background:rgba(255,91,31,.14);color:inherit;border:1px dashed rgba(255,91,31,.7);border-radius:3px;padding:0 4px;font-style:normal;white-space:nowrap}
+
+/* hero */
+.hero{position:relative;background:var(--ink);color:var(--white);padding-top:calc(var(--ribbon) + var(--nav))}
+.hero-media{position:relative;overflow:hidden;aspect-ratio:900/560}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-body{padding-top:28px;padding-bottom:36px}
+.hero h1{font-size:clamp(44px,12.4vw,112px);font-stretch:84%;margin:16px 0 18px;max-width:11ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.sub{color:#d9d4ca;font-size:17px;max-width:46ch}
+.hero-cta{display:flex;flex-direction:column;gap:10px;margin-top:26px}
+.facts{display:grid;grid-template-columns:1fr;gap:0;margin-top:30px;border-top:1px solid var(--line-d)}
+.facts li{list-style:none;display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line-d);font-size:15px;color:#e8e3d9}
+.facts svg{width:20px;height:20px;color:var(--accent);flex:none}
+@media(min-width:761px){
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:0}
+  .hero-media{position:absolute;inset:0;aspect-ratio:auto}
+  .hero-media img{object-position:50% 40%}
+  .hero-body{position:relative;padding-top:0;padding-bottom:48px}
+  .hero-panel{background:var(--ink);max-width:720px;padding:36px 40px 34px;margin-left:calc(-1*40px);border-radius:0 var(--r) var(--r) 0}
+  .hero-cta{flex-direction:row}
+  .facts{grid-template-columns:repeat(3,1fr);border-top:0;margin-top:32px;gap:24px}
+  .facts li{border-bottom:0;border-top:1px solid var(--line-d);padding:14px 0 0;align-items:flex-start;font-size:14px}
+}
+/* entrance */
+[data-enter]>*{animation:rise .9s var(--ease) both}
+[data-enter]>*:nth-child(2){animation-delay:.08s}[data-enter]>*:nth-child(3){animation-delay:.16s}[data-enter]>*:nth-child(4){animation-delay:.24s}[data-enter]>*:nth-child(5){animation-delay:.32s}
+.hero-media img{animation:settle 1.6s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes settle{from{transform:scale(1.06)}to{transform:scale(1)}}
+
+/* expo strip */
+.expo{background:var(--accent);color:var(--accent-ink);padding:40px 0}
+.expo .wrap{display:grid;gap:22px;align-items:center}
+.expo h2{font-size:clamp(28px,4.2vw,50px);font-stretch:88%;max-width:20ch}
+.expo p{font-size:16px;max-width:52ch;margin-top:12px;color:#3a1a0a}
+.venues{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.venues span{border:1.5px solid rgba(26,10,3,.35);border-radius:100px;padding:6px 12px;font-size:13px;font-weight:600}
+.expo .btn{width:100%}
+@media(min-width:900px){.expo{padding:56px 0}.expo .wrap{grid-template-columns:1fr auto;gap:48px}.expo .btn{width:auto}}
+
+/* sections */
+section.block{padding:72px 0}
+@media(min-width:900px){section.block{padding:120px 0}}
+.head{display:grid;gap:18px;margin-bottom:36px}
+@media(min-width:900px){.head{grid-template-columns:1.1fr 1fr;align-items:end;gap:48px;margin-bottom:56px}}
+
+/* work */
+.work{background:var(--paper)}
+.owner-note{display:flex;gap:10px;align-items:flex-start;margin-top:4px;padding:12px 14px;border:1.5px dashed rgba(255,91,31,.75);background:rgba(255,91,31,.07);border-radius:var(--r);font-size:14px;color:#5a2a12;max-width:520px}
+.owner-note svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--accent)}
+.grid-work{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.tile{position:relative;overflow:hidden;border-radius:var(--r);background:var(--paper-2);text-decoration:none;color:var(--white);display:flex;flex-direction:column;transition:transform .35s var(--ease)}
+.tile:hover{transform:translateY(-2px)}
+.tile img{width:100%;flex:1 1 0;min-height:0;object-fit:cover;transition:transform .7s var(--ease)}
+.tile:hover img{transform:scale(1.03)}
+.tile .tag{position:absolute;left:12px;top:12px;background:var(--ink);color:var(--white);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border-radius:4px}
+.tile .meta{position:relative;z-index:1;background:var(--ink);padding:12px 14px;display:flex;justify-content:space-between;gap:10px;font-size:13px;align-items:baseline}
+.tile .meta b{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em}
+.tile .meta span{color:var(--muted-d);white-space:nowrap}
+.t-a{grid-column:1/-1;aspect-ratio:4/3}
+.t-b{grid-column:1/-1;aspect-ratio:4/5}
+.t-c,.t-d{aspect-ratio:4/5}
+.t-e{grid-column:1/-1;aspect-ratio:3/2}
+.t-c .meta,.t-d .meta{flex-direction:column;gap:2px;padding:10px 12px}
+@media(min-width:761px){
+  .grid-work{grid-template-columns:repeat(12,1fr);gap:18px}
+  .t-a{grid-column:span 8;aspect-ratio:auto;height:560px}
+  .t-b{grid-column:span 4;aspect-ratio:auto;height:560px}
+  .t-c,.t-d,.t-e{grid-column:span 4;aspect-ratio:auto;height:320px}
+  .t-c .meta,.t-d .meta{flex-direction:row;gap:10px;padding:12px 14px}
+}
+
+/* services */
+.services{background:var(--ink);color:var(--white)}
+.services .lead{color:var(--muted-d)}
+.svc-wrap{display:grid;gap:40px}
+.svc-list{list-style:none;border-top:1px solid var(--line-d)}
+.svc-list li{display:grid;grid-template-columns:44px 1fr;gap:6px 12px;padding:22px 0;border-bottom:1px solid var(--line-d)}
+.svc-list .n{font-family:var(--display);font-weight:700;color:var(--accent);font-size:15px;padding-top:3px}
+.svc-list p{grid-column:2;color:#bdb8ad;font-size:15px;max-width:48ch}
+.svc-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.svc-photos figure{overflow:hidden;border-radius:var(--r);aspect-ratio:1/1;background:var(--ink-2)}
+.svc-photos figure img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.svc-photos figure:hover img{transform:scale(1.03)}
+.svc-photos figure:nth-child(1){grid-column:1/-1;aspect-ratio:16/10}
+@media(min-width:900px){
+  .svc-wrap{grid-template-columns:1.05fr 1fr;gap:64px}
+  .svc-list li{grid-template-columns:64px 1fr 1.2fr;align-items:baseline;padding:26px 0}
+  .svc-list p{grid-column:3}
+  .svc-photos{position:sticky;top:calc(var(--ribbon) + var(--nav) + 24px)}
+}
+
+/* process */
+.process{background:var(--paper)}
+.proc-top{display:grid;gap:28px;margin-bottom:40px}
+.proc-top figure{overflow:hidden;border-radius:var(--r);aspect-ratio:16/10}
+.proc-top figure img{width:100%;height:100%;object-fit:cover}
+@media(min-width:900px){.proc-top{grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:64px}}
+.timeline{list-style:none;position:relative;display:grid;gap:0}
+.timeline li{position:relative;padding:0 0 28px 34px}
+.timeline li::before{content:"";position:absolute;left:6px;top:8px;bottom:-8px;width:2px;background:var(--line)}
+.timeline li:last-child::before{display:none}
+.timeline li::after{content:"";position:absolute;left:0;top:4px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2.5px solid var(--ink)}
+.timeline li.hot::after{background:var(--accent);border-color:var(--accent)}
+.when{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+.timeline h3{font-size:19px;margin-bottom:6px}
+.timeline p{font-size:15px;color:var(--muted);max-width:40ch}
+@media(min-width:900px){
+  .timeline{grid-template-columns:repeat(6,1fr);gap:24px}
+  .timeline li{padding:34px 0 0}
+  .timeline li::before{left:0;right:-24px;top:6px;bottom:auto;width:auto;height:2px}
+  .timeline li::after{top:0}
+}
+
+/* quote */
+.quote{background:var(--paper-2)}
+.q-wrap{display:grid;gap:36px}
+.q-side figure{overflow:hidden;border-radius:var(--r);aspect-ratio:3/2;margin-top:28px;display:none}
+.q-side figure img{width:100%;height:100%;object-fit:cover}
+.q-direct{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.form{background:var(--white);border-radius:var(--r);padding:22px 18px;box-shadow:0 1px 0 var(--line),0 20px 40px -24px rgba(17,17,16,.25)}
+.row{display:grid;gap:14px;margin-bottom:14px}
+.field label,.field legend{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.field label i{font-style:normal;color:var(--muted);font-weight:500}
+.field input,.field select,.field textarea{width:100%;min-height:48px;border:1.5px solid #d5cfc4;background:#fbf9f5;border-radius:var(--r);padding:11px 13px;font-size:16px;transition:border-color .2s,background .2s}
+.field textarea{min-height:96px;resize:vertical}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:#b6afa2}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);background:var(--white)}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23111110' stroke-width='1.8'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+fieldset.field{border:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{margin:0;cursor:pointer}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1.5px solid #d5cfc4;border-radius:100px;font-size:14px;font-weight:500;transition:all .2s}
+.chips span:hover{border-color:var(--ink)}
+.chips input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.chips input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.err{display:none;color:#b3261e;font-size:13px;margin-top:5px}
+.field.bad input{border-color:#b3261e}
+.field.bad .err{display:block}
+.form .btn{width:100%;margin-top:6px}
+.fine{font-size:12px;color:var(--muted);margin-top:12px}
+.thanks{display:none;text-align:left;padding:12px 4px}
+.thanks h3{font-size:28px;margin:12px 0 8px}
+.thanks p{color:var(--muted)}
+.form.sent .form-inner{display:none}
+.form.sent .thanks{display:block}
+@media(min-width:620px){.row.two{grid-template-columns:1fr 1fr}.row.three{grid-template-columns:1fr 1fr 1fr}}
+@media(min-width:900px){
+  .q-wrap{grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+  .q-side{position:sticky;top:calc(var(--ribbon) + var(--nav) + 24px)}
+  .q-side figure{display:block}
+  .q-direct{flex-direction:row}
+  .form{padding:32px}
+}
+
+/* footer */
+.foot{background:var(--ink);color:#cfc9be;padding:64px 0 110px;font-size:14px}
+.foot .big{font-family:var(--display);font-weight:900;font-stretch:80%;color:var(--white);font-size:clamp(52px,13vw,168px);letter-spacing:-.04em;line-height:.85;margin-bottom:40px}
+.foot .big span{color:var(--accent)}
+.foot-cols>div:first-child{grid-column:1/-1}
+.foot-cols{display:grid;gap:26px;grid-template-columns:1fr 1fr;padding-top:28px;border-top:1px solid var(--line-d)}
+.foot h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-d);margin-bottom:10px;font-weight:600}
+.foot ul{list-style:none;display:grid;gap:2px}
+.foot a{text-decoration:none;display:inline-flex;min-height:36px;align-items:center}
+.foot a:hover{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+.linkish{background:none;border:0;cursor:pointer;min-height:36px;padding:0;text-align:left}
+.linkish:hover{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+.credits{margin-top:36px;font-size:12px;color:#7f7a71}
+.credits a{display:inline;min-height:0}
+@media(min-width:900px){.foot{padding:96px 0 48px}.foot-cols{grid-template-columns:2fr 1fr 1fr 1fr}.foot-cols>div:first-child{grid-column:auto}}
+
+/* mobile bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1fr 1.3fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(17,17,16,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .35s var(--ease)}
+.mbar.show{transform:none}
+.mbar .btn{width:100%;padding:0 12px}
+@media(min-width:900px){.mbar{display:none}}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:88px;z-index:80;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--white);color:var(--ink);border-radius:var(--r);padding:14px 16px;width:min(360px,calc(100% - 32px));box-shadow:0 20px 50px -10px rgba(0,0,0,.45);border-left:4px solid var(--accent);font-size:14px;transition:all .3s var(--ease)}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast b{display:block;font-size:15px;margin-bottom:2px}
+@media(min-width:900px){.toast{bottom:32px}}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ribbon" role="note">
+  <span><span class="long">Sample design prepared for Veritas Exhibits by </span><span class="short">Sample design by </span><a href="https://shubhsitedeveloper.github.io/" target="_blank" rel="noopener">Shubhsitedeveloper</a> — not the official website</span>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Veritas Exhibits, back to top">
+      <span class="mark" aria-hidden="true">V</span>
+      <span>Veritas Exhibits<small>Stalls · Mumbai</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#quote">Contact</a></li>
+    </ul>
+    <a class="btn btn-accent btn-sm" href="#quote">Get a quote</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="top" aria-labelledby="h1">
+    <div class="hero-media">
+      <picture>
+        <source media="(max-width: 760px)" srcset="assets/hero-m.jpg">
+        <img src="assets/hero.jpg" width="1920" height="893" alt="A lit exhibition pavilion with a hanging green canopy, framed display panels and an overhead lighting truss" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="wrap hero-body">
+      <div class="hero-panel" data-enter>
+        <span class="eyebrow">Exhibition stall design &amp; fabrication · Mumbai</span>
+        <h1 id="h1">Exhibition stalls that <em>stop the aisle.</em></h1>
+        <p class="sub">Veritas Exhibits designs, builds and installs custom and modular stalls for exhibitors at Bombay Exhibition Centre, Jio World Convention Centre and expos across India.</p>
+        <div class="hero-cta">
+          <a class="btn btn-accent" href="#quote">Get a stall quote <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#work">See recent stalls</a>
+        </div>
+        <ul class="facts">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>3D design before anything is built</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Custom, modular and Octanorm stalls</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5z"/></svg>One team from drawing to dismantle</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPO URGENCY -->
+  <section class="expo" aria-labelledby="expo-h">
+    <div class="wrap">
+      <div>
+        <h2 id="expo-h">Planning for an expo at Bombay Exhibition Centre or Jio World Centre?</h2>
+        <p>A custom stall needs design, organiser approval and fabrication time. Start 6 to 8 weeks before move-in and nothing gets rushed on build day.</p>
+        <div class="venues" aria-label="Venues we build at">
+          <span>Bombay Exhibition Centre, Goregaon</span><span>Jio World Convention Centre, BKC</span><span>Pan-India expos</span>
+        </div>
+      </div>
+      <a class="btn btn-dark" href="#quote">Check my expo dates <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="block work" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Portfolio</span>
+          <h2 id="work-h" style="margin-top:14px">Recent stalls, from shell-scheme to island.</h2>
+        </div>
+        <div>
+          <p class="lead">Exhibitors pick a stall partner by the work they can see. Every stall here is shown with its show, size and layout, so you can judge the build, not the promise.</p>
+          <p class="owner-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg><span>For Jayesh: these photos are stand-ins. Your own stall photos, client names and sizes go here. This grid is what wins the next job.</span></p>
+        </div>
+      </div>
+
+      <div class="grid-work">
+        <a class="tile t-a" href="#quote" aria-label="Retail display stall, ask for a similar quote">
+          <img src="assets/work-display.jpg" width="1400" height="977" alt="Bright retail-style stall with glass display counters and lit back panels" loading="lazy">
+          <span class="tag">Custom build</span>
+          <span class="meta"><b>[Client name]</b><span>[Expo, Year] · [72] sq m · Island</span></span>
+        </a>
+        <a class="tile t-b" href="#quote" aria-label="Pavilion row stalls, ask for a similar quote">
+          <img src="assets/work-aisle.jpg" width="1000" height="1500" alt="A row of white pavilion stalls seen from above in a tall exhibition hall" loading="lazy">
+          <span class="tag">Pavilion</span>
+          <span class="meta"><b>[Client name]</b><span>[Expo] · [12] stalls</span></span>
+        </a>
+        <a class="tile t-c" href="#quote" aria-label="Modular stall, ask for a similar quote">
+          <img src="assets/work-modular.jpg" width="1200" height="800" alt="White modular stall with a backwall, lit header and a reception counter" loading="lazy">
+          <span class="tag">Modular</span>
+          <span class="meta"><b>[Client name]</b><span>[Expo] · [18] sq m</span></span>
+        </a>
+        <a class="tile t-d" href="#quote" aria-label="Shell-scheme stalls, ask for a similar quote">
+          <img src="assets/work-shell.jpg" width="1200" height="900" alt="Aluminium shell-scheme stalls along a carpeted exhibition aisle" loading="lazy">
+          <span class="tag">Octanorm</span>
+          <span class="meta"><b>[Client name]</b><span>[Expo] · [9] sq m</span></span>
+        </a>
+        <a class="tile t-e" href="#quote" aria-label="Corner stall 3D render, ask for a similar quote">
+          <img src="assets/work-render.jpg" width="1200" height="800" alt="3D render of a corner stall with a white backwall, slatted timber side wall and counter" loading="lazy">
+          <span class="tag">3D render</span>
+          <span class="meta"><b>[Client name]</b><span>[Expo] · [24] sq m · Corner</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="block services" id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Services</span>
+          <h2 id="svc-h" style="margin-top:14px">Everything between the floor plan and opening day.</h2>
+        </div>
+        <p class="lead">One contact for design, build, branding and the crew on site. No juggling a carpenter, a printer and an electrician the night before the show.</p>
+      </div>
+      <div class="svc-wrap">
+        <ol class="svc-list">
+          <li><span class="n">01</span><h3>Custom stalls</h3><p>Built from scratch around your products and floor plan, in wood, laminate, acrylic, glass and backlit fabric.</p></li>
+          <li><span class="n">02</span><h3>Modular &amp; Octanorm stalls</h3><p>Aluminium system stalls that go up fast, look clean and can be reused across shows.</p></li>
+          <li><span class="n">03</span><h3>3D stall design</h3><p>Renders at real dimensions, so you approve the stall before a single panel is cut.</p></li>
+          <li><span class="n">04</span><h3>Fabrication</h3><p>Carpentry, paint finishes, graphics and lighting, built and pre-fitted off-site.</p></li>
+          <li><span class="n">05</span><h3>On-site installation</h3><p>Our crew builds during move-in, sets up power and lighting, and dismantles after the show.</p></li>
+          <li><span class="n">06</span><h3>Event branding</h3><p>Fascia, backlit panels, LED walls, standees and counters that match your brand guide.</p></li>
+        </ol>
+        <div class="svc-photos">
+          <figure><img src="assets/svc-design.jpg" width="1000" height="673" alt="Stall floor plan drawings with pencils, a scale rule and a drawing tube" loading="lazy"></figure>
+          <figure><img src="assets/svc-fabrication.jpg" width="1000" height="667" alt="Carpenter marking a timber panel with a pencil beside wood shavings" loading="lazy"></figure>
+          <figure><img src="assets/svc-install.jpg" width="1000" height="667" alt="Two installers carrying a ladder between lit coloured walls during set-up" loading="lazy"></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="block process" id="process" aria-labelledby="proc-h">
+    <div class="wrap">
+      <div class="proc-top">
+        <div>
+          <span class="eyebrow">Process</span>
+          <h2 id="proc-h" style="margin:14px 0 18px">From brief to show day in eight weeks.</h2>
+          <p class="lead">A typical custom stall, counted back from the day the hall opens. Modular stalls can move faster; ask us what your dates allow.</p>
+        </div>
+        <figure><img src="assets/process-workshop.jpg" width="1200" height="826" alt="Craftsman sawing timber at a workbench, sawdust in the light" loading="lazy"></figure>
+      </div>
+      <ol class="timeline">
+        <li class="hot"><span class="when">Week 8</span><h3>Brief &amp; floor plan</h3><p>Expo, stall number, size, open sides and what you are showing.</p></li>
+        <li><span class="when">Weeks 7–6</span><h3>3D design</h3><p>Concept renders, your changes, then a clear quote with GST.</p></li>
+        <li><span class="when">Week 5</span><h3>Organiser approval</h3><p>Stall drawings prepared and submitted to the organiser on time.</p></li>
+        <li><span class="when">Weeks 4–2</span><h3>Fabrication</h3><p>Structure, finishes and graphics built and test-fitted off-site.</p></li>
+        <li><span class="when">Move-in</span><h3>Installation</h3><p>Build, lighting, branding and a walk-through before the hall opens.</p></li>
+        <li><span class="when">After the show</span><h3>Dismantle</h3><p>Crew strips the stall and clears your space within the organiser's window.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="block quote" id="quote" aria-labelledby="q-h">
+    <div class="wrap q-wrap">
+      <div class="q-side">
+        <span class="eyebrow">Stall quote</span>
+        <h2 id="q-h" style="margin:14px 0 18px">Tell us the expo. We'll plan the stall.</h2>
+        <p class="lead">Share the show, size and dates. Jayesh Krishnan and the team will come back with a design direction and an estimate.</p>
+        <div class="q-direct">
+          <button class="btn btn-dark" type="button" data-demo="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp us</button>
+          <button class="btn btn-line" type="button" data-demo="phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 005 5L15 12l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg>Call the studio</button>
+        </div>
+        <figure><img src="assets/quote-hall.jpg" width="1200" height="800" alt="An empty exhibition hall with a polished floor, ready for stalls" loading="lazy"></figure>
+      </div>
+
+      <form class="form" id="qform" novalidate>
+        <div class="form-inner">
+          <div class="row two">
+            <div class="field" data-req><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name"><span class="err">Please add your name.</span></div>
+            <div class="field"><label for="f-co">Company <i>(optional)</i></label><input id="f-co" name="company" autocomplete="organization"></div>
+          </div>
+          <div class="row two">
+            <div class="field" data-req><label for="f-phone">WhatsApp number</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"><span class="err">Add a number we can reply on.</span></div>
+            <div class="field" data-req><label for="f-expo">Expo name</label><input id="f-expo" name="expo" placeholder="e.g. your trade show"><span class="err">Which expo is it?</span></div>
+          </div>
+          <div class="row two">
+            <div class="field"><label for="f-venue">Venue</label>
+              <select id="f-venue" name="venue">
+                <option>Bombay Exhibition Centre</option>
+                <option>Jio World Convention Centre</option>
+                <option>Other venue in Mumbai</option>
+                <option>Outside Mumbai</option>
+              </select></div>
+            <div class="field" data-req><label for="f-size">Stall size <i>(sq m)</i></label><input id="f-size" name="size" type="number" inputmode="numeric" min="4" placeholder="e.g. 36"><span class="err">Add the stall area in sq m.</span></div>
+          </div>
+          <div class="row two">
+            <div class="field"><label for="f-from">Show starts</label><input id="f-from" name="from" type="date"></div>
+            <div class="field"><label for="f-to">Show ends</label><input id="f-to" name="to" type="date"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="f-sides">Open sides</label>
+              <select id="f-sides" name="sides">
+                <option>1 side · Inline</option>
+                <option>2 sides · Corner</option>
+                <option>3 sides · Peninsula</option>
+                <option>4 sides · Island</option>
+                <option>Not sure yet</option>
+              </select></div>
+          </div>
+          <div class="row">
+            <fieldset class="field"><legend>Stall type</legend>
+              <div class="chips">
+                <label><input type="radio" name="type" value="Custom" checked><span>Custom build</span></label>
+                <label><input type="radio" name="type" value="Modular"><span>Modular / Octanorm</span></label>
+                <label><input type="radio" name="type" value="Unsure"><span>Not sure</span></label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="row">
+            <div class="field"><label for="f-msg">What are you showcasing? <i>(optional)</i></label><textarea id="f-msg" name="msg" placeholder="Products, launches, demo areas, meeting room, storage…"></textarea></div>
+          </div>
+          <button class="btn btn-accent" type="submit">Request my stall quote <span class="arr" aria-hidden="true">→</span></button>
+          <p class="fine">Prices are quoted per project, with GST shown separately.</p>
+        </div>
+        <div class="thanks" role="status" aria-live="polite">
+          <span class="eyebrow">Brief received</span>
+          <h3>Thank you, we have your stall brief.</h3>
+          <p>This is a demo form, so nothing was sent. On the live site, the brief would reach Veritas Exhibits directly.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="big" aria-hidden="true">Veritas<span>.</span></div>
+    <div class="foot-cols">
+      <div>
+        <h4>Veritas Exhibits</h4>
+        <p>Exhibition stall design, fabrication and installation.<br>Proprietor: Jayesh Krishnan<br>Mumbai, Maharashtra · <span class="ph">[Workshop area]</span><br>GSTIN: <span class="ph">[Your GSTIN]</span></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li></ul>
+      </div>
+      <div>
+        <h4>Venues</h4>
+        <ul><li>Bombay Exhibition Centre</li><li>Jio World Centre</li><li>Pan-India</li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="#quote">Get a quote</a></li><li><button class="linkish" type="button" data-demo="WhatsApp">WhatsApp</button></li></ul>
+      </div>
+    </div>
+    <p class="credits">Stand-in photographs via Unsplash, and Silverije on Wikimedia Commons (CC BY-SA 4.0). Sample site by <a href="https://shubhsitedeveloper.github.io/" target="_blank" rel="noopener">Shubhsitedeveloper</a>.</p>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <button class="btn btn-ghost" type="button" data-demo="WhatsApp">WhatsApp</button>
+  <a class="btn btn-accent" href="#quote">Get a stall quote</a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><b>Demo only</b><span id="toast-t">Your WhatsApp number goes here.</span></div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), bar=document.getElementById('mbar');
+  function onScroll(){
+    var y=window.scrollY;
+    nav.classList.toggle('solid', y>40);
+    var q=document.getElementById('quote').getBoundingClientRect();
+    var inQuote=q.top<window.innerHeight*.6 && q.bottom>0;
+    bar.classList.toggle('show', y>window.innerHeight*.6 && !inQuote);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  var toast=document.getElementById('toast'), tt=document.getElementById('toast-t'), timer;
+  document.querySelectorAll('[data-demo]').forEach(function(b){
+    b.addEventListener('click',function(){
+      tt.textContent = b.dataset.demo==='phone' ? 'Your phone number goes here.' : 'Your WhatsApp number goes here.';
+      toast.classList.add('on'); clearTimeout(timer);
+      timer=setTimeout(function(){toast.classList.remove('on')},3200);
+    });
+  });
+
+  var form=document.getElementById('qform');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true, first=null;
+    form.querySelectorAll('[data-req]').forEach(function(f){
+      var i=f.querySelector('input'); var bad=!i.value.trim();
+      f.classList.toggle('bad',bad); i.setAttribute('aria-invalid',bad);
+      if(bad){ok=false; if(!first) first=i;}
+    });
+    if(!ok){first.focus();return;}
+    form.classList.add('sent');
+    form.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  form.addEventListener('input',function(e){
+    var f=e.target.closest('[data-req]'); if(f && e.target.value.trim()) f.classList.remove('bad');
+  });
+})();
+</script>
+</body>
+</html>

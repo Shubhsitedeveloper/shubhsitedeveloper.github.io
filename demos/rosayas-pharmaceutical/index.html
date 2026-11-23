@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en" data-type="service">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Rosaya's Pharmaceutical Pvt Ltd | Pharma Formulations, Thane</title>
+<meta name="description" content="Rosaya's Pharmaceutical Pvt Ltd, Hiranandani Estate, Thane. Pharmaceutical formulations for distributors, stockists and PCD franchise partners across India.">
+<meta name="theme-color" content="#0d2b33">
+<meta property="og:title" content="Rosaya's Pharmaceutical Pvt Ltd">
+<meta property="og:description" content="Pharmaceutical formulations for distributors and PCD franchise partners. Hiranandani Estate, Thane.">
+<meta property="og:image" content="assets/hero-blisters.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f6b64'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='38' font-weight='700' text-anchor='middle' fill='%23ffffff'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --mint:#e4efec; --mint-2:#d3e6e1;
+  --ink:#0d2b33; --ink-2:#3c5560; --muted:#6a7f87; --line:#dbe4e2;
+  --accent:#0f6b64; --accent-ink:#ffffff; --accent-2:#0a524c;
+  --ph:#fff6dc; --ph-line:#e7c766; --ph-ink:#7a5a00;
+  --r-s:8px; --r:14px; --r-l:22px;
+  --wrap:1200px; --gut:20px;
+  --ribbon:34px; --nav:64px;
+  --serif:"Newsreader", Georgia, serif;
+  --sans:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--ribbon) + var(--nav) + 12px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.01em}
+h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.02em}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+@media (min-width:768px){:root{--gut:32px}}
+@media (min-width:1100px){:root{--gut:48px}}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:12px;top:calc(var(--ribbon) + 8px);z-index:100;background:var(--ink);color:#fff;padding:10px 14px;border-radius:var(--r-s)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* placeholder marker */
+.ph{background:var(--ph);border:1px dashed var(--ph-line);color:var(--ph-ink);border-radius:6px;padding:0 .35em;font-weight:500;white-space:nowrap}
+.ph-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ph-ink);background:var(--ph);border:1px dashed var(--ph-line);border-radius:999px;padding:2px 8px}
+
+/* ribbon */
+.ribbon{position:fixed;inset:0 0 auto 0;height:var(--ribbon);z-index:60;background:#0a1f25;color:#cfe3df;font-size:12px;display:flex;align-items:center;justify-content:center;padding:0 12px;text-align:center}
+.ribbon a{color:#fff;text-decoration:none;max-width:100%;line-height:1.3}
+@media (max-width:640px){:root{--ribbon:42px}.ribbon{font-size:11.5px}}
+.ribbon a b{font-weight:600;color:#7fd3c6}
+.ribbon a:hover u{text-decoration-color:#7fd3c6}
+.ribbon u{text-decoration:underline;text-underline-offset:2px;text-decoration-color:transparent;transition:text-decoration-color .2s}
+
+/* nav */
+.nav{position:fixed;top:var(--ribbon);left:0;right:0;z-index:50;height:var(--nav);background:rgba(245,247,246,.86);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .25s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand-mark{width:36px;height:36px;border-radius:10px;background:var(--accent);color:#fff;display:grid;place-items:center;font:600 21px/1 var(--serif);flex:none}
+.brand-name{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.brand-name strong{font-weight:600;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+.brand-name span{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.nav-links{display:none;gap:28px;align-items:center}
+.nav-links a{text-decoration:none;font-size:14.5px;color:var(--ink-2);position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav .nav-cta{display:none}
+.menu-btn{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:var(--surface);display:grid;place-items:center;cursor:pointer}
+.menu-btn span{display:block;width:18px;height:1.5px;background:var(--ink);position:relative;transition:background .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--ink);transition:transform .3s var(--ease)}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:calc(var(--ribbon) + var(--nav)) 0 0 0;z-index:49;background:var(--bg);padding:24px var(--gut);display:flex;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s,transform .25s var(--ease),visibility .25s}
+.mobile-menu.open{opacity:1;visibility:visible;transform:none}
+.mobile-menu a{font:400 30px/1.2 var(--serif);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
+.mobile-menu .btn{margin-top:24px;font:600 16px/1 var(--sans);border:0}
+@media (min-width:960px){.nav-links{display:flex}.nav .nav-cta{display:inline-flex}.menu-btn{display:none}.mobile-menu{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s var(--ease),background .2s,box-shadow .2s,border-color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 8px 20px -10px rgba(15,107,100,.7)}
+.btn-primary:hover{background:var(--accent-2)}
+.btn-ghost{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink-2)}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .25s var(--ease)}
+.btn:hover svg.arr{transform:translateX(3px)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:14px}
+
+/* sections */
+section{position:relative}
+.sec{padding:88px 0}
+@media (min-width:960px){.sec{padding:120px 0}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+.eyebrow::before{content:"";width:18px;height:1.5px;background:currentColor}
+.h2{font-size:clamp(34px,5vw,56px);line-height:1.05;margin-top:14px}
+.h2 em{font-style:italic;color:var(--accent)}
+.lead{font-size:17.5px;color:var(--ink-2);max-width:56ch;margin-top:18px}
+.sec-head{display:grid;gap:8px;margin-bottom:44px}
+@media (min-width:960px){.sec-head.split{grid-template-columns:1.1fr 1fr;align-items:end;gap:48px}.sec-head.split .lead{margin-top:0}}
+
+/* hero */
+.hero{padding:calc(var(--ribbon) + var(--nav) + 28px) 0 56px;min-height:100svh;display:flex;align-items:center}
+.hero .wrap{display:grid;gap:36px;width:100%}
+@media (min-width:960px){.hero{padding-bottom:72px}.hero .wrap{grid-template-columns:1.02fr 1fr;align-items:center;gap:64px}}
+.hero h1{font-size:clamp(40px,5.4vw,70px);line-height:1;margin-top:18px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p.lead{margin-top:22px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:30px;font-size:13.5px;color:var(--muted)}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+.hero-meta svg{width:16px;height:16px;color:var(--accent)}
+.hero-visual{position:relative}
+.hero-photo{border-radius:var(--r-l);overflow:hidden;aspect-ratio:4/4.3;background:var(--mint)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.id-card{position:absolute;left:-28px;bottom:28px;width:min(330px,82%);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 14px;box-shadow:0 24px 50px -24px rgba(13,43,51,.35)}
+.id-card h3{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:space-between}
+.id-card h3 i{width:8px;height:8px;border-radius:50%;background:#22a37a;box-shadow:0 0 0 4px rgba(34,163,122,.15)}
+.id-card dl{margin:12px 0 0;display:grid;grid-template-columns:auto 1fr;gap:9px 14px;font-size:14px}
+.id-card dt{color:var(--muted)}
+.id-card dd{margin:0;font-weight:500;text-align:right}
+@media (max-width:959px){.hero-photo{aspect-ratio:4/3.1}.id-card{position:relative;left:auto;bottom:auto;width:auto;margin:-48px 14px 0}}
+
+/* entrance */
+[data-enter]>*{opacity:0;transform:translateY(16px);animation:enter .8s var(--ease) forwards}
+[data-enter]>*:nth-child(2){animation-delay:.08s}[data-enter]>*:nth-child(3){animation-delay:.16s}[data-enter]>*:nth-child(4){animation-delay:.24s}[data-enter]>*:nth-child(5){animation-delay:.32s}[data-enter]>*:nth-child(6){animation-delay:.4s}
+.hero-visual[data-enter-photo]{opacity:0;transform:scale(.98);animation:enter 1s .2s var(--ease) forwards}
+@keyframes enter{to{opacity:1;transform:none}}
+
+/* facts strip */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.facts .wrap{display:grid;grid-template-columns:1fr 1fr}
+.fact{padding:22px 0 22px;display:flex;gap:12px;align-items:flex-start}
+.fact:nth-child(odd){padding-right:14px;border-right:1px solid var(--line)}
+.fact:nth-child(even){padding-left:16px}
+.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.fact svg{width:22px;height:22px;color:var(--accent);flex:none;margin-top:2px}
+.fact b{display:block;font-weight:600;font-size:14.5px;line-height:1.3}
+.fact span{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.4}
+@media (min-width:960px){.facts .wrap{grid-template-columns:repeat(4,1fr)}.fact{padding:28px 24px!important;border-bottom:0!important;border-right:1px solid var(--line)}.fact:first-child{padding-left:0!important}.fact:last-child{border-right:0}}
+
+/* about */
+.about .wrap{display:grid;gap:40px}
+@media (min-width:960px){.about .wrap{grid-template-columns:1fr 1fr;gap:72px;align-items:center}}
+.frame{border-radius:var(--r-l);overflow:hidden;background:var(--mint)}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.frame:hover img{transform:scale(1.025)}
+.about .frame{aspect-ratio:5/4}
+.pillars{display:grid;gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.pillar{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.pillar .n{font:400 15px/1.6 var(--serif);color:var(--accent);font-style:italic}
+.pillar b{font-weight:600}
+.pillar p{color:var(--ink-2);font-size:15px;margin-top:2px}
+
+/* segments */
+.segments{background:var(--surface)}
+.seg-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:640px){.seg-grid{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.seg-grid{grid-template-columns:repeat(3,1fr)}}
+.seg{position:relative;border:1px solid var(--line);border-radius:var(--r);padding:22px;background:var(--bg);display:flex;flex-direction:column;gap:14px;text-decoration:none;transition:transform .25s var(--ease),border-color .25s,box-shadow .25s}
+.seg:hover{transform:translateY(-2px);border-color:var(--mint-2);box-shadow:0 18px 40px -28px rgba(13,43,51,.4)}
+.seg-top{display:flex;justify-content:space-between;align-items:flex-start}
+.seg-ico{width:48px;height:48px;border-radius:12px;background:var(--mint);color:var(--accent);display:grid;place-items:center}
+.seg-ico svg{width:24px;height:24px}
+.seg h3{font-size:20px;font-weight:600;letter-spacing:-.015em}
+.seg p{font-size:14.5px;color:var(--ink-2)}
+.seg .go{margin-top:auto;font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+.seg .go svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.seg:hover .go svg{transform:translateX(3px)}
+@media (max-width:639px){.seg{padding:18px;gap:10px}.seg-ico{width:40px;height:40px}.seg-ico svg{width:20px;height:20px}.seg h3{font-size:18px}}
+@media (max-width:959px){.about .frame{order:2}}
+.seg-note{margin-top:22px;font-size:14px;color:var(--muted)}
+
+/* products */
+.cat-tools{display:flex;flex-direction:column;gap:14px;margin-bottom:18px}
+@media (min-width:860px){.cat-tools{flex-direction:row;justify-content:space-between;align-items:center}}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin:0 calc(var(--gut) * -1);padding-left:var(--gut);padding-right:var(--gut)}
+@media (min-width:860px){.chips{margin:0;padding-left:0;padding-right:0;flex-wrap:wrap}}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:14px;font-weight:500;cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .15s}
+.chip:hover{border-color:var(--ink-2)}
+.chip:active{transform:scale(.97)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.search{position:relative;width:100%}
+@media (min-width:860px){.search{width:280px}}
+.search input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:999px;background:var(--surface);padding:0 16px 0 42px;font-size:16px}
+.search svg{position:absolute;left:15px;top:50%;width:18px;height:18px;transform:translateY(-50%);color:var(--muted)}
+.table-card{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+table.cat{width:100%;border-collapse:collapse;font-size:15px}
+.cat th{text-align:left;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:#f0f4f3;padding:14px 18px;border-bottom:1px solid var(--line)}
+.cat td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+.cat tr:last-child td{border-bottom:0}
+.cat tbody tr{transition:background .2s}
+.cat tbody tr:hover{background:#f7faf9}
+.cat .pname{font-weight:600}
+.cat .pname small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pill{display:inline-block;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--mint);color:var(--accent-2);white-space:nowrap}
+.cat-empty{padding:28px 18px;color:var(--muted);text-align:center;display:none}
+.cat-foot{display:flex;flex-direction:column;gap:14px;margin-top:18px;font-size:14px;color:var(--muted)}
+@media (min-width:860px){.cat-foot{flex-direction:row;justify-content:space-between;align-items:center}}
+@media (max-width:759px){
+  table.cat thead{display:none}
+  table.cat,table.cat tbody,table.cat tr,table.cat td{display:block;width:100%}
+  .cat tr{padding:16px 18px;border-bottom:1px solid var(--line);display:grid!important;grid-template-columns:1fr 1fr;gap:10px 14px}
+  .cat tr:last-child{border-bottom:0}
+  .cat td{padding:0;border:0}
+  .cat td.c-name{grid-column:1/-1;display:flex!important;justify-content:space-between;align-items:flex-start;gap:12px}
+  .cat td.c-comp{grid-column:1/-1}
+  .cat td[data-l]::before{content:attr(data-l);display:block;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  .cat td.c-seg{display:none}
+}
+@media (min-width:760px){.c-seg-m{display:none}}
+
+/* quality */
+.quality{background:var(--ink);color:#e6efed}
+.quality .eyebrow{color:#7fd3c6}
+.quality .h2 em{color:#7fd3c6}
+.quality .lead{color:#b5c9c6}
+.q-grid{display:grid;gap:40px}
+@media (min-width:960px){.q-grid{grid-template-columns:1fr 1.05fr;gap:72px;align-items:center}}
+.quality .frame{aspect-ratio:1/1;background:#12363f}
+.q-list{display:grid;gap:0;margin-top:30px;border-top:1px solid rgba(255,255,255,.12)}
+.q-item{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.q-item svg{width:24px;height:24px;color:#7fd3c6;margin-top:2px}
+.q-item b{font-weight:600;color:#fff}
+.q-item p{font-size:15px;color:#b5c9c6;margin-top:2px}
+.quality .ph{background:rgba(255,214,102,.14);border-color:rgba(255,214,102,.5);color:#ffd98a;white-space:normal}
+
+/* partner */
+.partner .wrap{display:grid;gap:40px}
+@media (min-width:1000px){.partner .wrap{grid-template-columns:1fr 1.05fr;gap:64px;align-items:start}}
+.steps{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--line)}
+.steps li::before{content:counter(s,decimal-leading-zero);font:italic 400 18px/1.4 var(--serif);color:var(--accent)}
+.steps b{font-weight:600}
+.steps p{font-size:15px;color:var(--ink-2);margin-top:2px}
+.partner .frame{aspect-ratio:16/10;margin-top:30px}
+.partner .frame img{object-position:50% 60%}
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:24px;box-shadow:0 30px 60px -40px rgba(13,43,51,.35)}
+@media (min-width:768px){.form-card{padding:36px}}
+@media (min-width:1000px){.form-card{position:sticky;top:calc(var(--ribbon) + var(--nav) + 24px)}}
+.form-card h3{font:400 30px/1.1 var(--serif);letter-spacing:-.02em}
+.form-card > p{color:var(--ink-2);font-size:15px;margin-top:8px}
+.seg-toggle{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:5px;margin-top:22px}
+.seg-toggle label{position:relative;cursor:pointer}
+.seg-toggle input{position:absolute;opacity:0;pointer-events:none}
+.seg-toggle span{display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:9px;font-size:14px;font-weight:600;color:var(--ink-2);transition:background .2s,color .2s,box-shadow .2s;text-align:center;padding:0 6px}
+.seg-toggle input:checked+span{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(13,43,51,.12)}
+.seg-toggle input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.fields{display:grid;gap:14px;margin-top:18px}
+@media (min-width:560px){.fields{grid-template-columns:1fr 1fr}.fields .full{grid-column:1/-1}}
+.field label{display:block;font-size:13.5px;font-weight:600;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;min-height:48px;border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:10px 14px;font-size:16px;transition:border-color .2s,background .2s,box-shadow .2s}
+.field textarea{min-height:96px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(15,107,100,.14)}
+.field .err{display:none;font-size:12.5px;color:#b3261e;margin-top:5px}
+.field.bad input,.field.bad select{border-color:#b3261e}
+.field.bad .err{display:block}
+.form-card .btn{width:100%;margin-top:20px}
+.fine{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center}
+.thanks{display:none;text-align:center;padding:30px 6px}
+.thanks .tick{width:56px;height:56px;border-radius:50%;background:var(--mint);color:var(--accent);display:grid;place-items:center;margin:0 auto 16px}
+.thanks .tick svg{width:28px;height:28px}
+.thanks h3{margin-bottom:8px}
+.thanks p{color:var(--ink-2)}
+.form-card.sent form{display:none}
+.form-card.sent .thanks{display:block}
+
+/* contact */
+.contact{padding-bottom:0;padding-top:24px}
+@media (min-width:960px){.contact{padding-top:40px}}
+.contact-card{position:relative;border-radius:var(--r-l);overflow:hidden;color:#fff;min-height:560px;display:flex;align-items:flex-end}
+.contact-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.contact-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,37,.5) 0%,rgba(10,31,37,.82) 58%,rgba(10,31,37,.94) 100%)}
+.contact-inner{position:relative;z-index:1;padding:28px 22px;width:100%;display:grid;gap:30px}
+@media (min-width:860px){.contact-inner{padding:56px;grid-template-columns:1.2fr 1fr;align-items:end;gap:48px}}
+.contact .eyebrow{color:#7fd3c6}
+.contact h2{font-size:clamp(36px,5.5vw,64px);line-height:1.02;margin-top:14px}
+.contact h2 em{font-style:italic;color:#7fd3c6}
+.c-list{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.18)}
+.c-row{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:15px}
+.c-row svg{width:20px;height:20px;color:#7fd3c6;margin-top:2px}
+.c-row small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#a9c3bf}
+.contact .ph{background:rgba(255,214,102,.14);border-color:rgba(255,214,102,.5);color:#ffd98a;white-space:normal}
+.c-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-light:hover{background:#e9f3f1}
+.btn-outline-light{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
+.btn-outline-light:hover{border-color:#fff}
+
+/* footer */
+footer{padding:56px 0 calc(40px + 76px);font-size:14px;color:var(--muted)}
+@media (min-width:960px){footer{padding-bottom:48px}}
+.f-top{display:grid;gap:28px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+@media (min-width:860px){.f-top{grid-template-columns:1.4fr 1fr 1fr}}
+.f-top h4{margin:0 0 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.f-top ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.f-top a{text-decoration:none;display:inline-block;padding:6px 0}
+.f-top a.brand{display:flex;padding:0}
+.f-top a:hover{color:var(--ink)}
+.f-bot{display:grid;gap:10px;padding-top:22px;font-size:12.5px;line-height:1.55}
+.disclaimer{max-width:80ch}
+
+/* mobile action bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.3fr;gap:10px;transform:translateY(110%);transition:transform .35s var(--ease)}
+.mbar.show{transform:none}
+.mbar .btn{min-height:48px;padding:0 12px;font-size:14.5px}
+@media (min-width:960px){.mbar{display:none}}
+
+/* notice dialog */
+.notice{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:20px;background:rgba(10,31,37,.45);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+.notice.open{opacity:1;visibility:visible}
+.notice-box{background:var(--surface);border-radius:var(--r-l);padding:28px 24px 22px;max-width:380px;width:100%;text-align:center;transform:translateY(10px) scale(.98);transition:transform .25s var(--ease)}
+.notice.open .notice-box{transform:none}
+.notice-box .tick{width:52px;height:52px;border-radius:14px;background:var(--mint);color:var(--accent);display:grid;place-items:center;margin:0 auto 14px}
+.notice-box .tick svg{width:26px;height:26px}
+.notice-box h3{font:400 26px/1.15 var(--serif)}
+.notice-box p{color:var(--ink-2);font-size:15px;margin-top:8px}
+.notice-box .btn{margin-top:20px;width:100%}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}[data-enter]>*,.hero-visual[data-enter-photo]{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<!-- Sample design: kind service (pharma marketing / PCD franchise). Palette: clinical off-white, petrol ink, deep teal accent. Pairing: Newsreader + Instrument Sans. -->
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ribbon"><a href="https://shubhsitedeveloper.github.io/" target="_blank" rel="noopener"><u>Sample design prepared for Rosaya's Pharmaceutical by <b>Shubhsitedeveloper</b></u> — not the official website</a></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Rosaya's Pharmaceutical, home">
+      <span class="brand-mark" aria-hidden="true">R</span>
+      <span class="brand-name"><strong>Rosaya's Pharmaceutical</strong><span>Pvt Ltd · Thane</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#segments">Segments</a>
+      <a href="#products">Products</a>
+      <a href="#quality">Quality</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="#partner">Become a partner</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#about">About</a>
+  <a href="#segments">Segments</a>
+  <a href="#products">Products</a>
+  <a href="#quality">Quality</a>
+  <a href="#partner">Partner with us</a>
+  <a href="#contact">Contact</a>
+  <a class="btn btn-primary" href="#partner">Become a PCD partner</a>
+</div>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div data-enter>
+      <span class="eyebrow">Hiranandani Estate, Thane</span>
+      <h1>Pharmaceutical formulations for distributors and <em>PCD partners.</em></h1>
+      <p class="lead">Rosaya's Pharmaceutical Pvt Ltd markets tablets, capsules and syrups through stockists, distributors and franchise partners. Clear paperwork, steady supply and one point of contact in Thane.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#partner">Become a PCD partner <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#products">See product list</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Private limited company</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>GST invoicing</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pan-India dispatch <span class="ph">[confirm]</span></span>
+      </div>
+    </div>
+    <div class="hero-visual" data-enter-photo>
+      <div class="hero-photo"><img src="assets/hero-blisters.jpg" alt="Blister strips of white tablets and capsules on a pale blue surface" width="1600" height="1119" fetchpriority="high"></div>
+      <aside class="id-card" aria-label="Company details">
+        <h3>Company details <i aria-hidden="true"></i></h3>
+        <dl>
+          <dt>Entity</dt><dd>Private Limited</dd>
+          <dt>Office</dt><dd>Hiranandani Estate, Thane</dd>
+          <dt>GSTIN</dt><dd><span class="ph">[Your GSTIN]</span></dd>
+          <dt>Drug licence</dt><dd><span class="ph">[DL no.]</span></dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="facts" aria-label="Key facts">
+  <div class="wrap">
+    <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg><div><b>Registered company</b><span>Rosaya's Pharmaceutical Pvt Ltd</span></div></div>
+    <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><b>Thane office</b><span>Hiranandani Estate, Thane West</span></div></div>
+    <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg><div><b>Documents ready</b><span>Licence, GST and rate list on request</span></div></div>
+    <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6h13v11H1zM14 10h4l3 3v4h-7"/><circle cx="5.5" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg><div><b>Dispatch</b><span>To partners across <span class="ph">[your states]</span></span></div></div>
+  </div>
+</div>
+
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="frame"><img src="assets/vials.jpg" alt="Glass vials and ampoules lit against a dark background" width="1400" height="1018" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">About the company</span>
+      <h2 class="h2">A Thane pharma company built on <em>clean paperwork.</em></h2>
+      <p class="lead">Rosaya's Pharmaceutical is a new pharmaceutical marketing company based at Hiranandani Estate, Thane. We work with licensed manufacturers to bring a focused range of formulations to distributors, stockists, PCD franchise partners and hospital buyers.</p>
+      <div class="pillars">
+        <div class="pillar"><span class="n">i.</span><div><b>One contact, quick answers</b><p>Rates, stock and dispatch status from one person, on WhatsApp or phone.</p></div></div>
+        <div class="pillar"><span class="n">ii.</span><div><b>Every document on file</b><p>Drug licence, GST certificate and product list shared before your first order.</p></div></div>
+        <div class="pillar"><span class="n">iii.</span><div><b>Honest margins for partners</b><p>Clear PTR and MRP on every product, no surprises on the invoice.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec segments" id="segments">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div>
+        <span class="eyebrow">Therapeutic segments</span>
+        <h2 class="h2">Six segments, <em>one focused range.</em></h2>
+      </div>
+      <p class="lead">These segments are examples. Tell us your real range and we will set the names, products and order of these cards to match it.</p>
+    </div>
+    <div class="seg-grid">
+      <a class="seg" href="#products" data-seg="Pain management">
+        <div class="seg-top"><span class="seg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 3.5a5 5 0 0 1 7 7l-7 7a5 5 0 0 1-7-7z"/><path d="m7 7 7 7"/></svg></span><span class="ph-tag">Editable</span></div>
+        <h3>Pain management</h3><p>Analgesic and anti-inflammatory tablets for retail and hospital supply.</p>
+        <span class="go">View products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="seg" href="#products" data-seg="Gastro">
+        <div class="seg-top"><span class="seg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v4a4 4 0 0 0 4 4h1a4 4 0 0 1 4 4v1a5 5 0 0 1-5 5H9a4 4 0 0 1-4-4v-1"/><path d="M15 3v3"/></svg></span><span class="ph-tag">Editable</span></div>
+        <h3>Gastro</h3><p>Antacid, PPI and digestive formulations in tablet, capsule and syrup form.</p>
+        <span class="go">View products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="seg" href="#products" data-seg="Antibiotics">
+        <div class="seg-top"><span class="seg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span><span class="ph-tag">Editable</span></div>
+        <h3>Antibiotics</h3><p>Antibacterial tablets and dry syrups, supplied against prescription only.</p>
+        <span class="go">View products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="seg" href="#products" data-seg="Cardio-diabetic">
+        <div class="seg-top"><span class="seg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/><path d="M3.5 12h4l2-3 3 6 2-3h6"/></svg></span><span class="ph-tag">Editable</span></div>
+        <h3>Cardio-diabetic</h3><p>Chronic-care formulations for long-term prescriptions and repeat orders.</p>
+        <span class="go">View products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="seg" href="#products" data-seg="Nutrition">
+        <div class="seg-top"><span class="seg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></span><span class="ph-tag">Editable</span></div>
+        <h3>Vitamins and nutrition</h3><p>Multivitamin, calcium and iron supplements in tablet and syrup form.</p>
+        <span class="go">View products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="seg" href="#products" data-seg="Respiratory">
+        <div class="seg-top"><span class="seg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v8M12 12l-3 3M12 12l3 3"/><path d="M9 8C6 8 3 12 3 17c0 2 1 3 3 3 3 0 4-2 4-5V9M15 8c3 0 6 4 6 9 0 2-1 3-3 3-3 0-4-2-4-5V9"/></svg></span><span class="ph-tag">Editable</span></div>
+        <h3>Respiratory</h3><p>Cough syrups and anti-allergic tablets for seasonal demand.</p>
+        <span class="go">View products <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec products" id="products">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div>
+        <span class="eyebrow">Product catalogue</span>
+        <h2 class="h2">The product list, <em>searchable.</em></h2>
+      </div>
+      <p class="lead">Brand name, composition, form and pack for every product. The rows below are sample entries to show the layout: we replace them with your real list.</p>
+    </div>
+    <div class="cat-tools">
+      <div class="chips" role="group" aria-label="Filter by segment">
+        <button class="chip" type="button" aria-pressed="true" data-f="all">All</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="Pain management">Pain</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="Gastro">Gastro</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="Antibiotics">Antibiotics</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="Cardio-diabetic">Cardio-diabetic</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="Nutrition">Nutrition</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="Respiratory">Respiratory</button>
+      </div>
+      <label class="search"><span class="skip">Search products</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="q" placeholder="Search brand or composition" autocomplete="off">
+      </label>
+    </div>
+    <div class="table-card">
+      <table class="cat" id="cat">
+        <thead><tr><th>Product</th><th>Composition</th><th>Form</th><th>Pack</th><th>Segment</th></tr></thead>
+        <tbody>
+          <tr data-seg="Pain management"><td class="c-name"><div class="pname">[Brand name] 650<small>Sample entry</small></div><span class="pill c-seg-m">Pain</span></td><td class="c-comp" data-l="Composition">Paracetamol 650 mg</td><td data-l="Form">Tablet</td><td data-l="Pack">10 × 15 tablets</td><td class="c-seg"><span class="pill">Pain management</span></td></tr>
+          <tr data-seg="Pain management"><td class="c-name"><div class="pname">[Brand name] SP<small>Sample entry</small></div><span class="pill c-seg-m">Pain</span></td><td class="c-comp" data-l="Composition">Aceclofenac 100 mg + Paracetamol 325 mg + Serratiopeptidase 15 mg</td><td data-l="Form">Tablet</td><td data-l="Pack">10 × 10 tablets</td><td class="c-seg"><span class="pill">Pain management</span></td></tr>
+          <tr data-seg="Gastro"><td class="c-name"><div class="pname">[Brand name] DSR<small>Sample entry</small></div><span class="pill c-seg-m">Gastro</span></td><td class="c-comp" data-l="Composition">Pantoprazole 40 mg + Domperidone 30 mg (SR)</td><td data-l="Form">Capsule</td><td data-l="Pack">10 × 10 capsules</td><td class="c-seg"><span class="pill">Gastro</span></td></tr>
+          <tr data-seg="Gastro"><td class="c-name"><div class="pname">[Brand name] Gel<small>Sample entry</small></div><span class="pill c-seg-m">Gastro</span></td><td class="c-comp" data-l="Composition">Magaldrate + Simethicone suspension</td><td data-l="Form">Syrup</td><td data-l="Pack">170 ml bottle</td><td class="c-seg"><span class="pill">Gastro</span></td></tr>
+          <tr data-seg="Antibiotics"><td class="c-name"><div class="pname">[Brand name] CV 625<small>Sample entry</small></div><span class="pill c-seg-m">Antibiotics</span></td><td class="c-comp" data-l="Composition">Amoxycillin 500 mg + Clavulanic acid 125 mg</td><td data-l="Form">Tablet</td><td data-l="Pack">10 × 6 tablets</td><td class="c-seg"><span class="pill">Antibiotics</span></td></tr>
+          <tr data-seg="Antibiotics"><td class="c-name"><div class="pname">[Brand name] 200 DT<small>Sample entry</small></div><span class="pill c-seg-m">Antibiotics</span></td><td class="c-comp" data-l="Composition">Cefixime 200 mg</td><td data-l="Form">Tablet</td><td data-l="Pack">10 × 10 tablets</td><td class="c-seg"><span class="pill">Antibiotics</span></td></tr>
+          <tr data-seg="Cardio-diabetic"><td class="c-name"><div class="pname">[Brand name] M<small>Sample entry</small></div><span class="pill c-seg-m">Cardio-diabetic</span></td><td class="c-comp" data-l="Composition">Glimepiride 1 mg + Metformin 500 mg (SR)</td><td data-l="Form">Tablet</td><td data-l="Pack">10 × 15 tablets</td><td class="c-seg"><span class="pill">Cardio-diabetic</span></td></tr>
+          <tr data-seg="Nutrition"><td class="c-name"><div class="pname">[Brand name] D3<small>Sample entry</small></div><span class="pill c-seg-m">Nutrition</span></td><td class="c-comp" data-l="Composition">Calcium carbonate 500 mg + Vitamin D3 250 IU</td><td data-l="Form">Tablet</td><td data-l="Pack">10 × 15 tablets</td><td class="c-seg"><span class="pill">Nutrition</span></td></tr>
+          <tr data-seg="Respiratory"><td class="c-name"><div class="pname">[Brand name] LC<small>Sample entry</small></div><span class="pill c-seg-m">Respiratory</span></td><td class="c-comp" data-l="Composition">Levocetirizine 5 mg + Montelukast 10 mg</td><td data-l="Form">Tablet</td><td data-l="Pack">10 × 10 tablets</td><td class="c-seg"><span class="pill">Respiratory</span></td></tr>
+        </tbody>
+      </table>
+      <p class="cat-empty" id="catEmpty">No product matches that search. Try a composition, like “Paracetamol”.</p>
+    </div>
+    <div class="cat-foot">
+      <span>Rates (PTR / MRP) are shared with registered partners only.</span>
+      <button class="btn btn-ghost btn-sm" type="button" data-demo="The full product list PDF goes here.">Download full list (PDF)</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec quality" id="quality">
+  <div class="wrap q-grid">
+    <div>
+      <span class="eyebrow">Quality commitment</span>
+      <h2 class="h2">What every partner gets, <em>on every batch.</em></h2>
+      <p class="lead">We only market products made at licensed manufacturing units, and we share the paperwork that proves it.</p>
+      <div class="q-list">
+        <div class="q-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Licensed manufacturing partners</b><p>Made at <span class="ph">[WHO-GMP certified, if applicable]</span> third-party units under valid manufacturing licences.</p></div></div>
+        <div class="q-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg><div><b>Batch, MFG and expiry on every pack</b><p>Printed details you can match against the invoice for each consignment.</p></div></div>
+        <div class="q-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 15l2 2 4-4"/></svg><div><b>Test reports on request</b><p>Certificate of analysis shared for a batch when you ask <span class="ph">[confirm]</span>.</p></div></div>
+        <div class="q-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z"/><path d="M12 15v3"/></svg><div><b>Stored as the label says</b><p>Products kept and dispatched under the storage conditions printed on the pack.</p></div></div>
+      </div>
+    </div>
+    <div class="frame"><img src="assets/lab-team.jpg" alt="Laboratory staff in white coats working at a test bench" width="940" height="934" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="sec partner" id="partner">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">PCD franchise and distribution</span>
+      <h2 class="h2">Partner with Rosaya's in <em>four steps.</em></h2>
+      <p class="lead">Open for PCD franchise partners, distributors and stockists. Monopoly rights for your area are discussed case by case <span class="ph">[confirm]</span>.</p>
+      <ol class="steps">
+        <li><div><b>Send your details</b><p>Fill in the form with your firm, city and the segments you work in.</p></div></li>
+        <li><div><b>Get the list and rates</b><p>We call back with the product list, PTR, MRP and promotional material on offer.</p></div></li>
+        <li><div><b>Share your documents</b><p>Drug licence and GST certificate, to set up your account.</p></div></li>
+        <li><div><b>Place the first order</b><p>Invoice under GST and dispatch to your godown with batch-wise paperwork.</p></div></li>
+      </ol>
+      <div class="frame"><img src="assets/warehouse.jpg" alt="Tall warehouse racks stacked with cartons along a long aisle" width="800" height="1066" loading="lazy"></div>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <form id="pform" novalidate>
+        <h3>Partner enquiry</h3>
+        <p>Takes a minute. We reply on WhatsApp or phone within one working day <span class="ph">[confirm]</span>.</p>
+        <div class="seg-toggle" role="radiogroup" aria-label="I am a">
+          <label><input type="radio" name="type" value="PCD franchise" checked><span>PCD franchise</span></label>
+          <label><input type="radio" name="type" value="Distributor / stockist"><span>Distributor / stockist</span></label>
+        </div>
+        <div class="fields">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required><div class="err">Please enter your name.</div></div>
+          <div class="field"><label for="f-firm">Firm name</label><input id="f-firm" name="firm" autocomplete="organization"></div>
+          <div class="field"><label for="f-city">City</label><input id="f-city" name="city" autocomplete="address-level2" required><div class="err">Please enter your city.</div></div>
+          <div class="field"><label for="f-phone">Mobile number</label><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" required><div class="err">Please enter a 10-digit mobile number.</div></div>
+          <div class="field full"><label for="f-dl">Drug licence</label><select id="f-dl" name="dl"><option>I have a drug licence</option><option>Applied for drug licence</option><option>Not yet</option></select></div>
+          <div class="field full"><label for="f-msg">Segments or products you want <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="f-msg" name="msg"></textarea></div>
+        </div>
+        <button class="btn btn-primary" type="submit">Send partner enquiry <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="fine">Demo form: nothing is sent from this sample page.</p>
+      </form>
+      <div class="thanks" role="status" aria-live="polite">
+        <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Thank you<span id="tName"></span>.</h3>
+        <p>On the live site, this enquiry reaches Rosaya's team on WhatsApp and email. In this demo nothing was sent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <img src="assets/towers.jpg" alt="Glass office towers seen from street level" width="1200" height="800" loading="lazy">
+      <div class="contact-inner">
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h2>Visit us at <em>Hiranandani Estate,</em> Thane.</h2>
+          <div class="c-actions">
+            <button class="btn btn-light" type="button" data-demo="Your WhatsApp number goes here.">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+              WhatsApp us</button>
+            <button class="btn btn-outline-light" type="button" data-demo="Your office phone number goes here.">Call the office</button>
+          </div>
+        </div>
+        <div class="c-list">
+          <div class="c-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><small>Office</small>Hiranandani Estate, Thane West, Maharashtra</div></div>
+          <div class="c-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>Office hours</small><span class="ph">[Mon–Sat, 10 am – 7 pm]</span></div></div>
+          <div class="c-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><div><small>Email</small><span class="ph">[your company email]</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a class="brand" href="#top" aria-label="Rosaya's Pharmaceutical, back to top"><span class="brand-mark" aria-hidden="true">R</span><span class="brand-name"><strong style="color:var(--ink)">Rosaya's Pharmaceutical Pvt Ltd</strong><span>Hiranandani Estate, Thane</span></span></a>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#quality">Quality</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4>Partners</h4><ul><li><a href="#segments">Segments</a></li><li><a href="#products">Product list</a></li><li><a href="#partner">PCD franchise enquiry</a></li></ul></div>
+    </div>
+    <div class="f-bot">
+      <p class="disclaimer">Product information on this site is for trade partners and registered medical practitioners. It is not medical advice. Prescription medicines are supplied only against valid licences.</p>
+      <p>© 2026 Rosaya's Pharmaceutical Pvt Ltd · CIN <span class="ph">[your CIN]</span> · GSTIN <span class="ph">[your GSTIN]</span></p>
+      <p>Photographs: Unsplash (stand-ins until your own photos are ready). Sample design by <a href="https://shubhsitedeveloper.github.io/" target="_blank" rel="noopener">Shubhsitedeveloper</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <button class="btn btn-ghost" type="button" data-demo="Your WhatsApp number goes here.">WhatsApp</button>
+  <a class="btn btn-primary" href="#partner">Become a partner</a>
+</div>
+
+<div class="notice" id="notice" role="dialog" aria-modal="true" aria-labelledby="noticeTitle">
+  <div class="notice-box">
+    <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg></div>
+    <h3 id="noticeTitle">This is a demo</h3>
+    <p id="noticeText">Your WhatsApp number goes here.</p>
+    <button class="btn btn-primary" type="button" id="noticeClose">Got it</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), mbar=document.getElementById('mbar');
+  function onScroll(){var y=window.scrollY;nav.classList.toggle('scrolled',y>8);mbar.classList.toggle('show',y>window.innerHeight*0.6);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var btn=document.getElementById('menuBtn'), menu=document.getElementById('mobileMenu');
+  function setMenu(open){btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Close menu':'Open menu');menu.classList.toggle('open',open);menu.setAttribute('aria-hidden',!open);document.body.style.overflow=open?'hidden':'';}
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true');});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+
+  var notice=document.getElementById('notice'), nText=document.getElementById('noticeText'), nClose=document.getElementById('noticeClose'), lastFocus=null;
+  function openNotice(t){lastFocus=document.activeElement;nText.textContent='Demo: '+t.charAt(0).toLowerCase()+t.slice(1);notice.classList.add('open');nClose.focus();}
+  function closeNotice(){notice.classList.remove('open');if(lastFocus)lastFocus.focus();}
+  document.querySelectorAll('[data-demo]').forEach(function(b){b.addEventListener('click',function(){openNotice(b.getAttribute('data-demo'));});});
+  nClose.addEventListener('click',closeNotice);
+  notice.addEventListener('click',function(e){if(e.target===notice)closeNotice();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(notice.classList.contains('open'))closeNotice();else if(menu.classList.contains('open'))setMenu(false);}});
+
+  // catalogue filter
+  var chips=[].slice.call(document.querySelectorAll('.chip')), rows=[].slice.call(document.querySelectorAll('#cat tbody tr')), q=document.getElementById('q'), empty=document.getElementById('catEmpty'), cur='all';
+  function apply(){var s=q.value.trim().toLowerCase(),n=0;rows.forEach(function(r){var ok=(cur==='all'||r.dataset.seg===cur)&&(!s||r.textContent.toLowerCase().indexOf(s)>-1);r.style.display=ok?'':'none';if(ok)n++;});empty.style.display=n?'none':'block';}
+  function setChip(f){cur=f;chips.forEach(function(c){c.setAttribute('aria-pressed',c.dataset.f===f);});apply();}
+  chips.forEach(function(c){c.addEventListener('click',function(){setChip(c.dataset.f);});});
+  q.addEventListener('input',apply);
+  document.querySelectorAll('.seg[data-seg]').forEach(function(a){a.addEventListener('click',function(){setChip(a.dataset.seg);});});
+
+  // partner form (demo only)
+  var form=document.getElementById('pform'), card=document.getElementById('formCard');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var ok=true;
+    [['f-name',function(v){return v.trim().length>1}],['f-city',function(v){return v.trim().length>1}],['f-phone',function(v){return /^\D*(\d\D*){10,12}$/.test(v)}]].forEach(function(p){var el=document.getElementById(p[0]),good=p[1](el.value);el.closest('.field').classList.toggle('bad',!good);el.setAttribute('aria-invalid',!good);if(!good&&ok){el.focus();ok=false;}});
+    if(!ok)return;
+    var nm=document.getElementById('f-name').value.trim().split(' ')[0];
+    document.getElementById('tName').textContent=nm?', '+nm:'';
+    card.classList.add('sent');
+  });
+  form.querySelectorAll('input').forEach(function(i){i.addEventListener('input',function(){i.closest('.field').classList.remove('bad');});});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KeepItKlean | Home &amp; Office Deep Cleaning in Thane</title>
+<meta name="description" content="KeepItKlean cleans homes and offices across Thane: full-home deep cleaning, kitchen, bathroom, sofa and carpet, and office cleaning. Pick a package and book a slot online, any hour.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0d3b37">
+<meta property="og:title" content="KeepItKlean | Deep cleaning in Thane">
+<meta property="og:description" content="Pick a package, pick a slot, and a team arrives with a room-by-room checklist.">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d3b37'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='38' fill='%23f3d35b'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero.jpg">
+<style>
+:root{
+  --bg:#f5f6f1; --surface:#ffffff; --ink:#0f201e; --muted:#55625f; --line:#dde2da;
+  --brand:#0d3b37; --brand-2:#14524c; --lemon:#f3d35b; --lemon-ink:#3a3000; --mint:#d9efe6;
+  --r:14px; --r-sm:10px; --wrap:1200px; --gut:20px; --ribbon:34px; --nav:64px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --display:"Bricolage Grotesque",system-ui,sans-serif; --body:"Instrument Sans",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--ribbon) + var(--nav) + 12px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.04;letter-spacing:-.02em;margin:0;font-weight:800}
+h2{font-size:clamp(2rem,5.2vw,3.6rem)}
+h3{font-size:1.3rem;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font:600 .8rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--brand-2);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1rem}
+.eyebrow::before{content:"";width:18px;height:2px;background:var(--lemon);border-radius:2px}
+.lead{font-size:1.12rem;color:var(--muted);max-width:36rem}
+.ph{background:#fff6c9;color:#5a4800;border-radius:6px;padding:0 .3em;font-weight:600;white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:.7rem 1rem;border-radius:8px}
+.skip:focus{top:calc(var(--ribbon) + 8px)}
+:focus-visible{outline:3px solid #e3b400;outline-offset:3px;border-radius:6px}
+
+/* ribbon */
+.ribbon{position:fixed;inset:0 0 auto 0;height:var(--ribbon);z-index:60;background:var(--ink);color:#e9efe9;font-size:.78rem;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 12px;line-height:1.2}
+.ribbon a{color:var(--lemon);text-decoration:none;font-weight:600;white-space:nowrap}
+.ribbon a:hover{text-decoration:underline}
+.r-short{display:none}
+.m-only{display:none}
+
+/* buttons */
+.btn{--bh:52px;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:var(--bh);padding:0 1.35rem;border-radius:999px;border:0;font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer;transition:transform .2s var(--ease),background-color .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 6px 18px -8px rgba(13,59,55,.7)}
+.btn-primary:hover{background:var(--brand-2)}
+.btn-lemon{background:var(--lemon);color:var(--lemon-ink)}
+.btn-lemon:hover{background:#f7dc72}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.wa{color:#25d366}
+
+/* nav */
+.nav{position:fixed;top:var(--ribbon);left:0;right:0;z-index:50;height:var(--nav);background:rgba(245,246,241,.88);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;font:800 1.3rem/1 var(--display);letter-spacing:-.02em}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--brand);color:var(--lemon);display:grid;place-items:center;font-size:1.15rem}
+.logo b{color:var(--brand-2)}
+.nav-links{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-weight:500;color:var(--muted);background:linear-gradient(var(--ink),var(--ink)) 0 100%/0 1.5px no-repeat;transition:background-size .25s var(--ease),color .2s;padding:.3rem 0}
+.nav-links a:hover{color:var(--ink);background-size:100% 1.5px}
+.nav .btn{--bh:44px;padding:0 1.1rem;font-size:.95rem}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;place-items:center}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease)}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* hero */
+main>section{position:relative}
+.hero{padding:calc(var(--ribbon) + var(--nav) + 28px) 0 56px;min-height:100svh;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.1rem);margin-bottom:1.25rem}
+.hero h1 em{font-style:normal;color:var(--brand-2);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.2em;background:var(--lemon);z-index:-1;border-radius:4px;transform-origin:left;animation:swipe .8s .6s var(--ease) both}
+@keyframes swipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.hero .lead{margin-bottom:1.8rem}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;list-style:none;padding:0;margin:0;color:var(--muted);font-size:.95rem}
+.facts li{display:flex;align-items:center;gap:.45rem}
+.facts svg{width:18px;height:18px;color:var(--brand-2);flex:none}
+.hero-media{position:relative}
+.hero-photo{border-radius:22px;overflow:hidden;aspect-ratio:4/4.4;background:#cfd8d2}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:42% 50%}
+.slot-card{position:absolute;left:-28px;bottom:28px;width:min(300px,78%);background:var(--surface);border-radius:16px;padding:16px;box-shadow:0 24px 50px -24px rgba(15,32,30,.45),0 0 0 1px rgba(15,32,30,.06)}
+.slot-card .top{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--muted);margin-bottom:10px}
+.slot-card .top b{color:var(--ink);font-size:.95rem}
+.clock{display:inline-flex;align-items:center;gap:.35rem;background:var(--mint);color:var(--brand);padding:.2rem .55rem;border-radius:999px;font-weight:600;font-size:.78rem}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.slots span{font-size:.8rem;text-align:center;padding:.5rem 0;border-radius:9px;border:1px solid var(--line);color:var(--muted)}
+.slots span.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+.slots span.off{text-decoration:line-through;opacity:.5}
+.slot-card .go{margin-top:10px;display:flex;align-items:center;justify-content:space-between;font-size:.82rem;color:var(--muted)}
+.slot-card .go strong{color:var(--brand);font-weight:600}
+[data-enter]>*{animation:rise .8s var(--ease) both}
+[data-enter]>*:nth-child(2){animation-delay:.12s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-media .slot-card{animation:pop .7s .7s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+
+/* section base */
+.sec{padding:112px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:48px}
+.sec-head .lead{max-width:30rem}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.svc{grid-column:span 2;background:var(--surface);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line);transition:transform .25s var(--ease),box-shadow .25s}
+.svc.wide{grid-column:span 3}
+.svc:hover{transform:translateY(-2px);box-shadow:0 0 0 1px var(--line),0 18px 40px -24px rgba(15,32,30,.35)}
+.svc-img{aspect-ratio:16/10;overflow:hidden;background:#d6ddd8}
+.svc.wide .svc-img{aspect-ratio:16/8.4}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.svc:hover .svc-img img{transform:scale(1.03)}
+.svc-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:.65rem;flex:1}
+.svc-body p{color:var(--muted);font-size:.97rem}
+.svc-foot{margin-top:auto;padding-top:.6rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem}
+.price{font-size:.92rem;color:var(--muted)}
+.price b{font:700 1.15rem/1 var(--display);color:var(--ink)}
+.link-btn{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;padding:0 1rem;border-radius:999px;background:var(--mint);color:var(--brand);font-weight:600;font-size:.92rem;text-decoration:none;border:0;cursor:pointer;transition:background-color .2s,transform .2s var(--ease)}
+.link-btn:hover{background:#c6e7da;transform:translateY(-1px)}
+.link-btn:active{transform:scale(.97)}
+.link-btn svg{width:16px;height:16px;transition:transform .2s var(--ease)}
+.link-btn:hover svg{transform:translateX(3px)}
+
+/* before/after */
+.ba-sec{background:var(--brand);color:#eef4f0}
+.ba-sec .eyebrow{color:var(--lemon)}
+.ba-sec .lead{color:#bcd0c8}
+.ba-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.ba-grid h2{margin-bottom:1.2rem}
+.ba-list{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.7rem}
+.ba-list li{display:flex;gap:.6rem;align-items:flex-start;color:#dbe7e1}
+.ba-list svg{width:20px;height:20px;color:var(--lemon);flex:none;margin-top:2px}
+.ba{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:1200/719;user-select:none;-webkit-user-select:none;touch-action:pan-y;background:#22433f;cursor:ew-resize}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .before{clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
+.ba .tag{position:absolute;top:14px;padding:.3rem .7rem;border-radius:999px;font-size:.78rem;font-weight:600;background:rgba(15,32,30,.72);color:#fff;pointer-events:none}
+.ba .tag.l{left:14px}.ba .tag.r{right:14px;background:var(--lemon);color:var(--lemon-ink)}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;margin-left:-1.5px;background:#fff;pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#fff;color:var(--brand);display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.ba .knob svg{width:24px;height:24px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba-note{margin-top:.9rem;font-size:.85rem;color:#a9c0b8}
+
+/* how */
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:14px;counter-reset:s}
+.step{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:20px;border-radius:var(--r);background:var(--surface);box-shadow:0 0 0 1px var(--line)}
+.step::before{counter-increment:s;content:counter(s);width:52px;height:52px;border-radius:14px;background:var(--mint);color:var(--brand);display:grid;place-items:center;font:800 1.4rem/1 var(--display)}
+.step:first-child::before{background:var(--lemon);color:var(--lemon-ink)}
+.step h3{margin:.25rem 0 .35rem}
+.step p{color:var(--muted);font-size:.97rem}
+.how-media{position:relative}
+.how-photo{border-radius:20px;overflow:hidden;aspect-ratio:4/4.6;background:#d6ddd8}
+.how-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.checklist{position:absolute;right:-20px;top:28px;width:min(280px,80%);background:var(--surface);border-radius:16px;padding:16px 18px;box-shadow:0 24px 50px -24px rgba(15,32,30,.45),0 0 0 1px rgba(15,32,30,.06)}
+.checklist h3{font-size:1rem;margin-bottom:.6rem;display:flex;justify-content:space-between;align-items:center}
+.checklist h3 span{font:600 .75rem var(--body);color:var(--brand);background:var(--mint);padding:.15rem .5rem;border-radius:999px}
+.checklist ul{list-style:none;margin:0;padding:0;display:grid;gap:.45rem;font-size:.9rem}
+.checklist li{display:flex;align-items:center;gap:.55rem;color:var(--muted)}
+.checklist li i{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line);flex:none;display:grid;place-items:center}
+.checklist li.done{color:var(--ink)}
+.checklist li.done i{background:var(--brand);border-color:var(--brand)}
+.checklist li.done i::after{content:"";width:8px;height:4px;border:2px solid #fff;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+
+/* areas */
+.areas-sec{background:var(--surface);overflow:hidden}
+.areas-word{font:800 clamp(5rem,22vw,19rem)/.8 var(--display);letter-spacing:-.05em;color:var(--brand);margin:0 0 40px -0.04em;white-space:nowrap}
+.areas-word span{color:var(--lemon);-webkit-text-stroke:0}
+.areas-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.areas-grid h2{margin-bottom:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.chips li{padding:.6rem 1rem;border-radius:999px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);font-weight:500;font-size:.97rem;transition:background-color .2s,box-shadow .2s}
+.chips li:hover{background:var(--mint);box-shadow:inset 0 0 0 1px #b7dccd}
+.areas-more{margin-top:1.4rem;color:var(--muted)}
+.areas-more button{background:none;border:0;padding:0;color:var(--brand);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:44px}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;font:700 1.15rem/1.3 var(--display);min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{width:32px;height:32px;border-radius:50%;background:var(--surface);box-shadow:0 0 0 1px var(--line);flex:none;position:relative;transition:transform .25s var(--ease),background-color .2s}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--ink);border-radius:2px}
+.faq summary i::after{transform:rotate(90deg)}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--lemon)}
+.faq summary:hover i{background:var(--mint)}
+.faq details p{padding:0 0 1.3rem;color:var(--muted);max-width:40rem}
+
+/* booking */
+.book-sec{background:var(--brand);color:#eef4f0}
+.book-sec .eyebrow{color:var(--lemon)}
+.book-sec .lead{color:#bcd0c8}
+.book-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.book-grid h2{margin-bottom:1.1rem}
+.book-points{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;gap:1rem}
+.book-points li{display:flex;gap:.8rem;align-items:flex-start;color:#dbe7e1}
+.book-points svg{width:22px;height:22px;color:var(--lemon);flex:none;margin-top:1px}
+.form{background:var(--surface);color:var(--ink);border-radius:20px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px 16px}
+.field{display:grid;gap:.4rem;align-content:start}
+.field.full{grid-column:1/-1}
+.field label,.field legend{font-weight:600;font-size:.92rem}
+.field input,.field select,.field textarea{width:100%;min-height:50px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);padding:.7rem .9rem;font-size:16px;transition:border-color .2s,background-color .2s;appearance:none;-webkit-appearance:none}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2355625f' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .8rem center;background-size:18px;padding-right:2.4rem}
+.field textarea{min-height:88px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand-2);background:#fff}
+.field .err{color:#b42318;font-size:.85rem;display:none}
+.field.bad .err{display:block}
+.field.bad input,.field.bad select{border-color:#b42318}
+fieldset.field{border:0;padding:0;margin:0}
+.slot-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.slot-pick label{position:relative;cursor:pointer}
+.slot-pick input{position:absolute;opacity:0;width:1px;height:1px}
+.slot-pick span{display:grid;place-items:center;text-align:center;min-height:56px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);font-weight:600;font-size:.92rem;line-height:1.2;padding:.4rem;transition:background-color .2s,border-color .2s,color .2s}
+.slot-pick span small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+.slot-pick label:hover span{border-color:var(--brand-2)}
+.slot-pick input:checked+span{background:var(--brand);border-color:var(--brand);color:#fff}
+.slot-pick input:checked+span small{color:#cfe2da}
+.slot-pick input:focus-visible+span{outline:3px solid #e3b400;outline-offset:2px}
+.form .btn{width:100%}
+.form-foot{grid-column:1/-1;display:grid;gap:.7rem}
+.form-foot p{font-size:.85rem;color:var(--muted);text-align:center}
+.thanks{grid-column:1/-1;text-align:center;padding:24px 8px;display:none}
+.thanks .tick{width:64px;height:64px;border-radius:50%;background:var(--mint);color:var(--brand);display:grid;place-items:center;margin:0 auto 1rem}
+.thanks .tick svg{width:30px;height:30px}
+.thanks h3{font-size:1.6rem;margin-bottom:.5rem}
+.thanks p{color:var(--muted);max-width:26rem;margin:0 auto 1.2rem}
+.form.sent>*:not(.thanks){display:none}
+.form.sent .thanks{display:block}
+
+/* footer */
+.foot{background:var(--ink);color:#b9c6c1;padding:64px 0 calc(40px + env(safe-area-inset-bottom))}
+.foot-top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid #2a3a37}
+.foot .logo{color:#fff}
+.foot .logo b{color:var(--lemon)}
+.foot-tag{margin-top:.8rem;max-width:22rem}
+.foot-links{display:flex;gap:3rem;flex-wrap:wrap}
+.foot-links h3{font:600 .8rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:#7f918c;margin-bottom:.6rem}
+.foot-links ul{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+.foot-links a{text-decoration:none;display:inline-flex;align-items:center;min-height:36px;color:#dfe8e4;background:linear-gradient(currentColor,currentColor) 0 85%/0 1px no-repeat;transition:background-size .25s var(--ease)}
+.foot-links a:hover{background-size:100% 1px}
+.foot-bottom{padding-top:24px;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:#7f918c}
+.foot-bottom a{color:#dfe8e4}
+
+/* mobile bar */
+.mbar{display:none}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:20px;background:rgba(10,20,18,.55);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+.modal.open{opacity:1;visibility:visible}
+.modal-card{background:var(--surface);border-radius:20px;padding:28px 24px 22px;max-width:360px;width:100%;text-align:center;transform:translateY(12px) scale(.98);transition:transform .25s var(--ease)}
+.modal.open .modal-card{transform:none}
+.modal-card .ic{width:56px;height:56px;border-radius:16px;background:#e7f9ee;display:grid;place-items:center;margin:0 auto 14px}
+.modal-card .ic svg{width:30px;height:30px}
+.modal-card h3{font-size:1.35rem;margin-bottom:.5rem}
+.modal-card p{color:var(--muted);margin-bottom:1.2rem}
+.modal-card .btn{width:100%}
+
+@media (max-width:1024px){
+  .hero-grid,.ba-grid,.how-grid,.areas-grid,.faq-grid,.book-grid{gap:40px}
+  .svc,.svc.wide{grid-column:span 3}
+  .svc:last-child{grid-column:1/-1}
+  .svc:last-child .svc-img{aspect-ratio:16/6.5}
+}
+@media (max-width:860px){
+  :root{--nav:60px}
+  .nav-links,.nav .btn{display:none}
+  .menu-btn{display:grid}
+  .nav.menu-open{height:auto;bottom:0;background:var(--bg)}
+  .nav.menu-open .wrap{height:var(--nav)}
+  .nav.menu-open .nav-links{display:flex;position:fixed;top:calc(var(--ribbon) + var(--nav));left:0;right:0;bottom:0;flex-direction:column;gap:0;padding:12px var(--gut) 24px;background:var(--bg)}
+  .nav.menu-open .m-only{display:block}
+  .nav.menu-open .m-only a{color:var(--brand-2)!important}
+  .nav.menu-open .nav-links a{display:flex;align-items:center;min-height:60px;font:700 1.7rem/1 var(--display);color:var(--ink);border-bottom:1px solid var(--line);background:none}
+  .hero{min-height:auto;padding-top:calc(var(--ribbon) + var(--nav) + 20px);padding-bottom:40px}
+  .hero-grid,.ba-grid,.how-grid,.areas-grid,.faq-grid,.book-grid{grid-template-columns:1fr}
+  .hero-photo{aspect-ratio:4/3.6}
+  .slot-card{left:12px;bottom:12px}
+  .sec{padding:80px 0}
+  .sec-head{flex-direction:column;align-items:start;gap:1rem;margin-bottom:32px}
+  .how-photo{aspect-ratio:4/3}
+  .checklist{position:relative;right:auto;top:auto;margin:-64px 12px 0 auto}
+}
+@media (max-width:640px){
+  :root{--gut:16px;--ribbon:32px}
+  .r-long{display:none}.r-short{display:inline}
+  body{font-size:16px}
+  .ribbon{font-size:.72rem}
+  .hero h1{font-size:clamp(2.35rem,10.6vw,3rem)}
+  .hero .lead{font-size:1.05rem}
+  .hero-actions .btn{flex:1 1 100%}
+  .hero-photo{aspect-ratio:4/4.2}
+  .slot-card{width:calc(100% - 24px);padding:12px}
+  .svc-grid{grid-template-columns:1fr;gap:16px}
+  .svc,.svc.wide,.svc:last-child{grid-column:auto}
+  .svc .svc-img,.svc.wide .svc-img,.svc:last-child .svc-img{aspect-ratio:16/9.5}
+  .form{grid-template-columns:1fr;padding:20px}
+  .slot-pick{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .slot-pick span{font-size:.85rem;min-height:60px}
+  .checklist{width:calc(100% - 24px);margin:-56px 12px 0}
+  .areas-word{margin-bottom:28px;font-size:34vw}
+  .foot{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+  .foot-links{gap:2rem}
+  .mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(245,246,241,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s var(--ease)}
+  .mbar.show{transform:none}
+  .mbar .btn{--bh:50px;padding:0 .8rem;font-size:.97rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<!-- Sample design for KEEPITKLEAN, Thane. Photographs are Unsplash stand-ins; the before/after pair is a sample. All prices, slots and areas are placeholders for the owner to confirm. -->
+<div class="ribbon" role="note"><span><span class="r-long">Sample design prepared for KeepItKlean by </span><span class="r-short">Sample for KeepItKlean by </span><a href="https://shubhsitedeveloper.github.io/">Shubhsitedeveloper</a><span class="r-long"> — not the official website</span><span class="r-short"> · not the official site</span></span></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="KeepItKlean home"><span class="logo-mark" aria-hidden="true">K</span><span>KeepIt<b>Klean</b></span></a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#areas">Areas</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li class="m-only"><a href="#book">Book a slot</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#book">Book a slot</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid" data-enter>
+      <div>
+        <p class="eyebrow">Home &amp; office cleaning · Thane</p>
+        <h1>Deep cleaning for Thane homes, <em>booked online</em>.</h1>
+        <p class="lead">Choose a package, pick a date and a time slot — even at 11 pm. A KeepItKlean team arrives on time and works through a room-by-room checklist.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">Book a cleaning slot
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <button class="btn btn-ghost" type="button" data-demo="whatsapp">
+            <svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>
+            WhatsApp us</button>
+        </div>
+        <ul class="facts">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Book any hour, online</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Price shown before you book</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Homes &amp; offices across Thane</li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <div class="hero-photo"><img src="assets/hero.jpg" width="1400" height="933" alt="Cleaner in gloves and mask wiping a window frame with a sponge" fetchpriority="high"></div>
+        <div class="slot-card" aria-hidden="true">
+          <div class="top"><b>Saturday slots</b><span class="clock">Booked at 11:04 pm</span></div>
+          <div class="slots"><span class="off">8:00</span><span class="on">10:30</span><span>1:00</span><span>3:30</span><span class="off">5:00</span><span>6:30</span></div>
+          <div class="go"><span>2BHK deep clean</span><strong>Confirmed</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Packages</p><h2>Cleaning packages<br>for every room.</h2></div>
+        <p class="lead">Fixed packages with a starting price, so you know the cost before the team arrives. Final price depends on flat size and condition.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc wide">
+          <div class="svc-img"><img src="assets/home.jpg" width="1000" height="750" alt="Bright, tidy living room with sofa and plants" loading="lazy"></div>
+          <div class="svc-body">
+            <h3>Full home deep cleaning</h3>
+            <p>Every room top to bottom: fans, switchboards, windows and grills, cupboards outside, floors scrubbed and mopped.</p>
+            <div class="svc-foot"><span class="price">1BHK from <b>₹[price]</b></span><button class="link-btn" type="button" data-pick="Full home deep cleaning">Book this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+        </article>
+        <article class="svc wide">
+          <div class="svc-img"><img src="assets/kitchen.jpg" width="1000" height="666" alt="Clean modern kitchen with white counter" loading="lazy"></div>
+          <div class="svc-body">
+            <h3>Kitchen deep cleaning</h3>
+            <p>Grease off tiles, chimney outside, hob, platform and sink. Cabinets cleaned inside and out once emptied.</p>
+            <div class="svc-foot"><span class="price">From <b>₹[price]</b></span><button class="link-btn" type="button" data-pick="Kitchen deep cleaning">Book this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-img"><img src="assets/bathroom.jpg" width="1000" height="666" alt="Clean bathroom with glass shower and vanity" loading="lazy"></div>
+          <div class="svc-body">
+            <h3>Bathroom cleaning</h3>
+            <p>Hard-water stains, tile joints, taps, mirror and WC descaled and disinfected.</p>
+            <div class="svc-foot"><span class="price">Per bathroom from <b>₹[price]</b></span><button class="link-btn" type="button" data-pick="Bathroom cleaning" aria-label="Book bathroom cleaning">Book this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-img"><img src="assets/carpet.jpg" width="1000" height="465" alt="Vacuum cleaner picking up confetti from a grey carpet" loading="lazy" style="object-position:50% 0%"></div>
+          <div class="svc-body">
+            <h3>Sofa &amp; carpet shampoo</h3>
+            <p>Fabric sofas, chairs, carpets and mattresses vacuumed, shampooed and dried.</p>
+            <div class="svc-foot"><span class="price">Per seat from <b>₹[price]</b></span><button class="link-btn" type="button" data-pick="Sofa &amp; carpet shampoo" aria-label="Book sofa and carpet shampoo">Book this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-img"><img src="assets/office.jpg" width="1000" height="668" alt="Open office floor with desks and large windows" loading="lazy"></div>
+          <div class="svc-body">
+            <h3>Office cleaning</h3>
+            <p>Desks, cabins, pantry and washrooms. One-time or on a fixed weekly schedule.</p>
+            <div class="svc-foot"><span class="price">Per sq ft from <b>₹[price]</b></span><button class="link-btn" type="button" data-pick="Office cleaning" aria-label="Book office cleaning">Book this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ba-sec" id="results">
+    <div class="wrap ba-grid">
+      <div>
+        <p class="eyebrow">Before &amp; after</p>
+        <h2>Drag to see the difference.</h2>
+        <p class="lead">Your own before-and-after photos, side by side. Nothing sells a deep clean faster than a customer's kitchen.</p>
+        <ul class="ba-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Oil film lifted off tiles and cabinets</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Platform and hob degreased</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Floor scrubbed, corners included</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ba" id="ba" style="--pos:50%">
+          <img src="assets/after.jpg" width="1200" height="719" alt="Kitchen after cleaning: bright cabinets and spotless counter" loading="lazy">
+          <img class="before" src="assets/before.jpg" width="1200" height="719" alt="Same kitchen before cleaning: dull, greasy surfaces" loading="lazy">
+          <span class="tag l">Before</span><span class="tag r">After</span>
+          <div class="handle"><div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></div></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after">
+        </div>
+        <p class="ba-note">Sample images. Replace with photos from your own jobs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how">
+    <div class="wrap how-grid">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2 style="margin-bottom:2rem">Three steps to a clean home.</h2>
+        <ol class="steps">
+          <li class="step"><div><h3>Book a slot</h3><p>Pick the package, date and time slot online, whenever it suits you. You get a confirmation on WhatsApp.</p></div></li>
+          <li class="step"><div><h3>The team arrives</h3><p>A trained team reaches your door in the slot you chose, with its own machines and cleaning materials.</p></div></li>
+          <li class="step"><div><h3>Checklist clean</h3><p>Every room is worked through a written checklist. You walk through with the team before they leave.</p></div></li>
+        </ol>
+      </div>
+      <div class="how-media">
+        <div class="how-photo"><img src="assets/spray.jpg" width="1100" height="733" alt="Gloved hand holding a spray bottle over a wooden floor" loading="lazy"></div>
+        <div class="checklist" aria-hidden="true">
+          <h3>Kitchen checklist <span>4 / 6</span></h3>
+          <ul>
+            <li class="done"><i></i>Wall tiles degreased</li>
+            <li class="done"><i></i>Hob &amp; chimney outside</li>
+            <li class="done"><i></i>Platform &amp; sink</li>
+            <li class="done"><i></i>Cabinets inside</li>
+            <li><i></i>Floor scrub &amp; mop</li>
+            <li><i></i>Walk-through with you</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec areas-sec" id="areas">
+    <div class="wrap">
+      <p class="areas-word" aria-hidden="true">Thane<span>.</span></p>
+      <div class="areas-grid">
+        <div>
+          <p class="eyebrow">Areas we cover</p>
+          <h2>Across Thane, West and East.</h2>
+          <p class="lead">From Ghodbunder Road high-rises to Wagle Estate offices. Pick your area in the booking form.</p>
+        </div>
+        <div>
+          <ul class="chips">
+            <li>Ghodbunder Road</li><li>Hiranandani Estate</li><li>Kasarvadavali</li><li>Manpada</li><li>Kolshet Road</li><li>Majiwada</li><li>Vasant Vihar</li><li>Pokhran Road</li><li>Vartak Nagar</li><li>Naupada</li><li>Panchpakhadi</li><li>Wagle Estate</li><li>Kopri</li><li>Balkum</li><li>Thane Station area</li>
+          </ul>
+          <p class="areas-more">Area not listed? <button type="button" data-demo="whatsapp">Ask us on WhatsApp</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap faq-grid">
+      <div>
+        <p class="eyebrow">Questions</p>
+        <h2>Before you book.</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Do I need to keep anything ready?<i aria-hidden="true"></i></summary><p>Only water and electricity. The team brings its own machines, cloths and cleaning solutions. Please empty kitchen cabinets if you have booked them to be cleaned inside. <span class="ph">[Owner to confirm]</span></p></details>
+        <details><summary>How long does a 2BHK deep clean take?<i aria-hidden="true"></i></summary><p>Most of a day, depending on the flat's condition. We confirm the expected time on WhatsApp after you book. <span class="ph">[Owner to confirm]</span></p></details>
+        <details><summary>Can I change or cancel my slot?<i aria-hidden="true"></i></summary><p>Yes. Message us on WhatsApp and we will move the booking to another free slot. <span class="ph">[Your cancellation policy]</span></p></details>
+        <details><summary>How do I pay?<i aria-hidden="true"></i></summary><p>After the job, once you have checked the work. <span class="ph">[UPI / cash / bank transfer — confirm]</span> A bill with GST details can be shared if your business needs one. <span class="ph">[Confirm]</span></p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec book-sec" id="book">
+    <div class="wrap book-grid">
+      <div>
+        <p class="eyebrow">Book online</p>
+        <h2>Book a cleaning slot.</h2>
+        <p class="lead">Fill this in at any hour. We call or WhatsApp you to confirm the slot and the final price.</p>
+        <ul class="book-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Choose your own date and time slot</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-7.6 8-13a8 8 0 1 0-16 0c0 5.4 8 13 8 13Z"/><circle cx="12" cy="9" r="3"/></svg>Homes and offices across Thane</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h16M4 6h16M4 18h10"/></svg>Starting price shown on every package</li>
+        </ul>
+      </div>
+      <form class="form" id="form" novalidate>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
+        <div class="field"><label for="f-phone">Mobile number</label><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile" required pattern="[0-9 +]{10,14}"><span class="err">Please enter a 10-digit mobile number.</span></div>
+        <div class="field"><label for="f-service">Package</label>
+          <select id="f-service" name="service" required>
+            <option value="">Choose a package</option>
+            <option>Full home deep cleaning</option><option>Kitchen deep cleaning</option><option>Bathroom cleaning</option><option>Sofa &amp; carpet shampoo</option><option>Office cleaning</option>
+          </select><span class="err">Please choose a package.</span></div>
+        <div class="field"><label for="f-size">Flat / office size</label>
+          <select id="f-size" name="size">
+            <option>1 RK / 1BHK</option><option selected>2BHK</option><option>3BHK</option><option>4BHK or bungalow</option><option>Office (tell us sq ft below)</option>
+          </select></div>
+        <div class="field"><label for="f-area">Area in Thane</label>
+          <select id="f-area" name="area" required>
+            <option value="">Choose your area</option>
+            <option>Ghodbunder Road</option><option>Hiranandani Estate</option><option>Kasarvadavali</option><option>Manpada</option><option>Kolshet Road</option><option>Majiwada</option><option>Vasant Vihar</option><option>Pokhran Road</option><option>Vartak Nagar</option><option>Naupada</option><option>Panchpakhadi</option><option>Wagle Estate</option><option>Kopri</option><option>Balkum</option><option>Thane Station area</option><option>Other</option>
+          </select><span class="err">Please choose your area.</span></div>
+        <div class="field"><label for="f-date">Date</label><input id="f-date" name="date" type="date" required><span class="err">Please pick a date.</span></div>
+        <fieldset class="field full" id="f-slot">
+          <legend>Time slot</legend>
+          <div class="slot-pick">
+            <label><input type="radio" name="slot" value="morning" required><span>Morning<small>8 – 11 am</small></span></label>
+            <label><input type="radio" name="slot" value="midday"><span>Midday<small>11 am – 2 pm</small></span></label>
+            <label><input type="radio" name="slot" value="afternoon"><span>Afternoon<small>2 – 6 pm</small></span></label>
+          </div>
+          <span class="err">Please pick a time slot.</span>
+        </fieldset>
+        <div class="field full"><label for="f-notes">Anything we should know? <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="f-notes" name="notes" placeholder="Building name, floor, pets, parking, office sq ft…"></textarea></div>
+        <div class="form-foot">
+          <button class="btn btn-lemon" type="submit">Request this slot</button>
+          <p>No payment now. You pay after the job.</p>
+        </div>
+        <div class="thanks" role="status" aria-live="polite">
+          <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Slot requested.</h3>
+          <p id="thanks-text">Thank you. On the live site this request goes straight to KeepItKlean's WhatsApp, and the team confirms within working hours.</p>
+          <button class="btn btn-ghost" type="button" id="again">Book another slot</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="logo" href="#top" aria-label="KeepItKlean, back to top"><span class="logo-mark" aria-hidden="true">K</span><span>KeepIt<b>Klean</b></span></a>
+        <p class="foot-tag">Home and office cleaning in Thane. Proprietor: Trupti Ankit Sawant.</p>
+      </div>
+      <div class="foot-links">
+        <div><h3>Packages</h3><ul><li><a href="#services">Full home deep clean</a></li><li><a href="#services">Kitchen &amp; bathroom</a></li><li><a href="#services">Sofa &amp; carpet</a></li><li><a href="#services">Office cleaning</a></li></ul></div>
+        <div><h3>Contact</h3><ul><li><a href="#book">Book a slot</a></li><li><a href="#top" data-demo="whatsapp">WhatsApp</a></li><li><a href="#top" data-demo="call">Call</a></li><li><a href="#areas">Areas in Thane</a></li></ul></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© KeepItKlean, Thane. Photos: Unsplash (sample images).</span>
+      <span>Sample design by <a href="https://shubhsitedeveloper.github.io/">Shubhsitedeveloper</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <button class="btn btn-ghost" type="button" data-demo="whatsapp" style="background:var(--surface)"><svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>WhatsApp</button>
+  <a class="btn btn-primary" href="#book">Book a slot</a>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-card">
+    <div class="ic" id="modal-ic"></div>
+    <h3 id="modal-title">Demo: your WhatsApp number goes here</h3>
+    <p id="modal-text">On the live site this button opens a WhatsApp chat with KeepItKlean, with the message already typed.</p>
+    <button class="btn btn-primary" type="button" id="modal-close">Got it</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'),mbar=document.getElementById('mbar'),hero=document.getElementById('top');
+  function onScroll(){var y=window.scrollY;nav.classList.toggle('scrolled',y>8);mbar.classList.toggle('show',y>hero.offsetHeight*0.6)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // menu
+  var mb=document.getElementById('menuBtn');
+  function setMenu(open){nav.classList.toggle('menu-open',open);mb.setAttribute('aria-expanded',open);mb.setAttribute('aria-label',open?'Close menu':'Open menu');document.body.style.overflow=open?'hidden':''}
+  mb.addEventListener('click',function(){setMenu(mb.getAttribute('aria-expanded')!=='true')});
+  document.querySelectorAll('#navlinks a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+
+  // before/after
+  var ba=document.getElementById('ba'),r=ba.querySelector('input');
+  r.addEventListener('input',function(){ba.style.setProperty('--pos',r.value+'%')});
+
+  // demo modal
+  var modal=document.getElementById('modal'),mt=document.getElementById('modal-title'),mx=document.getElementById('modal-text'),mi=document.getElementById('modal-ic'),last=null;
+  var waIcon='<svg viewBox="0 0 24 24" fill="#25d366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>';
+  var callIcon='<svg viewBox="0 0 24 24" fill="none" stroke="#0d3b37" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>';
+  function openModal(kind,btn){
+    last=btn;
+    if(kind==='call'){mt.textContent='Demo: your phone number goes here';mx.textContent='On the live site this button dials KeepItKlean directly from the customer’s phone.';mi.innerHTML=callIcon;mi.style.background='#d9efe6'}
+    else{mt.textContent='Demo: your WhatsApp number goes here';mx.textContent='On the live site this button opens a WhatsApp chat with KeepItKlean, with the message already typed.';mi.innerHTML=waIcon;mi.style.background='#e7f9ee'}
+    modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.getElementById('modal-close').focus();
+  }
+  function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');if(last)last.focus()}
+  document.querySelectorAll('[data-demo]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();openModal(b.getAttribute('data-demo'),b)})});
+  document.getElementById('modal-close').addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeModal();setMenu(false)}});
+
+  // package buttons fill the form
+  var sel=document.getElementById('f-service');
+  document.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){
+    sel.value=b.getAttribute('data-pick').replace('&amp;','&');
+    document.getElementById('book').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    setTimeout(function(){document.getElementById('f-name').focus({preventScroll:true})},600);
+  })});
+
+  // form (demo: nothing is sent)
+  var form=document.getElementById('form'),date=document.getElementById('f-date');
+  var t=new Date();t.setDate(t.getDate()+1);date.min=t.toISOString().slice(0,10);
+  function check(){
+    var ok=true;
+    form.querySelectorAll('.field').forEach(function(f){f.classList.remove('bad')});
+    [['f-name',function(v){return v.trim().length>1}],['f-phone',function(v){return v.replace(/\D/g,'').length>=10}],['f-service',function(v){return !!v}],['f-area',function(v){return !!v}],['f-date',function(v){return !!v}]].forEach(function(p){
+      var el=document.getElementById(p[0]);if(!p[1](el.value)){el.closest('.field').classList.add('bad');ok=false}
+    });
+    if(!form.querySelector('input[name=slot]:checked')){document.getElementById('f-slot').classList.add('bad');ok=false}
+    return ok;
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!check()){var b=form.querySelector('.bad input,.bad select');if(b)b.focus();return}
+    var s=form.querySelector('input[name=slot]:checked').parentNode.querySelector('span').firstChild.textContent;
+    var d=new Date(date.value+'T00:00');
+    document.getElementById('thanks-text').textContent='Thank you, '+document.getElementById('f-name').value.trim().split(' ')[0]+'. '+sel.value+' on '+d.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'short'})+', '+s.toLowerCase()+' slot. (Demo: on the live site this goes straight to KeepItKlean’s WhatsApp for confirmation.)';
+    form.classList.add('sent');
+  });
+  document.getElementById('again').addEventListener('click',function(){form.reset();form.classList.remove('sent')});
+})();
+</script>
+</body>
+</html>
